@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+        "authors": "C. Rudin",
+        "year": 2018,
+        "pdf_path": "../data/raw_papers\\paper1.pdf"
+    },
+    {
+        "title": "Physics-informed machine learning",
+        "authors": "G. Karniadakis, I. Kevrekidis, Lu Lu, P. Perdikaris, Sifan Wang, Liu Yang",
+        "year": 2021,
+        "pdf_path": "../data/raw_papers\\paper2.pdf"
+    },
+    {
+        "title": "A Survey on Bias and Fairness in Machine Learning",
+        "authors": "Ninareh Mehrabi, Fred Morstatter, N. Saxena, Kristina Lerman, A. Galstyan",
+        "year": 2019,
+        "pdf_path": "../data/raw_papers\\paper3.pdf"
+    }
+]
