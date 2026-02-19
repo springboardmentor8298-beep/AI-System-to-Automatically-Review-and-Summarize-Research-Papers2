@@ -1,0 +1,142 @@
+import os
+import csv
+import time
+import requests
+from semanticscholar import SemanticScholar
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+BASE_DIR = "downloaded_papers"
+
+
+# ---------------- PDF VALIDATION ----------------
+def validate_pdf(file_path):
+    try:
+        if not os.path.exists(file_path):
+            return False
+
+        if os.path.getsize(file_path) < 1000:
+            return False
+
+        with open(file_path, "rb") as f:
+            return f.read(4) == b"%PDF"
+    except Exception:
+        return False
+
+
+# -------------- SAFE FILENAMES -----------------
+def safe_filename(text, max_len=120):
+    clean = "".join(c for c in text if c.isalnum() or c in (" ", "-", "_"))
+    return clean.strip()[:max_len]
+
+
+# --------- REQUEST SESSION WITH RETRIES -------
+def create_session():
+    session = requests.Session()
+
+    retries = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+    )
+
+    adapter = HTTPAdapter(max_retries=retries)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0"
+    })
+
+    return session
+
+
+# ---------------- MAIN LOGIC -------------------
+def get_papers_by_topic(topic, max_papers=3):
+
+    print(f"\n🔍 Searching papers for: {topic}")
+
+    sch = SemanticScholar()
+    results = sch.search_paper(topic, limit=15, open_access_pdf=True)
+
+    safe_topic = safe_filename(topic)
+    save_dir = os.path.join(BASE_DIR, safe_topic)
+    os.makedirs(save_dir, exist_ok=True)
+
+    print(f"📂 Folder: {save_dir}")
+
+    session = create_session()
+
+    downloaded = 0
+    metadata = []
+
+    for paper in results:
+
+        if downloaded >= max_papers:
+            break
+
+        if not (paper.openAccessPdf and paper.openAccessPdf.get("url")):
+            continue
+
+        pdf_url = paper.openAccessPdf["url"]
+        title = paper.title or "unknown"
+
+        filename = safe_filename(title) + ".pdf"
+        filepath = os.path.join(save_dir, filename)
+
+        if os.path.exists(filepath):
+            downloaded += 1
+            continue
+
+        try:
+            print(f"⬇️  {title[:60]}...")
+
+            with session.get(pdf_url, stream=True, timeout=30) as r:
+                r.raise_for_status()
+
+                with open(filepath, "wb") as f:
+                    for chunk in r.iter_content(chunk_size=8192):
+                        f.write(chunk)
+
+            if validate_pdf(filepath):
+                print("   ✅ Saved")
+
+                metadata.append({
+                    "title": title,
+                    "year": paper.year,
+                    "authors": ", ".join(a["name"] for a in paper.authors[:5]),
+                    "url": pdf_url
+                })
+
+                downloaded += 1
+
+            else:
+                print("   ⚠️ Invalid PDF – removed")
+                os.remove(filepath)
+
+        except Exception:
+            print("   ❌ Failed – skipping")
+
+        time.sleep(1)  # polite delay
+
+    # -------- SAVE METADATA CSV ----------
+    if metadata:
+        csv_path = os.path.join(save_dir, "metadata.csv")
+        with open(csv_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=metadata[0].keys())
+            writer.writeheader()
+            writer.writerows(metadata)
+
+        print(f"\n📄 Metadata saved: {csv_path}")
+
+    print(f"\n🎉 Finished — {downloaded} papers downloaded.")
+
+
+# ---------------- ENTRY POINT ------------------
+if __name__ == "__main__":
+    topic = input("Enter research topic: ").strip()
+
+    if topic:
+        get_papers_by_topic(topic, max_papers=3)
+    else:
+        print("Please enter a valid topic.")
