@@ -1,0 +1,22 @@
+# UI & Visualization
+gradio>=4.0.0
+grandalf>=0.8
+
+# LLM Framework & APIs
+langchain>=0.1.0
+langgraph>=0.0.20
+langsmith>=0.1.0
+openai>=1.0.0
+huggingface-hub>=0.20.0
+
+# Data Processing & Validation
+pydantic>=2.0.0
+tiktoken>=0.5.0
+pymupdf4llm>=0.0.2
+
+# Database
+psycopg[binary]>=3.1.0
+
+# (From previous step)
+requests>=2.31.0
+pandas>=2.1.0
