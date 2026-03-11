@@ -1,0 +1,20 @@
+• To facilitate predictive accuracy an AGI
+would tend to more compressed representations of the world, making
+any rationale for their behaviour more diﬃcult to comprehend for the
+same reason
+
+• A natural language
+model such as GPT-3 is trained only on text data [2], implicitly endorsing the
+idea that meaning is just relations between words
+
+• Attempts to train models on multimodal sensorimotor data
+have yielded some success, with agents able to associate the sensory information
+of an object such as a cup with the signals that represent it [7,8,9]
+
+• The ability to generalise is closely related to compression [14,15], with more
+compressed representations yielding better accuracy [13] for the same reason that
+there is only one straight line interpolating any two points, but inﬁnitely many
+polynomials of higher degree
+
+• : Information Theory, Inference and Learning Algorithms
+

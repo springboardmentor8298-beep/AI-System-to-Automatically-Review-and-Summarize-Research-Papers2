@@ -1,0 +1,383 @@
+• The goal of CC research, as described by the Association for Computational Creativity1, is
+“[to gain] the ability to model, simulate or replicate creativity using a computer, to achieve one
+of several ends, including the construction of a program or computer capable of human-level
+creativity, to better understand human creativity and to formulate an algorithmic perspective
+on creative behavior in humans, and to design programs that can enhance human creativity
+without necessarily being creative themselves” (ICCC, )
+
+• Various models of CPS in humans have
+also been proposed by researchers over the years (Isaksen & Treﬃnger, 2004), beginning as
+early as 1952 with the work of Alex Osborn, who presented a comprehensive description
+of a seven-stage CPS process (Osborn, 1952)
+
+• (Xie, Ebert, Levine, & Finn, 2019) use
+model-based RL to enable a robot to improvise using tools, e
+
+• , 2019) introduce the
+Sample-Simulate-Update-Predict (SSUP) model for solving tool-based puzzles that improve
+upon more traditional RL techniques
+
+• (Bapst, Sanchez-Gonzalez, Doersch, Stachenfeld,
+Kohli, Battaglia, & Hamrick, 2019) generate policies for structure construction via two
+approaches: 1) Multi-layer Perceptron (MLP) Policy that uses a multi-layer perceptron-based
+14
+Creative Problem Solving in Intelligent Agents: A Framework and Survey
+algorithm to output actions or Q-values, and 2) Graph Network (GN) Policy that uses a
+stack of three Graph Networks to output a policy
+
+• (Chitnis, Silver, Tenenbaum, Kaelbling, & Lozano-
+Pérez, 2021) use model-based RL to learn a goal/action relational model, where exploration
+goals are selected based on a novelty measure to optimize the exploration of un-visited
+state spaces
+
+• They demonstrate that the Q-Tree model simulates
+CPS observed in monkeys, thus hypothesizing potential underlying cognitive mechanisms
+
+• (Colin & Belpaeme, 2019) develop RL-based algorithms for modeling
+insight in pigeons, motivated by a real life CPS experiment
+
+• They use a basic MDP, along
+with a CNN to support an actor-critic model for agent behavior, suggesting basic RL as a
+viable possible mechanism for cognitive CPS
+
+• Prior work by Ha (Ha, 2019) uses the REINFORCE algorithm to enable an
+agent to jointly optimize for its policy and physical design
+
+• In contrast to accomplishing a task goal, the
+approaches discussed here are evaluated by comparing to ground truth data
+
+• , 2020) use Model Predictive Control (MPC) to evaluate
+and optimize for agent designs for traversing diﬀerent kinds of environments
+
+• 1 Symbolic Representations
+Symbolic representations involve explicitly modeling all known and newly discovered concepts
+in a declarative form, via facts and rules
+
+• , 2020) introduce
+a novel algorithm for the synthesis of STRIPS actions from execution traces (sequences of
+actions), within a planning framework
+
+• Using this information, agents “plan to learn”, where goal-literals drive
+exploration of novel goal/action combinations to learn a symbolic transition model
+
+• 2 Non-symbolic Representations
+In contrast to symbolic representations, non-symbolic representations do not explicitly model
+“rules” or “facts”
+
+• In CPS, parametric representations are often
+mathematical models that are pre-speciﬁed by the user/developer
+
+• In contrast, non-parametric
+representations cannot be characterized by physically meaningful parameters and are not
+pre-speciﬁed, but rather learned from observed data (called representation learning)
+
+• While
+pre-deﬁned mathematical models such as models of physics, are used to parametrically
+represent concepts such as the behavior of objects, non-parametric representations are
+18
+Creative Problem Solving in Intelligent Agents: A Framework and Survey
+(a)
+(b)
+(c)
+Figure 8: Examples of representations in CPS: a) ConceptNet 5 (Speer & Havasi, 2013):
+Symbolically represented semantic networks expressing object-action relationships; b) Non-
+symbolic non-parametric representation of a cuboid as a histogram (Schoeler & Wörgötter,
+2015); and c) Non-symbolic parametric representations of objects using superquadrics (e
+
+• learned from data via representation learning
+
+• Mathematical Models (Parametric)
+The mathematical models used in CPS literature are used to generate outputs, and can be
+thought of as a function f applied to an input x
+
+• A key distinction between mathematical
+models and representation learning is that the function f(x) is pre-speciﬁed by the user rather
+than learned from observed data
+
+• These mathematical models often capture the underlying
+dynamics of a system, such as the physics of the environment in order to predict how objects
+will behave in a given scenario
+
+• Within CPS, these models include 3D-transformations, models
+of the 3D scene or environment, geometric models used to represent objects, mathematical
+models of environment physics, and inverse kinematic models
+
+• , 2019) model tools using Superquadrics (SQs) to identify creative
+substitutes for missing tools
+
+• , 2019) demonstrate CPS using a Sample-Simulate-
+19
+Gizzi, Nair, Sinapov & Chernova
+Update-Predict (SSUP) model
+
+• They model environment physics in order to simulate object
+behavior in a given environment
+
+• Within navigation, prior work has focused on deriving parametric representations of
+the environment by modeling various attributes such as elevation and gaps
+
+• , 2019) model the navigability of an environment by describing
+mathematical models that capture the height diﬀerence between points on the terrain, the
+pose stability of the robot and, reachability of a particular point on the terrain
+
+• ,
+2018) introduce a probabilistic template-based terrain characterization algorithm that uses
+feature templates to identify regions of elevation, given a 2
+
+• The constraints model
+environment physics, such as kinetic energy, momentum, and mass
+
+• , 2019) use parametric representations
+modeled through inverse kinematics to enable a robot to perform augmentation and self-repair
+by tightening screws on its body
+
+• They incorporate the screwdriver and screw dynamics
+into the inverse kinematic models, including physical concepts such as force, moment, and
+coeﬃcients of static friction
+
+• In some creative results, the robot attaches hooks to its body to
+enable it to carry grocery bags
+
+• When applied to CPS, non-parametric representations
+of the initial conceptual space of the agent is learned through observed data
+
+• The vast majority of
+models used for learning non-parametric representations in CPS include diﬀerent forms
+of neural networks, such as Long Short Term Memory networks (LSTMs), Conditional
+Variational Auto-Encoders (CVAEs), and Feedforward Neural Networks (FNN)
+
+• While we do not delve into the details
+of each machine learning algorithm, we brieﬂy describe the ML approaches used in each paper
+
+• In this case, the robot uses data collected from
+human demonstrations in order to train the LSTMs to represent tool use trajectories for any
+20
+Creative Problem Solving in Intelligent Agents: A Framework and Survey
+given tool, often adapting the trajectory to demonstrate improvisational skills
+
+• They formulate their work as a part-based aﬀordance
+learning problem, wherein the models learn shape representations of the tools as histograms
+(called part signatures) through supervised learning
+
+• In these cases, the non-parametric representations model the
+agent’s physical design or morphology
+
+• (Kroemer, Daniel, Neumann, Van Hoof, & Pe-
+ters, 2015) sample non-symbolic state spaces comprised of robot end eﬀector data (end
+eﬀector torque/position, joint angles, and contact features) and environment data (position,
+orientation, and relational distances of objects) to learn new representations
+
+• A key advantage of non-parametric representations is that they do not require signiﬁcant
+engineering on the part of the user, as they can be learned from data
+
+• Next, SVM clustering and weight-based ranking algorithms
+are used to capture the “essense” of the task, thereby providing a generative basis for problem
+representation
+
+• The beneﬁt of implementing hybrid approaches is that they limit the amount of expert
+knowledge that needs to be provided by the user, while also minimizing the data required to
+learn non-symbolic representations
+
+• Similar prior work
+use reward functions within the REINFORCE algorithm (Ha, 2019) or Proximal Policy
+Optimization (PPO) (Schaﬀet al
+
+• ,
+2021), the agent builds a world transition model through state-based goal exploration, where
+selected goals are optimized on a novelty measure
+
+• The heuristic
+function is learned as the search progresses, using ground-truth data from MPC-based (Model
+Predictive Control) evaluations of the robot’s performance
+
+• , 2020) reason about object shapes using Gated Graph
+Neural Networks, that model relationships between pairs of objects for tool construction
+
+• Multiple works have shown transformation of
+actions through abstracting low-level trajectories into higher level behavior models, used for
+generalization to novel tasks (Kroemer et al
+
+• , 2019) re-represent motion
+trajectories using inverse kinematic models that account for the physics of screw tightening,
+such as force, momentum and friction
+
+• The mode of evaluation helps distinguish
+theoretical models from models that have been tested in real-world settings
+
+• Physics-Based Simulators
+In proof-of-concept cases, it is typical to use a 2D or 3D physics-based environments, so the
+end-to-end behavior of the agent can be visually and algorithmically validated
+
+• Gazebo is known for its realistic 3D graphics
+whereas Unity is known for its speed, especially for data-heavy CPS applications that use
+RL
+
+• In more complex cases, computer vision algorithms built into the simluators
+are used to identify entities in a physical environment, which are then intelligently processed
+by a CPS method (Zhu et al
+
+• Here, CPS algorithms reason about the world without actually interacting with the physical
+environment
+
+• This mode
+of evaluation can be advantageous in that they can evaluate performance of the approaches
+against real-world dynamics and noise models
+
+• Robots
+Several existing works in CPS have focused on evaluating the models on various physical
+platforms such as Sawyer (Xie et al
+
+• 3 Benchmark
+In this section, we discuss papers that introduce benchmarks for evaluating CPS algorithms
+
+• ,
+2016), compare the performance of their Hierarchical RL system to empirical data generated
+from trials of CPS in Rhesus monkeys
+
+• 1 Object Modification
+The CPS literature presented in this subsection involves modeling and reasoning about the
+objects themselves, such as their visual and material properties
+
+• Prior work has focused on modeling objects in terms of geometric shapes (Abelha et al
+
+• Prior work has also focused on modeling and reasoning
+about objects via semantic networks representing object properties such as aﬀordances
+and visual properties (Boteanu et al
+
+• 2 Terrain Modification
+The CPS literature discussed in this section involves modeling and reasoning about the terrain,
+e
+
+• , modeling and reasoning about gaps or elevations in the terrain that the agent is unable
+to cross
+
+• , 2019) focus on the construction of makeshift ramps using compliant bags, by
+modeling and reasoning about the reachability or navigability between any two given points
+on the terrain, in addition to other factors such as terrain elevation
+
+• context of reward functions, in contrast to the approaches in ADFS that explicitly model the
+terrain attributes
+
+• 3 Agent Modification
+The CPS literature presented in this subsection involves approaches wherein the agent models
+and reasons about itself, e
+
+• , modeling and reasoning about the joints of the agent’s body
+
+• , 2019) describe a novel
+algorithm for self-repair and self-extension of robots
+
+• In this work, they model the physical
+body of the robot using CAD to enable the robot to reason about itself, further utilizing
+inverse kinematic models of the joints of the robot
+
+• By applying these models, the robot
+is able to tighten screws located on its own body, either for self-repair or to augment its
+capabilities by attaching hooks to enable them to carry more bags
+
+• They model various
+properties of the agent’s morphology such as mass, and the orientation of the agent’s body
+parts and joints
+
+• In contrast to modeling agents within an RL framework,
+prior work by Zhao et al
+
+• , 2020) introduce “RoboGrammar”, that models robot
+designs as a graph
+
+• Thus, in these cases the
+agent models and reasons about actions
+
+• While
+38
+Creative Problem Solving in Intelligent Agents: A Framework and Survey
+several segmentation techniques have been proposed in this context, speciﬁcally CPS ap-
+proaches have used state-based transition autoregressive hidden markov model (STARHMM)
+(Kroemer et al
+
+• For example, when a “push” action results in an
+object falling oﬀof a surface, the speed parameter can be varied such that a “nudge” action
+is discovered
+
+• In the case of tool use in sequential manipulation tasks, predictive models
+of consequences of actions are developed through repeated interactions of using tools on
+39
+Gizzi, Nair, Sinapov & Chernova
+Formulation Representation Manipulation Evaluation Concepts
+CreaCogs
+N/a
+Symbolic
+Combinational
+N/a
+Objects
+Robogyver Planning
+Non-symbolic
+Combinational
+Physical
+Objects
+Table 2: Table highlighting the classiﬁcations of the frameworks discussed in Section 6
+objects in the environment (Toussaint et al
+
+• , 2021) show how action operators can be
+learned from data in a task and motion planning (TAMP) domain
+
+• , 2021) use a technique called “goal literal babbling” (GLIB) to learn
+object-relational transition models to enable generalizable (lifted) planning
+
+• Intrinsically
+motivated goal-based exploration is driven by a novelty measure, encouraging babbling in
+unvisited state space as a way to learn a complete model for general action policies
+
+• The
+agent is able to use GLIB to update its previously ﬂawed transition model in order to handle
+novelty, where formerly learned actions are used on novel objects
+
+• However, a key point to note is that
+modeling and reasoning about the agent can have wider implications for CPS, beyond just
+agent modiﬁcation
+
+• Modeling the capabilities of the agent/robot, can be highly beneﬁcial for
+identifying practically viable creative solutions for performing the task, which is especially
+important when operating in real-world domains rather than simulations
+
+• A model-based approach to ﬁnding substitute
+tools in 3d vision data
+
+• Glib:
+Eﬃcient exploration for relational model-based reinforcement learning via goal-literal
+babbling
+
+• Addressing the" why?" in computational
+creativity: A non-anthropocentric, minimal model of intentional creative agency
+
+• Incubation, insight, and creative problem solving: a uniﬁed
+theory and a connectionist model
+
+• In International Conference on Machine Learning, pp
+
+• Modeling incubation and restructuring
+for creative problem solving in robots
+
+• Process analytic models of creative capacities
+
+• overall prediction
+
+• Self-repair and self-extension by tightening
+screws based on precise calculation of screw pose of self-body with cad data and graph
+search with regrasping a driver
+
+• Autonomous tool construction
+using part shape and attachment prediction
+
+• IEEE Transactions on
+Knowledge and Data Engineering, 22(10), 1345–1359
+
+• Pointnet: Deep learning on point sets for
+3d classiﬁcation and segmentation
+
+• Associative algorithms for computational
+creativity
+
+• Understanding tools: Task-oriented object modeling,
+learning and recognition
+

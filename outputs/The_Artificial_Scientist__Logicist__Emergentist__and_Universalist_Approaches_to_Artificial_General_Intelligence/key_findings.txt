@@ -1,0 +1,126 @@
+• An ex-
+planation is only useful if it can be understood by its intended audience, and so
+a scientist must be able to communicate their hypotheses and the signiﬁcance
+of their results in terms of what its audience values and understands
+
+• Mere in-
+terpretability is insuﬃcient for more complex phenomena, as interpreting even
+simple symbolic models of well understood subject matter requires a great deal
+of technical expertise
+
+• Pushing forward the boundaries of scientiﬁc achievement
+would produce models of such complexity as to be beyond the capabilities of
+human interpretation
+
+• To standardise the terms with which we compare these approaches
+we employ a model of an arbitrary task, we treat the application of intelligence
+as prediction, and so deﬁne each of these approaches as trying to predict the ap-
+propriate response r given a situation s
+
+• This is as opposed to modelling r as a function of s directly
+
+• However, we extend this category to encompass
+approaches that bypass the construction of an abstract symbol system entirely
+in favor of directly modelling correct responses as a function of situations
+
+• This is assumed to
+implicitly model the rules that determine the correctness of responses, but as a
+result is not as readily interpretable as logicist methods
+
+• The same model could be expressed by
+programs of varying length, and so each program is evaluated by its Kolmogorov
+complexity [13]; the smallest self extracting archive in a speciﬁc language
+
+• However, working approxima-
+tions of AIXI have been constructed and this theoretical model provides useful
+insights about the signiﬁcance of compression for intelligence
+
+• 1
+Universalist
+For: By choosing the smallest self extracting archive as its model of the world,
+AIXI is in eﬀect choosing from among possible hypotheses the most plausible
+according to what it has experienced so far
+
+• Certainly AIXI is capable of infer-
+ence, and in extracting predictions from its highly compressed representation of
+the environment it seems reasonable to assume there must be something analo-
+gous to deduction or abduction taking place
+
+• Models
+such as GPT-3 demonstrate that even complex writing tasks are not beyond
+reach with existing technology
+
+• While such models tend to be diﬃcult to in-
+terpret, if they can be made to infer the ambiguous rules underlying natural
+language then perhaps they can eventually be made explainable to a layman
+
+• This may also be why many popular emergentist methods require so much
+data to learn in comparison to existing logistic or universalist methods; an agent
+that only mimics must learn all correct responses by rote, while an agent that
+understands what determines the correctness of all responses will be equipped to
+identify the correct one in any situation [18]
+
+• What of extending cognition into parts of the environment never conceived
+of in the speciﬁcation of the symbol system? While logicist methods may surpass
+emergentist in terms of interpretability, causal reasoning, data-eﬃciency and
+our ability to control, emergentist methods remain the state of the art by a
+large margin in terms of computer vision, natural language processing and so
+on
+
+• More, the simple act of representing a hypothesis symbolically does not
+mean it is the most accurate hypothesis explaining the data
+
+• Both attempt to infer a hypothesis which explains observed data, from
+which correct responses to every situation may be abducted
+
+• Finally, neither approach relies upon abstract symbols, learning from
+sequences of sensory data in the case of Kant’s Cognitive Architecture, and a
+set of sensorimotor sates in the case of The Solutions to Any Task
+
+• Such notions are well suited to explain all sensory data in general terms, and
+their implementation in the form of The Apperception Engine performs as one
+would expect (extremely well)
+
+• It is arguably embodied to some extent, being concerned with sensory data, but
+does not account for the motor part of the sensorimotor system as is reﬂected
+by its speciﬁc form of inductive bias
+
+• Maruyama
+deﬁned in terms of a set of sensorimotor states, situation and response pairs
+rather than sequences of sensory data, the solution is more general, pertaining
+to interactive sensorimotor control rather than just the prediction of sensory
+input, with a much simpler inductive bias
+
+• The Intensional Solution
+or a solution close to it represents intent, and is used to explain both symbol
+emergence [18] and the modelling of intent in other agents [17]
+
+• To illustrate why observational
+data alone may be insuﬃcient, consider a task to either multiply two binary
+numbers, or add them
+
+• A hypothesis must be formed, abducted from the data, and tested to conﬁrm
+whether the rules apply concurrently or in an alternating pattern
+
+• As illustrated
+by the above task with two solutions, regardless of inductive bias experiment
+remains necessary to guarantee the most data-eﬃcient mode of learning (to ﬁnd
+the most correct hypothesis)
+
+• This would also seem to imply a constant and unchanging
+set of abstract symbols speciﬁed by a human (where the exact meaning of those
+symbols is determined by learning algorithm), but it is a step in the direction
+of an emergent symbol system
+
+• This theory attempts to address not only the emergence of a
+symbol system, but the modelling of intent in other agents, empathy [17], in aid
+of constructing explanations in natural language tailored to what the audience
+understands and considers important
+
+• To learn such a symbol system requires
+that symbols are not learned separately from one’s model of the world, but as
+part of it so that they have meaning (“signiﬁcance in terms of a goal”) beyond
+their relation to other symbols
+
+• : Causality: Models, Reasoning and Inference
+
