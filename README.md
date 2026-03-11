@@ -1,45 +1,44 @@
-# AI-System-to-Automatically-Review-and-Summarize-Research-Papers2
+# AI System to Automatically Review and Summarize Research Papers
 
-## 📂 Milestone 1: Automated Academic Paper Ingestion
+This project automatically analyzes research papers by extracting text from PDF files, identifying important sections, and extracting key findings.
 
-A robust ingestion script that automates the **search, validation, and storage** of open-access academic papers.  
-The system performs staged processing—fetching metadata from the Semantic Scholar API, downloading binary PDF content, and applying **header-level validation (Magic Number checks)** to ensure that only genuine, usable PDFs are stored locally.
+## Features
 
-### Key Features
-- Programmatic discovery of research papers using the Semantic Scholar API
-- Safe file and directory handling with filename sanitization
-- Network reliability handling (timeouts, HTTP error detection, bot-mitigation headers)
-- PDF integrity verification using file size checks and magic number validation (`%PDF`)
-- Automatic cleanup of corrupt or invalid downloads
-- Topic-wise organization of validated papers
+- Extract text from research paper PDFs
+- Identify major sections (Abstract, Introduction, Methods, Results, Conclusion)
+- Extract key findings from papers
+- Store structured results in JSON format
+- Compare insights across multiple papers
 
----
+## Project Structure
 
-### ⚙️ Setup & Run
+## Technologies Used
 
-#### 1. Create & Activate Virtual Environment
-```bash
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-```
-### 2. Install Dependencies
-```bash
-pip install requests semanticscholar
-```
-#### 3. Execute Script
-```bash
-python milestone1.py
-```
--When prompted, enter:
-(1) A research topic.
-(2) The number of papers to download (bounded by a safety limit)
+- Python
+- PyMuPDF (fitz)
+- Regular Expressions
+- JSON Processing
 
-Successfully downladed papers are saved in folder``` downloaded_papers/<sanitized_topic_name>/```
+## Installation
 
-I HAVE ALSO INCLUDED COMMENTS IN MY CODE , FEEL FREE TO READ THROUGH AND IGNORE ANY SPELLING OR TECHNICAL MISTAKE AS IT WAS FOR MY BASIC UNDERSTAND AND MAY ONLY CONTAIN KEYWORDS.
+Clone the repository:
 
-### ADIOS!!!
+Create virtual environment:
 
+Install the required dependencies:
+
+## Usage
+
+Run the main script:
+
+## Contributing
+
+- Fork the repository
+- Create a new branch
+- Make your changes
+- Commit your changes
+- Push your changes to the remote repository
+
+## License
+
+MIT License
