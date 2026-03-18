@@ -114,8 +114,15 @@ def process_paper_downloads(topic, target_count):
     search_limit = target_count * SEARCH_BUFFER_MULTIPLIER
     print(f"[INFO] Searching for papers on '{topic}'...")
     
-    # API Call to Semantic Scholar
-    results = sch.search_paper(topic, limit=search_limit, open_access_pdf=True)
+    # API Call to Semantic Scholar (WITH SERVER CRASH PROTECTION)
+    try:
+        # Explicitly requesting fields instead of using the buggy open_access_pdf flag
+        results = sch.search_paper(topic, limit=search_limit, fields=['title', 'openAccessPdf'])
+    except Exception as e:
+        print(f"\n[API ERROR] Semantic Scholar's server crashed (Error 500) or timed out.")
+        print("This is an issue on their end, not your code. Please wait a minute and try again.")
+        return 0
+
     save_directory = setup_directory(topic)
     
     downloaded_count = 0
@@ -126,7 +133,7 @@ def process_paper_downloads(topic, target_count):
             break
             
         # Data Cleaning: Skip papers that don't have a direct PDF link.
-        if not paper.openAccessPdf or not paper.openAccessPdf.get('url'):
+        if getattr(paper, 'openAccessPdf', None) is None or not paper.openAccessPdf.get('url'):
             continue
             
         pdf_url = paper.openAccessPdf['url']
@@ -192,4 +199,3 @@ if __name__ == "__main__":
             print("\n[RESULT] No valid papers were downloaded. Try a different topic.")
         else:
             print(f"\n[RESULT] Completed. {total_downloaded} papers saved in '{os.path.join(DOWNLOAD_DIR, sanitize_filename(topic))}'.")
-
