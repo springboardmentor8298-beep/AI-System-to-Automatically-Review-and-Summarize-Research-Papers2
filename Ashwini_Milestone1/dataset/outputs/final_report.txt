@@ -1,0 +1,67 @@
+AI Research Paper Analysis Report
+==================================================
+
+
+========== 2105.04026v2 ==========
+
+**Abstract**
+we describe the new field of mathematical analysis of deep learning. this field emerged around a list
+of research questions that were not answered within the classical framework of learning theory. these
+questions concern: the outstanding generalization power of overparametrized neural networks, the
+
+**Overview (Introduction)**
+2
+1.1 notation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.2 foundations of learning theory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.3 do we need a new theory? . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+**Key Findings (Results)**
+s that we consider well-known
+in the machine learning community. nonetheless, the choice of these results is guaranteed to be subjective.
+we will find that the presented, classical theory is too general to explain the performance of deep learning
+adequately. in this context, we will identify the fol
+
+**Conclusion**
+
+
+========== 2306.11113v2 ==========
+
+**Abstract**
+for applications from specialized domain (e.g., medicine,
+public safety, and military operations) where data collec-
+evidential deep learning, built upon belief the-
+tionandannotationishighlycostly. accurateuncertainty
+oryandsubjectivelogic,offersaprincipledand
+quantificationisessentialforsuccessful
+
+**Overview (Introduction)**
+figure1. cifar100result
+architectures in rela-
+deep learning (dl) models have found great success in
+tively simple learning problems. they suffer from a sig-
+many real-world applications such as speech recognition
+nificantperformancedropwhenfacinglargedatasetswith
+(kamath et al., 2019), machine tran
+
+**Key Findings (Results)**
+architectures in rela-
+deep learning (dl) models have found great success in
+tively simple learning problems. they suffer from a sig-
+many real-world applications such as speech recognition
+nificantperformancedropwhenfacinglargedatasetswith
+(kamath et al., 2019), machine translation (singh et al.,
+m
+
+**Conclusion**
+intheorem1. itisalso
+worthnotingthattherangeoftheevidentialmodel’slossis
+significantlysmallerthanthestandardmodel.thisismainly
+duetotheboundednatureoftheevidentialmseloss(i.e.,it
+isboundedintherange[0,2])(adetailedtheoreticalanaly-
+sisoftheevidentiallossesisprovidedintheappendix). in
+contrast,thesta
+
+
+=== Comparison ===
+2105.04026v2 -> 37033
+2306.11113v2 -> 7381

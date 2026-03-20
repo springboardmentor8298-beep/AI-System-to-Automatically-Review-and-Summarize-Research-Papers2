@@ -1,25 +1,22 @@
-# modules/pdf_download.py
 import os
 import requests
+import certifi
 
-def download_pdf(url, folder="dataset/pdfs"):
-    """
-    Download PDF from URL and save in folder.
-    """
+def download_pdf(paper, folder="dataset/pdfs"):
     os.makedirs(folder, exist_ok=True)
-    filename = os.path.join(folder, url.split('/')[-1] + ".pdf")
-    
-    if os.path.exists(filename):
-        print(f"Already downloaded: {filename}")
-        return filename
-    
+
     try:
-        response = requests.get(url)
-        response.raise_for_status()
-        with open(filename, "wb") as f:
-            f.write(response.content)
-        print(f"Downloaded: {filename}")
-        return filename
+        pdf_url = paper.pdf_url
+        filename = os.path.join(folder, pdf_url.split("/")[-1] + ".pdf")
+
+        response = requests.get(pdf_url, verify=certifi.where())
+
+        if response.status_code == 200:
+            with open(filename, "wb") as f:
+                f.write(response.content)
+            print(f"Downloaded: {filename}")
+        else:
+            print(f"Failed to download: {pdf_url}")
+
     except Exception as e:
-        print(f"Failed to download {url}: {e}")
-        return None
+        print(f"Error downloading: {e}")
