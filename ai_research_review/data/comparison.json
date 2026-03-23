@@ -1,0 +1,83 @@
+[
+    {
+        "title": "Assigning AI: Seven Approaches for Students, with Prompts",
+        "topic": "ai for students",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "abstract",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    },
+    {
+        "title": "Students\u2019 voices on generative AI: perceptions, benefits, and challenges in higher education",
+        "topic": "ai for students",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "abstract",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    },
+    {
+        "title": "Research on the Influence of AI and VR Technology for Students\u2019 Concentration and Creativity",
+        "topic": "ai for students",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "abstract",
+            "introduction",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    },
+    {
+        "title": "The use of Big Data Analytics in healthcare",
+        "topic": "data analytics",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "abstract",
+            "introduction",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    },
+    {
+        "title": "AI-big data analytics for building automation and management systems: a survey, actual challenges and future perspectives",
+        "topic": "data analytics",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "abstract",
+            "introduction",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    },
+    {
+        "title": "Exploring the impact of big data analytics capabilities on business model innovation: The mediating role of entrepreneurial orientation",
+        "topic": "data analytics",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "introduction",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    },
+    {
+        "title": "Design, Implementation, and Evaluation of Blockchain-Based Trusted Achievement Record System for Students in Higher Education",
+        "topic": "blockchain for students",
+        "num_key_findings": 5,
+        "sections_detected": [
+            "abstract",
+            "introduction",
+            "methods",
+            "results",
+            "conclusion"
+        ]
+    }
+]
