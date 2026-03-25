@@ -1,0 +1,22 @@
+{
+    "ai for students": {
+        "abstract": "AI integration in education enhances learning outcomes, but poses risks like error-filled responses and plagiarism.",
+        "methods_comparison": "Papers employ various methods, including AI-tutor, AI-coach, and hybrid evaluation mechanisms, to assess AI's impact on student learning, with some focusing on art education and others on general academic skills.",
+        "results_synthesis": "Results show AI can improve student concentration, creativity, and learning outcomes, while also providing immediate feedback and consistent scoring, but challenges like confabulation and academic integrity must be addressed."
+    },
+    "data analytics": {
+        "abstract": "Big Data Analytics is applied in healthcare, building automation, and business model innovation.",
+        "methods_comparison": "Methods include literature review, direct research, ML-based domains, PLS-SEM, and fuzzy-set Qualitative Comparative Analysis.",
+        "results_synthesis": "Big Data Analytics brings benefits to medical facilities, improves building performance, and influences company strategic logics and objectives, creating value for companies and stakeholders."
+    },
+    "blockchain for students": {
+        "abstract": "Blockchain-based achievement record system for students in higher education, facilitating authentication and validation of certificates.",
+        "methods_comparison": "This study's method of using blockchain technology differs from traditional methods, such as providing a resume or CV, and online sources like Facebook and LinkedIn, which lack validation mechanisms.",
+        "results_synthesis": "The proposed system shows significant improvement, with 36.67% and 40% of participants interested in using it, and a proper process for determining response options, indicating a user-friendly and efficient system."
+    },
+    "machine learning": {
+        "abstract": "Two papers discuss AI fairness and membership inference attacks, highlighting bias and data leakage issues.",
+        "methods_comparison": "The first paper surveys bias mitigation methods, while the second paper uses black-box access, statistics, and noisy data to generate training data for shadow models.",
+        "results_synthesis": "Results show that AI systems can demonstrate discrimination, and models created using machine-learning-as-a-service platforms can leak information about their training datasets with high accuracy."
+    }
+}
