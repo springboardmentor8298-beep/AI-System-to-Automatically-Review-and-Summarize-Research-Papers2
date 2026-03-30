@@ -1,9 +1,0 @@
-# Ignore Python virtual environment
-venv/
-
-# Ignore downloaded PDFs
-dataset/pdfs/
-
-# Ignore compiled Python files
-__pycache__/
-*.pyc
