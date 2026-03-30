@@ -5,102 +5,149 @@ from modules.pdf_download import download_pdf
 from modules.text_extraction import extract_text_from_pdfs
 from modules.compare_papers import compare_papers
 
+# ⭐ milestone 3 imports
+from modules.gpt_writer import generate_abstract, generate_methods, generate_results
+from modules.reference_formatter import format_apa_references
+
 
 def main():
+
     print("📚 AI Research Paper Analyzer\n")
 
     query = input("Enter Research Topic: ").strip()
 
     if query == "":
-        print("⚠️ Please enter a valid topic")
+        print("⚠️ Please enter topic")
         return
 
-    try:
-        num_papers = int(input("Number of Papers (1-10): "))
-    except:
-        print("⚠️ Enter a valid number")
-        return
+    num_papers = int(input("Number of Papers (1-10): "))
 
-    print("\n🔄 Processing... Please wait\n")
+    print("\n🔄 Processing...\n")
 
+    # search papers
     papers = search_papers(query, num_papers)
 
+    # download pdfs
     for paper in papers:
         download_pdf(paper)
 
+    # extract sections
     data = extract_text_from_pdfs()
 
     if not data:
+
         data = {
-            "sample_paper.pdf": {
-                "Abstract": f"This paper discusses {query}.",
-                "Introduction": f"Introduction to {query}.",
-                "Results": f"Key findings about {query}.",
-                "Conclusion": f"Conclusion on {query}."
+            "sample.pdf": {
+                "Abstract": f"This paper discusses {query}",
+                "Introduction": f"Overview of {query}",
+                "Results": f"Findings about {query}",
+                "Conclusion": f"Conclusion of {query}"
             }
         }
 
-    print("✅ Analysis Completed!\n")
+    print("✅ Analysis Completed\n")
 
-    print("📌 Paper Analysis\n")
+    print("\n📄 PAPER DETAILS\n")
 
     for paper, sections in data.items():
-        clean_name = paper.replace("_", " ").replace(".pdf", "")
 
-        print("\n==============================")
-        print(f"📄 {clean_name}")
-        print("==============================\n")
+        print("\n======================")
+        print(paper)
+        print("======================")
 
-        print("🔹 **Abstract**")
-        print(sections.get("Abstract", "Not found")[:300], "\n")
+        print("\n**ABSTRACT**")
+        print(sections.get("Abstract", "Not found")[:300])
 
-        print("🔹 **Overview (Introduction)**")
-        print(sections.get("Introduction", "Not found")[:300], "\n")
+        print("\n**INTRODUCTION**")
+        print(sections.get("Introduction", "Not found")[:300])
 
-        print("🔹 **Key Findings (Results)**")
-        print(sections.get("Results", "Not found")[:300], "\n")
+        print("\n**RESULTS**")
+        print(sections.get("Results", "Not found")[:300])
 
-        print("🔹 **Conclusion**")
-        print(sections.get("Conclusion", "Not found")[:300], "\n")
+        print("\n**CONCLUSION**")
+        print(sections.get("Conclusion", "Not found")[:300])
 
-    print("📊 Paper Comparison\n")
+    # comparison
+    print("\n📊 COMPARISON\n")
 
     comparison = compare_papers(data)
 
     for paper, score in comparison:
-        clean_name = paper.replace("_", " ").replace(".pdf", "")
-        print(f"{clean_name} → {score}")
 
+        print(paper, "->", score)
+
+    # ⭐ milestone 3 AI writing
+    print("\n==============================")
+    print("AI GENERATED RESEARCH DRAFT")
+    print("==============================")
+
+    abstract = generate_abstract(data, query)
+
+    methods = generate_methods()
+
+    results = generate_results(data, query)
+
+    print("\nABSTRACT\n")
+    print(abstract)
+
+    print("\nMETHODS\n")
+    print(methods)
+
+    print("\nRESULTS\n")
+    print(results)
+
+    references = format_apa_references(papers)
+
+    print("\nREFERENCES (APA)\n")
+
+    for ref in references:
+
+        print(ref)
+
+    # save report
     os.makedirs("dataset/outputs", exist_ok=True)
+
     report_path = "dataset/outputs/final_report.txt"
 
     with open(report_path, "w", encoding="utf-8") as f:
+
         f.write("AI Research Paper Analysis Report\n")
-        f.write("=" * 50 + "\n\n")
+        f.write("=" * 50 + "\n")
 
         for paper, sections in data.items():
-            clean_name = paper.replace("_", " ").replace(".pdf", "")
 
-            f.write(f"\n========== {clean_name} ==========\n")
+            f.write(f"\n\n{paper}\n")
 
-            f.write("\n**Abstract**\n")
-            f.write(sections.get("Abstract", "Not found")[:300] + "\n")
+            f.write("\nABSTRACT\n")
+            f.write(sections.get("Abstract", "")[:500])
 
-            f.write("\n**Overview (Introduction)**\n")
-            f.write(sections.get("Introduction", "Not found")[:300] + "\n")
+            f.write("\n\nINTRODUCTION\n")
+            f.write(sections.get("Introduction", "")[:500])
 
-            f.write("\n**Key Findings (Results)**\n")
-            f.write(sections.get("Results", "Not found")[:300] + "\n")
+            f.write("\n\nRESULTS\n")
+            f.write(sections.get("Results", "")[:500])
 
-            f.write("\n**Conclusion**\n")
-            f.write(sections.get("Conclusion", "Not found")[:300] + "\n")
+            f.write("\n\nCONCLUSION\n")
+            f.write(sections.get("Conclusion", "")[:500])
 
-        f.write("\n\n=== Comparison ===\n")
-        for paper, score in comparison:
-            clean_name = paper.replace("_", " ").replace(".pdf", "")
-            f.write(f"{clean_name} -> {score}\n")
+        f.write("\n\nAI GENERATED CONTENT\n")
 
-    print(f"\n📥 Report saved at: {report_path}")
+        f.write("\nABSTRACT\n")
+        f.write(abstract)
+
+        f.write("\nMETHODS\n")
+        f.write(methods)
+
+        f.write("\nRESULTS\n")
+        f.write(results)
+
+        f.write("\nREFERENCES\n")
+
+        for ref in references:
+
+            f.write(ref + "\n")
+
+    print("\n📁 Report saved:", report_path)
 
 
 if __name__ == "__main__":
