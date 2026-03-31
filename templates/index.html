@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h2>AI Research Analyzer</h2>
+        <div class="nav-menu">
+            <span>AI Research Analyzer</span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <main class="container">
+            <section class="hero-card">
+                <h1>Analyze Research Papers with AI</h1>
+                <p>Fetch • Process • Extract Insights Instantly</p>
+
+                <div class="form-group">
+                    <input type="text" id="topic" placeholder="Enter research topic (e.g., machine learning validation)...">
+                </div>
+
+                <div class="form-group">
+                    <label for="max_papers">Number of Papers:</label>
+                    <input type="range" id="max_papers" min="1" max="10" value="3">
+                    <span id="rangeValue">3</span>
+                </div>
+
+<button class="btn" onclick="fetchPapers()">Fetch Papers</button>
+
+                <div id="status" class="status" style="display: none; margin-top: 1rem;"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- RESULTS -->
+    <section id="papers" class="papers section container"></section>
+
+    <!-- ANALYSIS -->
+    <section id="analysis" class="analysis container"></section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2024 AI Research Analyzer. Professional AI-powered research insights.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
