@@ -1,0 +1,10 @@
+gradio
+pymupdf
+pytesseract
+pdf2image
+langchain
+openai
+pydantic
+psycopg2-binary
+tiktoken
+huggingface_hub
