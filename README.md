@@ -1,3 +1,30 @@
+# Research Paper Q&A System (Milestone 3)
+
+## Features
+- Download papers from arXiv
+- Extract text from PDFs
+- Question answering system
+- Structured writing support (Abstract, Methods, Results)
+- Multi-paper synthesis
+- APA formatted references
+
+## Installation
+
+pip install -r requirements.txt
+
+## Run
+
+python milestone3.py
+
+## Example queries
+
+abstract
+methods
+results
+algorithm
+dataset
+conclusion
+=======
 # AI-System-to-Automatically-Review-and-Summarize-Research-Papers2
 
 ## 📂 Milestone 1: Automated Academic Paper Ingestion
@@ -43,3 +70,4 @@ I HAVE ALSO INCLUDED COMMENTS IN MY CODE , FEEL FREE TO READ THROUGH AND IGNORE 
 
 ### ADIOS!!!
 
+>>>>>>> e38ea70357b59afa76467c94a5b39394d741e5de

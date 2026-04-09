@@ -1,0 +1,46 @@
+import os
+import urllib.request
+import urllib.parse
+import feedparser
+
+PAPER_FOLDER = "papers"
+
+def download_papers(topic, num_papers):
+
+    # encode topic correctly
+    topic_encoded = urllib.parse.quote_plus(topic)
+
+    # correct HTTPS arxiv API
+    url = f"https://export.arxiv.org/api/query?search_query=all:{topic_encoded}&start=0&max_results={num_papers}"
+
+    print("\nSearching papers from arXiv...")
+    print(url)   # optional debug
+
+    # fix folder issue
+    if os.path.exists(PAPER_FOLDER) and not os.path.isdir(PAPER_FOLDER):
+        os.remove(PAPER_FOLDER)
+
+    os.makedirs(PAPER_FOLDER, exist_ok=True)
+
+    feed = feedparser.parse(url)
+
+    if len(feed.entries) == 0:
+        print("No papers found. Try another topic.")
+        return 0
+
+    count = 0
+
+    for entry in feed.entries:
+
+        pdf_link = entry.id.replace("abs", "pdf") + ".pdf"
+
+        filename = os.path.join(PAPER_FOLDER, f"paper_{count+1}.pdf")
+
+        print(f"Downloading: {entry.title[:60]}")
+
+        urllib.request.urlretrieve(pdf_link, filename)
+
+        count += 1
+
+    print(f"\nDownloaded {count} papers successfully!")
+    return count
