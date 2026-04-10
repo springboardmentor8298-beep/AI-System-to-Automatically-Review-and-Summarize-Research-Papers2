@@ -1,45 +1,76 @@
-# AI-System-to-Automatically-Review-and-Summarize-Research-Papers2
+# 📚 Researcher's Friend 🤖
 
-## 📂 Milestone 1: Automated Academic Paper Ingestion
+> **"Better out than in, I always say!"** — (Specifically talking about extracting key insights from 50-page research papers so you don't have to keep them trapped in your brain.)
 
-A robust ingestion script that automates the **search, validation, and storage** of open-access academic papers.  
-The system performs staged processing—fetching metadata from the Semantic Scholar API, downloading binary PDF content, and applying **header-level validation (Magic Number checks)** to ensure that only genuine, usable PDFs are stored locally.
-
-### Key Features
-- Programmatic discovery of research papers using the Semantic Scholar API
-- Safe file and directory handling with filename sanitization
-- Network reliability handling (timeouts, HTTP error detection, bot-mitigation headers)
-- PDF integrity verification using file size checks and magic number validation (`%PDF`)
-- Automatic cleanup of corrupt or invalid downloads
-- Topic-wise organization of validated papers
+Welcome to **Researcher's Friend**, the AI-powered sidekick designed to rescue you from the "swamp" of academic over-information. This project takes dense, complex research papers and boils them down into digestible, high-impact summaries.
 
 ---
 
-### ⚙️ Setup & Run
+## 🧐 The Problem
+Researching is hard. Papers are long. Human patience is finite. Most academic documents are written in a way that makes you want to take a long nap in a mud bath.
 
-#### 1. Create & Activate Virtual Environment
-```bash
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-```
-### 2. Install Dependencies
-```bash
-pip install requests semanticscholar
-```
-#### 3. Execute Script
-```bash
-python milestone1.py
-```
--When prompted, enter:
-(1) A research topic.
-(2) The number of papers to download (bounded by a safety limit)
+## 💡 The Solution
+**Researcher's Friend** uses advanced Natural Language Processing (NLP) to:
+* **Identify** core arguments and methodologies.
+* **Summarize** massive PDFs into quick-read bullet points.
+* **Highlight** results so you can decide if a paper is worth your time in seconds, not hours.
 
-Successfully downladed papers are saved in folder``` downloaded_papers/<sanitized_topic_name>/```
+---
 
-I HAVE ALSO INCLUDED COMMENTS IN MY CODE , FEEL FREE TO READ THROUGH AND IGNORE ANY SPELLING OR TECHNICAL MISTAKE AS IT WAS FOR MY BASIC UNDERSTAND AND MAY ONLY CONTAIN KEYWORDS.
+## ✨ Features
 
-### ADIOS!!!
+* **⚡ Rapid Summarization:** Get the "TL;DR" of any research paper instantly.
+* **🔍 Insight Extraction:** Automatically pulls out the most relevant data points.
+* **📄 PDF Support:** Optimized for the standard double-column academic format.
+* **🧠 Smart Review:** Evaluates the significance of the findings using AI.
 
+---
+
+## 🛠️ Tech Stack
+
+* **Language:** Python 🐍
+* **AI/NLP:** (e.g., HuggingFace, OpenAI, or LangChain)
+* **PDF Processing:** PyMuPDF / PyPDF2
+* **Frameworks:** Built during the Infosys Springboard program.
+
+---
+
+## 🚀 Getting Started
+
+Ready to clear the swamp? Follow these steps:
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/CodeShrek/Researcher-s-friend-.git](https://github.com/CodeShrek/Researcher-s-friend-.git)
+    ```
+
+2.  **Install Dependencies:**
+    ```bash
+    cd Researcher-s-friend-
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the System:**
+    ```bash
+    python main.py
+    ```
+
+---
+
+## 🤝 Contributing
+
+This project is my "onion"—it has layers! If you want to add more layers (features, bug fixes, or UI improvements), feel free to:
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📜 Credits & License
+* **Developer:** [CodeShrek](https://github.com/CodeShrek)
+* **Original Org:** Developed under the **Infosys Springboard** mentorship program.
+
+---
+*Built with ❤️ and a little bit of swamp magic.*
