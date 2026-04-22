@@ -1,0 +1,3117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Research Review Pro | Advanced Systematic Review System</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        /* Cosmic Aurora Theme */
+        --deep-space: #020617;
+        --nebula-blue: #0f172a;
+        --aurora-cyan: #06b6d4;
+        --aurora-blue: #3b82f6;
+        --aurora-purple: #8b5cf6;
+        --aurora-pink: #ec4899;
+        --aurora-amber: #f59e0b;
+        --aurora-green: #10b981;
+        --star-white: #f8fafc;
+        --cosmic-dust: #94a3b8;
+        --void-black: #000000;
+
+        /* Shining Effects */
+        --shine-cyan:
+          0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
+        --shine-purple:
+          0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+        --shine-amber:
+          0 0 10px rgba(245, 158, 11, 0.5), 0 0 20px rgba(245, 158, 11, 0.3);
+        --shine-green:
+          0 0 10px rgba(16, 185, 129, 0.5), 0 0 20px rgba(16, 185, 129, 0.3);
+
+        /* Gradients */
+        --gradient-aurora: linear-gradient(
+          135deg,
+          #06b6d4 0%,
+          #3b82f6 50%,
+          #8b5cf6 100%
+        );
+        --gradient-cosmic: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        --gradient-shine: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--deep-space);
+        color: var(--star-white);
+        min-height: 100vh;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Animated Starfield Background */
+      .universe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: radial-gradient(
+          ellipse at bottom,
+          #1b2735 0%,
+          #090a0f 100%
+        );
+      }
+
+      .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image:
+          radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+          radial-gradient(
+            2px 2px at 40px 70px,
+            rgba(255, 255, 255, 0.8),
+            rgba(0, 0, 0, 0)
+          ),
+          radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+          radial-gradient(
+            2px 2px at 130px 80px,
+            rgba(255, 255, 255, 0.6),
+            rgba(0, 0, 0, 0)
+          ),
+          radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
+        background-repeat: repeat;
+        background-size: 200px 200px;
+        animation: sparkle 5s linear infinite;
+        opacity: 0.6;
+      }
+
+      @keyframes sparkle {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-200px);
+        }
+      }
+
+      /* Aurora Borealis Effect */
+      .aurora {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.3;
+        background:
+          linear-gradient(180deg, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
+          linear-gradient(225deg, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+          linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+        filter: blur(60px);
+        animation: aurora-flow 15s ease-in-out infinite;
+      }
+
+      @keyframes aurora-flow {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.3;
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(2deg);
+          opacity: 0.4;
+        }
+        66% {
+          transform: translate(-20px, 20px) rotate(-2deg);
+          opacity: 0.3;
+        }
+      }
+
+      /* Shining Orbs */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.4;
+      }
+
+      .orb-1 {
+        width: 500px;
+        height: 500px;
+        background: var(--aurora-cyan);
+        top: -10%;
+        left: -10%;
+        animation: orb-float 20s infinite ease-in-out;
+      }
+
+      .orb-2 {
+        width: 400px;
+        height: 400px;
+        background: var(--aurora-purple);
+        top: 60%;
+        right: -10%;
+        animation: orb-float 25s infinite ease-in-out reverse;
+      }
+
+      .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: var(--aurora-pink);
+        bottom: -5%;
+        left: 30%;
+        animation: orb-float 22s infinite ease-in-out;
+      }
+
+      @keyframes orb-float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(50px, -30px) scale(1.1);
+        }
+      }
+
+      /* Header with Glassmorphism */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(2, 6, 23, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+      }
+
+      .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .brand-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        background: var(--gradient-aurora);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: var(--shine-cyan);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .brand-logo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-shine);
+        animation: shine 3s infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .brand-text h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: var(--gradient-aurora);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+      }
+
+      .brand-text span {
+        font-size: 0.75rem;
+        color: var(--cosmic-dust);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      /* Control Panel */
+      .control-panel {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        flex-wrap: wrap;
+      }
+
+      .control-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .control-label {
+        font-size: 0.75rem;
+        color: var(--cosmic-dust);
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      select {
+        background: rgba(6, 182, 212, 0.1);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        color: var(--star-white);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-family: inherit;
+        font-size: 0.875rem;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s;
+      }
+
+      select:hover,
+      select:focus {
+        border-color: var(--aurora-cyan);
+        box-shadow: var(--shine-cyan);
+      }
+
+      /* Mode Toggle */
+      .mode-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(139, 92, 246, 0.1);
+        padding: 0.25rem;
+        border-radius: 25px;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+      }
+
+      .mode-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: transparent;
+        color: var(--cosmic-dust);
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 20px;
+        transition: all 0.3s;
+        font-family: inherit;
+      }
+
+      .mode-btn.active {
+        background: var(--aurora-purple);
+        color: white;
+        box-shadow: var(--shine-purple);
+      }
+
+      /* Main Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Holographic Progress Steps */
+      .progress-container {
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .progress-hologram {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .progress-line {
+        position: absolute;
+        top: 30px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        z-index: 0;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--gradient-aurora);
+        width: 0%;
+        transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        flex: 1;
+      }
+
+      .step-node {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.8);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.25rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .step-node::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-aurora);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .step-number {
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s;
+      }
+
+      .step:hover .step-node {
+        transform: scale(1.1);
+        border-color: var(--aurora-cyan);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .step.active .step-node {
+        border-color: transparent;
+        transform: scale(1.15);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .step.active .step-node::before {
+        opacity: 1;
+      }
+
+      .step.completed .step-node {
+        background: var(--aurora-green);
+        border-color: transparent;
+        box-shadow: var(--shine-green);
+      }
+
+      .step.completed .step-number {
+        display: none;
+      }
+
+      .step.completed .step-node::after {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .step-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--cosmic-dust);
+        transition: all 0.3s;
+      }
+
+      .step.active .step-label {
+        color: var(--aurora-cyan);
+        text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+      }
+
+      .step.completed .step-label {
+        color: var(--aurora-green);
+      }
+
+      /* Holographic Cards */
+      .holo-card {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        animation: holo-appear 0.6s ease;
+      }
+
+      @keyframes holo-appear {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .holo-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-shine);
+        transition: left 0.5s;
+        pointer-events: none;
+      }
+
+      .holo-card:hover::before {
+        left: 100%;
+      }
+
+      .holo-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--aurora-cyan),
+          transparent
+        );
+        opacity: 0.5;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .holo-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        background: var(--gradient-aurora);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        box-shadow: var(--shine-cyan);
+        position: relative;
+        animation: pulse-glow 2s infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+        }
+      }
+
+      .card-title-group h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        background: linear-gradient(135deg, #fff, var(--aurora-cyan));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .card-title-group p {
+        color: var(--cosmic-dust);
+        font-size: 1rem;
+      }
+
+      /* Advanced Form Elements */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--cosmic-dust);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .input-holo {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        background: rgba(6, 182, 212, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        color: var(--star-white);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .input-holo:focus {
+        outline: none;
+        border-color: var(--aurora-cyan);
+        background: rgba(6, 182, 212, 0.1);
+        box-shadow: var(--shine-cyan);
+      }
+
+      textarea.input-holo {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      /* Shining Slider */
+      .slider-container {
+        background: rgba(6, 182, 212, 0.05);
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .slider-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .range-slider {
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .range-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--gradient-aurora);
+        cursor: pointer;
+        box-shadow: var(--shine-cyan);
+        transition: all 0.3s;
+        border: 3px solid white;
+      }
+
+      .range-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 30px rgba(6, 182, 212, 0.8);
+      }
+
+      .range-value {
+        font-size: 2rem;
+        font-weight: 800;
+        background: var(--gradient-aurora);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        min-width: 50px;
+        text-align: center;
+      }
+
+      /* Shining Buttons */
+      .btn-holo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 16px;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-holo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-shine);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .btn-holo:hover::before {
+        opacity: 0.3;
+        animation: btn-shine 0.5s;
+      }
+
+      @keyframes btn-shine {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+
+      .btn-primary {
+        background: var(--gradient-aurora);
+        color: white;
+        box-shadow: var(--shine-cyan);
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+      }
+
+      .btn-success {
+        background: linear-gradient(135deg, var(--aurora-green), #059669);
+        color: white;
+        box-shadow: var(--shine-green);
+      }
+
+      .btn-success:hover:not(:disabled) {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+      }
+
+      .btn-amber {
+        background: linear-gradient(135deg, var(--aurora-amber), #d97706);
+        color: white;
+        box-shadow: var(--shine-amber);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: var(--star-white);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--aurora-cyan);
+        color: var(--aurora-cyan);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* View PDF Button */
+      .btn-view-pdf {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, var(--aurora-blue), #2563eb);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        margin-top: 0.75rem;
+      }
+
+      .btn-view-pdf:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+      }
+
+      /* PDF Modal */
+      #pdfModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 2000;
+        overflow: auto;
+      }
+
+      .pdf-modal-content {
+        position: relative;
+        width: 90%;
+        height: 90%;
+        margin: 2% auto;
+        background: var(--nebula-blue);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid var(--aurora-cyan);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .pdf-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-bottom: 1px solid var(--aurora-cyan);
+      }
+
+      .pdf-modal-title {
+        color: var(--star-white);
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        flex: 1;
+        margin-right: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .btn-close-pdf {
+        background: transparent;
+        border: 2px solid var(--aurora-cyan);
+        color: var(--aurora-cyan);
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-close-pdf:hover {
+        background: var(--aurora-cyan);
+        color: var(--deep-space);
+      }
+
+      #pdfViewer {
+        width: 100%;
+        height: calc(100% - 70px);
+        border: none;
+        background: var(--deep-space);
+      }
+
+      /* Advanced Loading Animation - Quantum Spinner */
+      .quantum-loader {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem;
+        background: rgba(6, 182, 212, 0.05);
+        border-radius: 24px;
+        border: 1px solid rgba(6, 182, 212, 0.2);
+        margin-top: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .quantum-loader.active {
+        display: flex;
+      }
+
+      .quantum-ring {
+        width: 120px;
+        height: 120px;
+        position: relative;
+      }
+
+      .ring-particle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: var(--aurora-cyan);
+        animation: quantum-spin 1.5s linear infinite;
+      }
+
+      .ring-particle:nth-child(2) {
+        width: 80px;
+        height: 80px;
+        top: 20px;
+        left: 20px;
+        border-top-color: var(--aurora-purple);
+        animation-duration: 1s;
+        animation-direction: reverse;
+      }
+
+      .ring-particle:nth-child(3) {
+        width: 40px;
+        height: 40px;
+        top: 40px;
+        left: 40px;
+        border-top-color: var(--aurora-pink);
+        animation-duration: 2s;
+      }
+
+      @keyframes quantum-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader-text {
+        margin-top: 2rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: var(--gradient-aurora);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .loader-status {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--cosmic-dust);
+      }
+
+      .progress-bar {
+        width: 300px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        margin-top: 1rem;
+        overflow: hidden;
+      }
+
+      .progress-fill-bar {
+        height: 100%;
+        background: var(--gradient-aurora);
+        width: 0%;
+        transition: width 0.3s;
+        box-shadow: var(--shine-cyan);
+      }
+
+      /* Paper Grid - Holographic Cards */
+      .papers-holo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .paper-holo-card {
+        background: rgba(15, 23, 42, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .paper-holo-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--gradient-aurora);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+
+      .paper-holo-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(6, 182, 212, 0.3);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .paper-holo-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .paper-holo-card.selected {
+        border-color: var(--aurora-green);
+        background: rgba(16, 185, 129, 0.1);
+        box-shadow: var(--shine-green);
+      }
+
+      .paper-holo-card.selected::before {
+        background: var(--aurora-green);
+        transform: scaleX(1);
+      }
+
+      .paper-holo-card.concise-mode {
+        background: rgba(139, 92, 246, 0.1);
+        border-color: rgba(139, 92, 246, 0.3);
+      }
+
+      .selection-indicator {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .paper-holo-card.selected .selection-indicator {
+        background: var(--aurora-green);
+        border-color: transparent;
+        box-shadow: var(--shine-green);
+      }
+
+      .selection-indicator i {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.3s;
+        color: white;
+      }
+
+      .paper-holo-card.selected .selection-indicator i {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .paper-source-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+
+      .source-arxiv {
+        background: linear-gradient(135deg, #dc2626, #b91c1c);
+        color: white;
+      }
+
+      .source-semantic {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: white;
+      }
+
+      .paper-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+        padding-right: 2.5rem;
+      }
+
+      .paper-authors {
+        font-size: 0.875rem;
+        color: var(--aurora-purple);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .paper-meta-holo {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.8rem;
+        color: var(--cosmic-dust);
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .paper-abstract-preview {
+        font-size: 0.9rem;
+        color: var(--cosmic-dust);
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .download-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        padding: 0.375rem 0.875rem;
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--aurora-green);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+
+      /* Stats Hologram */
+      .stats-holo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-holo-card {
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 1.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .stat-holo-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--aurora-cyan);
+        box-shadow: var(--shine-cyan);
+      }
+
+      .stat-value-holo {
+        font-size: 3rem;
+        font-weight: 800;
+        background: var(--gradient-aurora);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.25rem;
+        line-height: 1;
+      }
+
+      .stat-label-holo {
+        font-size: 0.875rem;
+        color: var(--cosmic-dust);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      /* Output Sections */
+      .output-holo-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .output-holo-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        animation: holo-appear 0.5s ease;
+        transition: all 0.3s;
+      }
+
+      .output-holo-card:hover {
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateX(5px);
+      }
+
+      .output-holo-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: var(--gradient-aurora);
+      }
+
+      .output-header-holo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .output-icon-holo {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--gradient-aurora);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        box-shadow: var(--shine-cyan);
+      }
+
+      .output-title-group {
+        flex: 1;
+      }
+
+      .output-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+
+      .output-subtitle {
+        font-size: 0.875rem;
+        color: var(--cosmic-dust);
+      }
+
+      .word-count-holo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(6, 182, 212, 0.1);
+        color: var(--aurora-cyan);
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: 1px solid rgba(6, 182, 212, 0.3);
+      }
+
+      .content-holo {
+        font-family: "Crimson Text", Georgia, serif;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--cosmic-dust);
+        white-space: pre-wrap;
+        max-height: 500px;
+        overflow-y: auto;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Quality Score Display */
+      .score-holo-display {
+        background: linear-gradient(
+          135deg,
+          rgba(6, 182, 212, 0.1),
+          rgba(139, 92, 246, 0.1)
+        );
+        border: 2px solid rgba(6, 182, 212, 0.3);
+        border-radius: 24px;
+        padding: 3rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        animation: score-appear 0.8s ease;
+      }
+
+      @keyframes score-appear {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .score-holo-value {
+        font-size: 6rem;
+        font-weight: 900;
+        background: var(--gradient-aurora);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+      }
+
+      .score-holo-label {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .score-excellent {
+        color: var(--aurora-green);
+        text-shadow: var(--shine-green);
+      }
+      .score-good {
+        color: var(--aurora-amber);
+        text-shadow: var(--shine-amber);
+      }
+      .score-fair {
+        color: #f97316;
+      }
+      .score-poor {
+        color: var(--aurora-pink);
+      }
+
+      .score-breakdown-holo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .score-item-holo {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 1rem;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .score-item-label {
+        color: var(--cosmic-dust);
+        font-weight: 500;
+      }
+
+      .score-item-value {
+        font-weight: 800;
+        color: var(--aurora-cyan);
+        font-size: 1.25rem;
+      }
+
+      /* Comparison View */
+      .comparison-holo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .comparison-card-holo {
+        background: rgba(15, 23, 42, 0.6);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .comparison-card-holo.original {
+        border-color: rgba(245, 158, 11, 0.3);
+      }
+
+      .comparison-card-holo.revised {
+        border-color: rgba(16, 185, 129, 0.3);
+        background: rgba(16, 185, 129, 0.05);
+      }
+
+      .comparison-header-holo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      .comparison-card-holo.original .comparison-header-holo {
+        color: var(--aurora-amber);
+      }
+
+      .comparison-card-holo.revised .comparison-header-holo {
+        color: var(--aurora-green);
+      }
+
+      /* Floating Action Button */
+      .fab-holo {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--gradient-aurora);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: var(--shine-cyan);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .fab-holo:hover {
+        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+      }
+
+      /* Section Management */
+      .phase-section {
+        display: none;
+      }
+
+      .phase-section.active {
+        display: block;
+        animation: phase-enter 0.6s ease;
+      }
+
+      @keyframes phase-enter {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Alerts */
+      .alert-holo {
+        padding: 1.25rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        animation: alert-slide 0.4s ease;
+        border: 1px solid;
+        backdrop-filter: blur(10px);
+      }
+
+      @keyframes alert-slide {
+        from {
+          transform: translateX(-30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .alert-error {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.3);
+        color: #f87171;
+      }
+
+      .alert-success {
+        background: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 0.3);
+        color: #34d399;
+      }
+
+      .alert-warning {
+        background: rgba(245, 158, 11, 0.1);
+        border-color: rgba(245, 158, 11, 0.3);
+        color: #fbbf24;
+      }
+
+      .alert-info {
+        background: rgba(6, 182, 212, 0.1);
+        border-color: rgba(6, 182, 212, 0.3);
+        color: #22d3ee;
+      }
+
+      /* Storage Badge */
+      .storage-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--aurora-green);
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        margin-top: 1rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .papers-holo-grid {
+          grid-template-columns: 1fr;
+        }
+        .comparison-holo-grid {
+          grid-template-columns: 1fr;
+        }
+        .header-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .control-panel {
+          width: 100%;
+          justify-content: center;
+        }
+        .pdf-modal-content {
+          width: 95%;
+          height: 95%;
+          margin: 2.5% auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+        .holo-card {
+          padding: 1.5rem;
+        }
+        .step-node {
+          width: 45px;
+          height: 45px;
+          font-size: 1rem;
+        }
+        .step-label {
+          font-size: 0.65rem;
+        }
+        .score-holo-value {
+          font-size: 4rem;
+        }
+        .pdf-modal-title {
+          font-size: 1rem;
+        }
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--nebula-blue);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--gradient-aurora);
+        border-radius: 6px;
+        border: 3px solid var(--nebula-blue);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--aurora-cyan);
+      }
+
+      /* Selection Color */
+      ::selection {
+        background: rgba(6, 182, 212, 0.3);
+        color: var(--star-white);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PDF VIEWER MODAL - PLACED RIGHT AFTER BODY TAG -->
+    <div id="pdfModal">
+      <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+          <h3 class="pdf-modal-title" id="pdfModalTitle">Paper Title</h3>
+          <button class="btn-close-pdf" onclick="closePdfModal()">
+            <i class="fas fa-times"></i> Close
+          </button>
+        </div>
+        <iframe id="pdfViewer" src=""></iframe>
+      </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="universe"></div>
+    <div class="stars"></div>
+    <div class="aurora"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <div class="brand">
+          <div class="brand-logo">
+            <i class="fas fa-atom"></i>
+          </div>
+          <div class="brand-text">
+            <h1>AI Research Review Pro</h1>
+            <span>Advanced Systematic Review System</span>
+          </div>
+        </div>
+        <div class="control-panel">
+          <div class="control-group">
+            <span class="control-label"
+              ><i class="fas fa-robot"></i> AI Engine</span
+            >
+            <select id="llmProvider">
+              <option value="">Loading...</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Model</span>
+            <select id="llmModel">
+              <option value="">Auto-Select</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Analysis Mode</span>
+            <div class="mode-toggle">
+              <button
+                class="mode-btn active"
+                id="modeDetailed"
+                onclick="setAnalysisMode('detailed')"
+              >
+                Detailed
+              </button>
+              <button
+                class="mode-btn"
+                id="modeConcise"
+                onclick="setAnalysisMode('concise')"
+              >
+                Concise
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Progress Steps -->
+      <div class="progress-container">
+        <div class="progress-line">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-hologram">
+          <div class="step active" data-step="1" onclick="navigateToStep(1)">
+            <div class="step-node"><span class="step-number">1</span></div>
+            <div class="step-label">Discovery</div>
+          </div>
+          <div class="step" data-step="2" onclick="navigateToStep(2)">
+            <div class="step-node"><span class="step-number">2</span></div>
+            <div class="step-label">Analysis</div>
+          </div>
+          <div class="step" data-step="3" onclick="navigateToStep(3)">
+            <div class="step-node"><span class="step-number">3</span></div>
+            <div class="step-label">Synthesis</div>
+          </div>
+          <div class="step" data-step="4" onclick="navigateToStep(4)">
+            <div class="step-node"><span class="step-number">4</span></div>
+            <div class="step-label">Publication</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 1: Research Discovery -->
+      <div class="phase-section active" id="phase1">
+        <div class="holo-card">
+          <div class="card-header">
+            <div class="holo-icon"><i class="fas fa-search-plus"></i></div>
+            <div class="card-title-group">
+              <h2>Phase 1: Research Discovery</h2>
+              <p>
+                Search across arXiv and Semantic Scholar with parallel PDF
+                retrieval (Up to 10 papers)
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              ><i class="fas fa-keyboard"></i> Research Topic or Query</label
+            >
+            <input
+              type="text"
+              class="input-holo"
+              id="researchTopic"
+              placeholder="e.g., 'transformer architectures for medical image analysis 2024'"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              ><i class="fas fa-layer-group"></i> Number of Papers to
+              Analyze</label
+            >
+            <div class="slider-container">
+              <div class="slider-header">
+                <span style="color: var(--cosmic-dust)">1 paper</span>
+                <span class="range-value" id="paperCountValue">5</span>
+                <span style="color: var(--cosmic-dust)">10 papers</span>
+              </div>
+              <input
+                type="range"
+                class="range-slider"
+                id="paperCount"
+                min="1"
+                max="10"
+                value="5"
+              />
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn-holo btn-primary" onclick="searchPapers()">
+              <i class="fas fa-rocket"></i> Initiate Search
+            </button>
+          </div>
+
+          <div class="quantum-loader" id="searchLoader">
+            <div class="quantum-ring">
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+            </div>
+            <div class="loader-text">Initializing Quantum Search</div>
+            <div class="loader-status" id="searchStatus">
+              Connecting to academic databases...
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill-bar" id="searchProgress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2: Analysis -->
+      <div class="phase-section" id="phase2">
+        <div class="stats-holo-grid" id="statsGrid" style="display: none">
+          <div class="stat-holo-card">
+            <div class="stat-value-holo" id="statTotal">0</div>
+            <div class="stat-label-holo">Papers Downloaded</div>
+          </div>
+          <div class="stat-holo-card">
+            <div class="stat-value-holo" id="statSelected">0</div>
+            <div class="stat-label-holo">Selected</div>
+          </div>
+          <div class="stat-holo-card">
+            <div class="stat-value-holo" id="statWords">600</div>
+            <div class="stat-label-holo">Words per Analysis</div>
+          </div>
+          <div class="stat-holo-card">
+            <div class="stat-value-holo" id="statBatch">3</div>
+            <div class="stat-label-holo">Batch Size</div>
+          </div>
+        </div>
+
+        <div class="holo-card">
+          <div class="card-header">
+            <div
+              class="holo-icon"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--aurora-amber),
+                  #d97706
+                );
+              "
+            >
+              <i class="fas fa-microscope"></i>
+            </div>
+            <div class="card-title-group">
+              <h2>Phase 2: Deep Analysis</h2>
+              <p id="analysisSubtitle">
+                Select papers for comprehensive AI analysis (500-700 words per
+                paper)
+              </p>
+            </div>
+          </div>
+
+          <div class="papers-holo-grid" id="papersGrid"></div>
+
+          <div
+            style="text-align: center; padding: 3rem; display: none"
+            id="emptyState"
+          >
+            <i
+              class="fas fa-satellite"
+              style="
+                font-size: 4rem;
+                color: var(--aurora-cyan);
+                opacity: 0.5;
+                margin-bottom: 1rem;
+              "
+            ></i>
+            <h3 style="color: var(--star-white); margin-bottom: 0.5rem">
+              No Papers Found
+            </h3>
+            <p style="color: var(--cosmic-dust)">
+              Adjust your search query and try again
+            </p>
+          </div>
+
+          <div class="btn-group" style="margin-top: 2rem">
+            <button class="btn-holo btn-outline" onclick="navigateToStep(1)">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button
+              class="btn-holo btn-primary"
+              id="analyzeBtn"
+              onclick="analyzeSelected()"
+              disabled
+            >
+              <i class="fas fa-brain"></i> Analyze Selected (<span
+                id="analyzeCount"
+                >0</span
+              >)
+            </button>
+          </div>
+
+          <div class="quantum-loader" id="analysisLoader">
+            <div class="quantum-ring">
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+            </div>
+            <div class="loader-text">Neural Network Analysis</div>
+            <div class="loader-status" id="analysisStatus">
+              Extracting semantic structures...
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill-bar" id="analysisProgress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3: Writing -->
+      <div class="phase-section" id="phase3">
+        <div class="holo-card">
+          <div class="card-header">
+            <div
+              class="holo-icon"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--aurora-purple),
+                  #7c3aed
+                );
+              "
+            >
+              <i class="fas fa-pen-nib"></i>
+            </div>
+            <div class="card-title-group">
+              <h2>Phase 3: Synthesis & Writing</h2>
+              <p>
+                Generating publication-ready systematic review (3000+ words)
+              </p>
+            </div>
+          </div>
+
+          <div class="quantum-loader" id="writingLoader">
+            <div class="quantum-ring">
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+            </div>
+            <div class="loader-text">Synthesizing Knowledge</div>
+            <div class="loader-status">
+              Generating comprehensive sections...
+            </div>
+          </div>
+
+          <div id="writingResults" style="display: none">
+            <div class="output-holo-grid">
+              <div class="output-holo-card">
+                <div class="output-header-holo">
+                  <div class="output-icon-holo">
+                    <i class="fas fa-file-alt"></i>
+                  </div>
+                  <div class="output-title-group">
+                    <div class="output-title">Structured Abstract</div>
+                    <div class="output-subtitle">
+                      300-350 words comprehensive summary
+                    </div>
+                  </div>
+                  <span class="word-count-holo"
+                    ><i class="fas fa-font"></i
+                    ><span id="abstractWordCount">~325</span> words</span
+                  >
+                </div>
+                <div class="content-holo" id="abstractContent"></div>
+              </div>
+
+              <div class="output-holo-card">
+                <div class="output-header-holo">
+                  <div
+                    class="output-icon-holo"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--aurora-blue),
+                        #2563eb
+                      );
+                    "
+                  >
+                    <i class="fas fa-flask"></i>
+                  </div>
+                  <div class="output-title-group">
+                    <div class="output-title">Methodology</div>
+                    <div class="output-subtitle">
+                      PRISMA 2020 compliant detailed methods
+                    </div>
+                  </div>
+                  <span class="word-count-holo"
+                    ><i class="fas fa-font"></i
+                    ><span id="methodsWordCount">~700</span> words</span
+                  >
+                </div>
+                <div class="content-holo" id="methodsContent"></div>
+              </div>
+
+              <div class="output-holo-card">
+                <div class="output-header-holo">
+                  <div
+                    class="output-icon-holo"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--aurora-green),
+                        #059669
+                      );
+                    "
+                  >
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="output-title-group">
+                    <div class="output-title">Results Synthesis</div>
+                    <div class="output-subtitle">
+                      Thematic analysis with quantitative patterns
+                    </div>
+                  </div>
+                  <span class="word-count-holo"
+                    ><i class="fas fa-font"></i
+                    ><span id="resultsWordCount">~800</span> words</span
+                  >
+                </div>
+                <div class="content-holo" id="resultsContent"></div>
+              </div>
+
+              <div class="output-holo-card">
+                <div class="output-header-holo">
+                  <div
+                    class="output-icon-holo"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--aurora-amber),
+                        #d97706
+                      );
+                    "
+                  >
+                    <i class="fas fa-comments"></i>
+                  </div>
+                  <div class="output-title-group">
+                    <div class="output-title">Critical Discussion</div>
+                    <div class="output-subtitle">
+                      Implications, limitations, and future research
+                    </div>
+                  </div>
+                  <span class="word-count-holo"
+                    ><i class="fas fa-font"></i
+                    ><span id="discussionWordCount">~700</span> words</span
+                  >
+                </div>
+                <div class="content-holo" id="discussionContent"></div>
+              </div>
+
+              <div class="output-holo-card">
+                <div class="output-header-holo">
+                  <div
+                    class="output-icon-holo"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--aurora-pink),
+                        #db2777
+                      );
+                    "
+                  >
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="output-title-group">
+                    <div class="output-title">APA References</div>
+                    <div class="output-subtitle">Formatted citation list</div>
+                  </div>
+                </div>
+                <div
+                  class="content-holo"
+                  id="referencesContent"
+                  style="
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 0.95rem;
+                  "
+                ></div>
+              </div>
+
+              <div
+                class="output-holo-card"
+                style="border: 2px solid rgba(6, 182, 212, 0.3)"
+              >
+                <div class="output-header-holo">
+                  <div class="output-icon-holo">
+                    <i class="fas fa-scroll"></i>
+                  </div>
+                  <div class="output-title-group">
+                    <div class="output-title">Complete Systematic Review</div>
+                    <div class="output-subtitle">
+                      Full publication-ready document
+                    </div>
+                  </div>
+                  <span class="word-count-holo"
+                    ><i class="fas fa-font"></i
+                    ><span id="totalWordCount">~3000+</span> words</span
+                  >
+                </div>
+                <div
+                  class="content-holo"
+                  id="fullReviewContent"
+                  style="max-height: 600px"
+                ></div>
+              </div>
+            </div>
+
+            <div class="btn-group" style="margin-top: 2rem">
+              <button class="btn-holo btn-outline" onclick="navigateToStep(2)">
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <button
+                class="btn-holo btn-success"
+                onclick="exportResults('full', 'pdf')"
+              >
+                <i class="fas fa-file-pdf"></i> Export PDF
+              </button>
+              <button
+                class="btn-holo btn-primary"
+                onclick="exportResults('full', 'json')"
+                title="Export structured JSON data"
+              >
+                <i class="fas fa-code"></i> Export JSON
+              </button>
+              <button class="btn-holo btn-primary" onclick="navigateToStep(4)">
+                Quality Assessment <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="storage-badge" id="storageBadge" style="display: none">
+              <i class="fas fa-check-circle"></i>
+              <span id="storageText">Saved to session storage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4: Review -->
+      <div class="phase-section" id="phase4">
+        <div class="holo-card">
+          <div class="card-header">
+            <div
+              class="holo-icon"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--aurora-green),
+                  #059669
+                );
+              "
+            >
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="card-title-group">
+              <h2>Phase 4: Quality Assessment & Publication</h2>
+              <p>
+                Rigorous peer review with accurate scoring and final PDF
+                generation
+              </p>
+            </div>
+          </div>
+
+          <div class="btn-group" id="reviewActions">
+            <button
+              class="btn-holo btn-amber"
+              onclick="generateCritique()"
+              id="critiqueBtn"
+            >
+              <i class="fas fa-search-plus"></i> Generate Critique
+            </button>
+            <button
+              class="btn-holo btn-primary"
+              onclick="generateRevision()"
+              id="reviseBtn"
+              style="display: none"
+            >
+              <i class="fas fa-magic"></i> Generate Revision
+            </button>
+            <button
+              class="btn-holo btn-success"
+              onclick="exportResults('final', 'pdf')"
+              id="exportFinalBtn"
+              style="display: none"
+            >
+              <i class="fas fa-file-export"></i> Export Final PDF
+            </button>
+            <button
+              class="btn-holo btn-primary"
+              onclick="exportResults('final', 'json')"
+              id="exportFinalJsonBtn"
+              style="display: none"
+              title="Export final version as JSON"
+            >
+              <i class="fas fa-code"></i> Export Final JSON
+            </button>
+          </div>
+
+          <div class="quantum-loader" id="reviewLoader">
+            <div class="quantum-ring">
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+              <div class="ring-particle"></div>
+            </div>
+            <div class="loader-text">Conducting Peer Review</div>
+            <div class="loader-status" id="reviewStatus">
+              Evaluating methodological rigor...
+            </div>
+          </div>
+
+          <div id="reviewResults" style="display: none">
+            <div
+              class="score-holo-display"
+              id="scoreDisplay"
+              style="display: none"
+            >
+              <div class="score-holo-value" id="qualityScore">--</div>
+              <div class="score-holo-label" id="scoreLabel">
+                Assessment Pending
+              </div>
+              <div class="score-breakdown-holo" id="scoreBreakdown"></div>
+            </div>
+
+            <div class="output-holo-card" style="margin-bottom: 1.5rem">
+              <div class="output-header-holo">
+                <div
+                  class="output-icon-holo"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      var(--aurora-amber),
+                      #d97706
+                    );
+                  "
+                >
+                  <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="output-title-group">
+                  <div class="output-title">Peer Review Critique</div>
+                  <div class="output-subtitle">
+                    Detailed assessment with actionable recommendations
+                  </div>
+                </div>
+              </div>
+              <div
+                class="content-holo"
+                id="critiqueContent"
+                style="max-height: 500px"
+              ></div>
+            </div>
+
+            <div
+              class="output-holo-card"
+              id="revisedCard"
+              style="
+                display: none;
+                margin-bottom: 1.5rem;
+                border-color: rgba(16, 185, 129, 0.3);
+              "
+            >
+              <div class="output-header-holo">
+                <div
+                  class="output-icon-holo"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      var(--aurora-green),
+                      #059669
+                    );
+                  "
+                >
+                  <i class="fas fa-check-double"></i>
+                </div>
+                <div class="output-title-group">
+                  <div class="output-title">Final Revised Review</div>
+                  <div class="output-subtitle">
+                    Publication-ready with all feedback addressed
+                  </div>
+                </div>
+              </div>
+              <div
+                style="
+                  background: rgba(16, 185, 129, 0.1);
+                  padding: 1rem;
+                  border-radius: 12px;
+                  margin-bottom: 1rem;
+                  border: 1px solid rgba(16, 185, 129, 0.2);
+                "
+              >
+                <i
+                  class="fas fa-check-circle"
+                  style="color: var(--aurora-green); margin-right: 0.5rem"
+                ></i>
+                <span style="color: var(--aurora-green); font-weight: 600"
+                  >All critique points addressed • Enhanced depth and
+                  accuracy</span
+                >
+              </div>
+              <div
+                class="content-holo"
+                id="revisedContent"
+                style="max-height: 600px; background: rgba(0, 0, 0, 0.4)"
+              ></div>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0">
+              <button
+                class="btn-holo btn-outline"
+                onclick="toggleComparison()"
+                id="compareBtn"
+              >
+                <i class="fas fa-columns"></i> Compare Versions
+              </button>
+            </div>
+
+            <div
+              class="comparison-holo-grid"
+              id="comparisonView"
+              style="display: none"
+            >
+              <div class="comparison-card-holo original">
+                <div class="comparison-header-holo">
+                  <i class="fas fa-file"></i><span>Original Version</span>
+                </div>
+                <div
+                  class="content-holo"
+                  id="originalCompare"
+                  style="max-height: 400px"
+                ></div>
+              </div>
+              <div class="comparison-card-holo revised">
+                <div class="comparison-header-holo">
+                  <i class="fas fa-file-alt"></i><span>Revised Version</span>
+                </div>
+                <div
+                  class="content-holo"
+                  id="revisedCompare"
+                  style="max-height: 400px"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="fab-holo" onclick="resetSystem()" title="Reset System">
+      <i class="fas fa-redo"></i>
+    </button>
+
+    <script>
+      // Application State
+      const AppState = {
+        papers: [],
+        selectedPapers: [],
+        analysis: null,
+        writingResults: null,
+        critique: null,
+        revisedReview: null,
+        currentStep: 1,
+        provider: "groq",
+        model: null,
+        isProcessing: false,
+        analysisMode: "detailed",
+        currentSession: null,
+      };
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", () => {
+        loadProviders();
+        setupEventListeners();
+        updateProgress();
+      });
+
+      // Load AI Providers
+      async function loadProviders() {
+        try {
+          const response = await fetch("/api/providers");
+          const data = await response.json();
+
+          const providerSelect = document.getElementById("llmProvider");
+          providerSelect.innerHTML =
+            '<option value="">Select AI Engine</option>';
+
+          data.providers.forEach((provider) => {
+            const option = document.createElement("option");
+            option.value = provider.id;
+            option.textContent = provider.name;
+            providerSelect.appendChild(option);
+          });
+
+          if (data.providers.length > 0) {
+            providerSelect.value = data.providers[0].id;
+            AppState.provider = data.providers[0].id;
+            updateModelSelect(data.providers[0]);
+          }
+        } catch (error) {
+          showAlert("Failed to load AI engines", "error");
+        }
+      }
+
+      function updateModelSelect(provider) {
+        const modelSelect = document.getElementById("llmModel");
+        modelSelect.innerHTML =
+          '<option value="">Auto-Select Optimal Model</option>';
+
+        provider.models.forEach((model) => {
+          const option = document.createElement("option");
+          option.value = model;
+          option.textContent = model;
+          if (model === provider.default_model) {
+            option.selected = true;
+            AppState.model = model;
+          }
+          modelSelect.appendChild(option);
+        });
+      }
+
+      // Event Listeners
+      function setupEventListeners() {
+        // Range slider
+        const slider = document.getElementById("paperCount");
+        const value = document.getElementById("paperCountValue");
+        slider.addEventListener("input", (e) => {
+          value.textContent = e.target.value;
+          animateValue(value);
+        });
+
+        // Provider change
+        document
+          .getElementById("llmProvider")
+          .addEventListener("change", async (e) => {
+            AppState.provider = e.target.value;
+            const response = await fetch("/api/providers");
+            const data = await response.json();
+            const provider = data.providers.find(
+              (p) => p.id === e.target.value,
+            );
+            if (provider) updateModelSelect(provider);
+          });
+
+        // Model change
+        document.getElementById("llmModel").addEventListener("change", (e) => {
+          AppState.model = e.target.value || null;
+        });
+      }
+
+      function animateValue(element) {
+        element.style.transform = "scale(1.3)";
+        setTimeout(() => (element.style.transform = "scale(1)"), 200);
+      }
+
+      // Analysis Mode Toggle
+      function setAnalysisMode(mode) {
+        AppState.analysisMode = mode;
+
+        // Update UI
+        document
+          .getElementById("modeDetailed")
+          .classList.toggle("active", mode === "detailed");
+        document
+          .getElementById("modeConcise")
+          .classList.toggle("active", mode === "concise");
+
+        // Update stats display
+        const wordCount = mode === "detailed" ? "600" : "175";
+        document.getElementById("statWords").textContent = wordCount;
+
+        // Update subtitle
+        const subtitle = document.getElementById("analysisSubtitle");
+        if (mode === "concise") {
+          subtitle.textContent =
+            "Select papers for concise AI analysis (150-200 words per paper)";
+        } else {
+          subtitle.textContent =
+            "Select papers for comprehensive AI analysis (500-700 words per paper)";
+        }
+
+        // Show notification
+        const modeName = mode === "detailed" ? "Detailed" : "Concise";
+        showAlert(`Switched to ${modeName} Analysis Mode`, "info");
+      }
+
+      // Navigation
+      function navigateToStep(step) {
+        if (step > AppState.currentStep && !validateStep(step)) return;
+
+        AppState.currentStep = step;
+
+        document
+          .querySelectorAll(".phase-section")
+          .forEach((s) => s.classList.remove("active"));
+        document.querySelectorAll(".step").forEach((s) => {
+          s.classList.remove("active", "completed");
+          const stepNum = parseInt(s.dataset.step);
+          if (stepNum === step) s.classList.add("active");
+          else if (stepNum < step) s.classList.add("completed");
+        });
+
+        document.getElementById(`phase${step}`).classList.add("active");
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        if (step === 3 && AppState.analysis && !AppState.writingResults) {
+          generateReview();
+        }
+      }
+
+      function validateStep(targetStep) {
+        if (targetStep === 2 && AppState.papers.length === 0) {
+          showAlert("Complete Phase 1 first", "warning");
+          return false;
+        }
+        if (targetStep === 3 && !AppState.analysis) {
+          showAlert("Complete Phase 2 first", "warning");
+          return false;
+        }
+        if (targetStep === 4 && !AppState.writingResults) {
+          showAlert("Complete Phase 3 first", "warning");
+          return false;
+        }
+        return true;
+      }
+
+      function updateProgress() {
+        const progress = ((AppState.currentStep - 1) / 3) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+      }
+
+      // Phase 1: Search with progress simulation
+      async function searchPapers() {
+        if (AppState.isProcessing) return;
+
+        const topic = document.getElementById("researchTopic").value.trim();
+        const maxResults = document.getElementById("paperCount").value;
+
+        if (!topic) {
+          showAlert("Enter a research topic", "error");
+          return;
+        }
+
+        AppState.isProcessing = true;
+        const loader = document.getElementById("searchLoader");
+        const status = document.getElementById("searchStatus");
+        const progress = document.getElementById("searchProgress");
+
+        loader.classList.add("active");
+
+        // Simulate progress
+        let progressValue = 0;
+        const progressInterval = setInterval(() => {
+          progressValue += Math.random() * 15;
+          if (progressValue > 90) progressValue = 90;
+          progress.style.width = progressValue + "%";
+        }, 500);
+
+        try {
+          status.textContent = "Querying arXiv and Semantic Scholar...";
+
+          const response = await fetch("/api/search", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              query: topic,
+              max_results: parseInt(maxResults),
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.error) throw new Error(data.error);
+
+          AppState.papers = data.papers;
+          AppState.selectedPapers = [];
+          AppState.currentSession = data.session_id;
+
+          displayPapers(data.papers);
+
+          document.getElementById("statTotal").textContent = data.papers.length;
+          document.getElementById("statsGrid").style.display = "grid";
+
+          clearInterval(progressInterval);
+          progress.style.width = "100%";
+
+          showAlert(
+            `Success: ${data.message} (Session: ${data.session_id})`,
+            "success",
+          );
+
+          setTimeout(() => {
+            loader.classList.remove("active");
+            navigateToStep(2);
+          }, 500);
+        } catch (error) {
+          clearInterval(progressInterval);
+          showAlert("Search failed: " + error.message, "error");
+          loader.classList.remove("active");
+        } finally {
+          AppState.isProcessing = false;
+        }
+      }
+
+      function displayPapers(papers) {
+        const grid = document.getElementById("papersGrid");
+        const emptyState = document.getElementById("emptyState");
+
+        grid.innerHTML = "";
+
+        if (papers.length === 0) {
+          emptyState.style.display = "block";
+          return;
+        }
+
+        emptyState.style.display = "none";
+
+        papers.forEach((paper, index) => {
+          const card = document.createElement("div");
+          card.className = "paper-holo-card";
+          if (AppState.analysisMode === "concise") {
+            card.classList.add("concise-mode");
+          }
+          card.dataset.id = paper.id;
+          card.style.animation = `holo-appear 0.5s ease ${index * 0.1}s both`;
+
+          const authors = paper.authors.slice(0, 3).join(", ");
+          const moreAuthors =
+            paper.authors.length > 3 ? ` +${paper.authors.length - 3}` : "";
+          const sourceClass =
+            paper.source === "arXiv" ? "source-arxiv" : "source-semantic";
+
+          // Add Show PDF button if paper is downloaded
+          const showPdfBtn = paper.download_path
+            ? `<button class="btn-view-pdf" onclick="event.stopPropagation(); viewPaper('${paper.id}')" title="View PDF">
+              <i class="fas fa-eye"></i> Show PDF
+            </button>`
+            : "";
+
+          card.innerHTML = `
+            <div class="selection-indicator"><i class="fas fa-check"></i></div>
+            <span class="paper-source-badge ${sourceClass}">${paper.source}</span>
+            <div class="paper-title">${paper.title}</div>
+            <div class="paper-authors"><i class="fas fa-users"></i> ${authors}${moreAuthors}</div>
+            <div class="paper-meta-holo">
+              <span><i class="fas fa-calendar"></i> ${paper.published}</span>
+              ${paper.citations ? `<span><i class="fas fa-quote-right"></i> ${paper.citations}</span>` : ""}
+              ${paper.filename ? `<span><i class="fas fa-file-pdf"></i> ${paper.filename}</span>` : ""}
+            </div>
+            <div class="paper-abstract-preview">${paper.summary}</div>
+            ${showPdfBtn}
+            <div class="download-badge" style="margin-top: 0.5rem;">
+              <i class="fas fa-check-circle"></i> Ready for Analysis
+            </div>
+          `;
+
+          card.addEventListener("click", () => togglePaperSelection(paper.id));
+          grid.appendChild(card);
+        });
+      }
+
+      // View Paper PDF
+      async function viewPaper(paperId) {
+        try {
+          const response = await fetch(`/api/paper/${paperId}/view`);
+          const data = await response.json();
+
+          if (data.error) {
+            showAlert("PDF not available", "warning");
+            return;
+          }
+
+          document.getElementById("pdfModalTitle").textContent = data.title;
+          document.getElementById("pdfViewer").src = data.view_url;
+          document.getElementById("pdfModal").style.display = "block";
+          document.body.style.overflow = "hidden";
+        } catch (error) {
+          showAlert("Failed to load PDF: " + error.message, "error");
+        }
+      }
+
+      function closePdfModal() {
+        document.getElementById("pdfModal").style.display = "none";
+        document.getElementById("pdfViewer").src = "";
+        document.body.style.overflow = "auto";
+      }
+
+      // Close modal on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closePdfModal();
+      });
+
+      function togglePaperSelection(paperId) {
+        const card = document.querySelector(
+          `.paper-holo-card[data-id="${paperId}"]`,
+        );
+
+        if (AppState.selectedPapers.includes(paperId)) {
+          AppState.selectedPapers = AppState.selectedPapers.filter(
+            (id) => id !== paperId,
+          );
+          card.classList.remove("selected");
+        } else {
+          if (AppState.selectedPapers.length >= 10) {
+            showAlert("Maximum 10 papers allowed", "warning");
+            return;
+          }
+          AppState.selectedPapers.push(paperId);
+          card.classList.add("selected");
+        }
+
+        updateSelectionStats();
+      }
+
+      function updateSelectionStats() {
+        const count = AppState.selectedPapers.length;
+        document.getElementById("statSelected").textContent = count;
+        document.getElementById("analyzeCount").textContent = count;
+
+        const btn = document.getElementById("analyzeBtn");
+        btn.disabled = count === 0;
+      }
+
+      // Phase 2: Batch Analysis with progress
+      async function analyzeSelected() {
+        if (AppState.isProcessing || AppState.selectedPapers.length === 0)
+          return;
+
+        AppState.isProcessing = true;
+        const loader = document.getElementById("analysisLoader");
+        const status = document.getElementById("analysisStatus");
+        const progress = document.getElementById("analysisProgress");
+
+        loader.classList.add("active");
+
+        try {
+          // Visual feedback for selection
+          AppState.selectedPapers.forEach((pid, idx) => {
+            const card = document.querySelector(
+              `.paper-holo-card[data-id="${pid}"]`,
+            );
+            if (card) {
+              setTimeout(() => {
+                card.style.border = "2px solid var(--aurora-cyan)";
+                card.style.boxShadow = "var(--shine-cyan)";
+                status.textContent = `Processing paper ${idx + 1}/${AppState.selectedPapers.length}...`;
+                progress.style.width =
+                  ((idx + 1) / AppState.selectedPapers.length) * 50 + "%";
+              }, idx * 300);
+            }
+          });
+
+          const response = await fetch("/api/analyze", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              paper_ids: AppState.selectedPapers,
+              provider: AppState.provider,
+              model: AppState.model,
+              mode: AppState.analysisMode,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.error) throw new Error(data.error);
+
+          AppState.analysis = data.analyses;
+          AppState.currentSession = data.session_id;
+
+          progress.style.width = "100%";
+
+          const modeText =
+            AppState.analysisMode === "concise" ? "150-200" : "500-700";
+          showAlert(
+            `Analysis complete: ${data.extracted_papers} papers processed with ${modeText} words each`,
+            "success",
+          );
+
+          setTimeout(() => {
+            loader.classList.remove("active");
+            navigateToStep(3);
+          }, 500);
+        } catch (error) {
+          showAlert("Analysis failed: " + error.message, "error");
+          loader.classList.remove("active");
+        } finally {
+          AppState.isProcessing = false;
+          document.querySelectorAll(".paper-holo-card").forEach((card) => {
+            card.style.border = "";
+            card.style.boxShadow = "";
+          });
+        }
+      }
+
+      // Phase 3: Generate Review
+      async function generateReview() {
+        const loader = document.getElementById("writingLoader");
+        const results = document.getElementById("writingResults");
+
+        loader.classList.add("active");
+        results.style.display = "none";
+
+        try {
+          const response = await fetch("/api/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              provider: AppState.provider,
+              model: AppState.model,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.error) throw new Error(data.error);
+
+          AppState.writingResults = data;
+          AppState.currentSession = data.session_id;
+
+          // Populate content
+          document.getElementById("abstractContent").textContent =
+            data.abstract;
+          document.getElementById("methodsContent").textContent =
+            data.methods_comparison;
+          document.getElementById("resultsContent").textContent =
+            data.results_synthesis;
+          document.getElementById("discussionContent").textContent =
+            data.discussion;
+
+          const refsHtml = data.references
+            .map(
+              (ref, i) =>
+                `<div style="margin-bottom: 0.75rem; padding-left: 2rem; text-indent: -2rem;"><strong>${i + 1}.</strong> ${ref}</div>`,
+            )
+            .join("");
+          document.getElementById("referencesContent").innerHTML = refsHtml;
+          document.getElementById("fullReviewContent").textContent =
+            data.full_review;
+
+          // Show storage badge
+          document.getElementById("storageBadge").style.display = "inline-flex";
+          document.getElementById("storageText").textContent =
+            `Saved to session: ${data.session_id}`;
+
+          loader.classList.remove("active");
+          results.style.display = "block";
+
+          showAlert(
+            "Phase 3 Complete: Generated 3000+ word systematic review",
+            "success",
+          );
+        } catch (error) {
+          showAlert("Generation failed: " + error.message, "error");
+          loader.classList.remove("active");
+        }
+      }
+
+      // Phase 4: Critique with accurate scoring
+      async function generateCritique() {
+        const loader = document.getElementById("reviewLoader");
+        const results = document.getElementById("reviewResults");
+        const btn = document.getElementById("critiqueBtn");
+
+        loader.classList.add("active");
+        results.style.display = "none";
+        btn.disabled = true;
+
+        try {
+          const response = await fetch("/api/review", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action: "critique",
+              provider: AppState.provider,
+              model: AppState.model,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.error) throw new Error(data.error);
+
+          AppState.critique = data.critique;
+
+          parseAndDisplayCritique(data.critique);
+
+          document.getElementById("reviseBtn").style.display = "inline-flex";
+          document.getElementById("critiqueBtn").innerHTML =
+            '<i class="fas fa-check"></i> Critique Generated';
+          document.getElementById("critiqueBtn").disabled = false;
+
+          loader.classList.remove("active");
+          results.style.display = "block";
+
+          showAlert(
+            "Quality assessment complete with accurate scoring",
+            "success",
+          );
+        } catch (error) {
+          showAlert("Critique failed: " + error.message, "error");
+          loader.classList.remove("active");
+          btn.disabled = false;
+        }
+      }
+
+      function parseAndDisplayCritique(critique) {
+        document.getElementById("critiqueContent").textContent = critique;
+
+        // Extract score with multiple patterns
+        const patterns = [
+          /FINAL SCORE[:\s]*(\d+(?:\.\d+)?)\s*\/\s*10/i,
+          /(\d+(?:\.\d+)?)\s*\/\s*10/i,
+          /Score[:\s]*(\d+(?:\.\d+)?)/i,
+        ];
+
+        let score = null;
+        for (const pattern of patterns) {
+          const match = critique.match(pattern);
+          if (match) {
+            score = parseFloat(match[1]);
+            break;
+          }
+        }
+
+        if (score !== null) {
+          const scoreEl = document.getElementById("qualityScore");
+          const labelEl = document.getElementById("scoreLabel");
+
+          scoreEl.textContent = score.toFixed(1) + "/10";
+
+          let label, colorClass;
+          if (score >= 8) {
+            label = "Excellent • Publication Ready";
+            colorClass = "score-excellent";
+          } else if (score >= 6) {
+            label = "Good • Minor Revisions Needed";
+            colorClass = "score-good";
+          } else if (score >= 4) {
+            label = "Fair • Major Revisions Required";
+            colorClass = "score-fair";
+          } else {
+            label = "Needs Significant Improvement";
+            colorClass = "score-poor";
+          }
+
+          labelEl.textContent = label;
+          labelEl.className = "score-holo-label " + colorClass;
+
+          // Extract dimension scores
+          const dims = [
+            {
+              name: "Protocol & Registration",
+              pattern: /Protocol.*?(\d+(?:\.\d+)?)\/2\.5/i,
+            },
+            {
+              name: "Literature Coverage",
+              pattern: /Coverage.*?(\d+(?:\.\d+)?)\/2\.5/i,
+            },
+            {
+              name: "Quality Assessment",
+              pattern: /Quality Assessment.*?(\d+(?:\.\d+)?)\/2\.5/i,
+            },
+            {
+              name: "Synthesis & Analysis",
+              pattern: /Synthesis.*?(\d+(?:\.\d+)?)\/2\.5/i,
+            },
+          ];
+
+          let breakdownHtml = "";
+          dims.forEach((dim) => {
+            const match = critique.match(dim.pattern);
+            if (match) {
+              breakdownHtml += `
+                <div class="score-item-holo">
+                  <span class="score-item-label">${dim.name}</span>
+                  <span class="score-item-value">${match[1]}/2.5</span>
+                </div>
+              `;
+            }
+          });
+
+          if (breakdownHtml) {
+            document.getElementById("scoreBreakdown").innerHTML = breakdownHtml;
+          }
+
+          document.getElementById("scoreDisplay").style.display = "block";
+        }
+      }
+
+      async function generateRevision() {
+        const loader = document.getElementById("reviewLoader");
+        const status = document.getElementById("reviewStatus");
+        const btn = document.getElementById("reviseBtn");
+
+        loader.classList.add("active");
+        status.textContent =
+          "Applying critique feedback and enhancing content...";
+        btn.disabled = true;
+
+        try {
+          const response = await fetch("/api/review", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action: "revise",
+              critique: AppState.critique,
+              provider: AppState.provider,
+              model: AppState.model,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.error) throw new Error(data.error);
+
+          AppState.revisedReview = data.revised_review;
+          AppState.currentSession = data.session_id;
+
+          document.getElementById("revisedContent").textContent =
+            data.revised_review;
+          document.getElementById("revisedCard").style.display = "block";
+
+          document.getElementById("originalCompare").textContent =
+            AppState.writingResults.full_review;
+          document.getElementById("revisedCompare").textContent =
+            data.revised_review;
+
+          document.getElementById("reviseBtn").innerHTML =
+            '<i class="fas fa-check"></i> Revision Complete';
+          document.getElementById("exportFinalBtn").style.display =
+            "inline-flex";
+          document.getElementById("exportFinalJsonBtn").style.display =
+            "inline-flex";
+
+          loader.classList.remove("active");
+
+          showAlert(
+            "Final draft generated: 3000+ words with all feedback addressed",
+            "success",
+          );
+
+          document
+            .getElementById("revisedCard")
+            .scrollIntoView({ behavior: "smooth" });
+        } catch (error) {
+          showAlert("Revision failed: " + error.message, "error");
+          loader.classList.remove("active");
+          btn.disabled = false;
+        }
+      }
+
+      function toggleComparison() {
+        const view = document.getElementById("comparisonView");
+        const btn = document.getElementById("compareBtn");
+        const isVisible = view.style.display === "grid";
+
+        view.style.display = isVisible ? "none" : "grid";
+        btn.innerHTML = isVisible
+          ? '<i class="fas fa-columns"></i> Compare Versions'
+          : '<i class="fas fa-eye-slash"></i> Hide Comparison';
+
+        if (!isVisible) view.scrollIntoView({ behavior: "smooth" });
+      }
+
+      async function exportResults(type, format) {
+        let content, filename;
+        const date = new Date().toISOString().split("T")[0];
+        const modeSuffix =
+          AppState.analysisMode === "concise" ? "_concise" : "";
+
+        if (type === "full" && AppState.writingResults) {
+          content = AppState.writingResults.full_review;
+          filename = `systematic_review${modeSuffix}_${date}.${format}`;
+        } else if (type === "final" && AppState.revisedReview) {
+          content = AppState.revisedReview;
+          filename = `systematic_review_final${modeSuffix}_${date}.${format}`;
+        } else {
+          showAlert("No content available", "warning");
+          return;
+        }
+
+        const btn = event.target.closest("button");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+
+        try {
+          const response = await fetch("/api/export", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              content: content,
+              filename: filename,
+              format: format,
+              metadata: {
+                date: new Date().toLocaleString(),
+                paper_count: AppState.selectedPapers.length,
+                provider: AppState.provider,
+                mode: AppState.analysisMode,
+                session_id: AppState.currentSession,
+              },
+            }),
+          });
+
+          if (response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            showAlert(`Exported: ${filename}`, "success");
+          } else {
+            throw new Error("Export failed");
+          }
+        } catch (error) {
+          showAlert("Export failed: " + error.message, "error");
+        } finally {
+          btn.innerHTML = originalText;
+        }
+      }
+
+      function resetSystem() {
+        if (!confirm("Reset entire system? All progress will be lost.")) return;
+
+        // Reset state
+        Object.assign(AppState, {
+          papers: [],
+          selectedPapers: [],
+          analysis: null,
+          writingResults: null,
+          critique: null,
+          revisedReview: null,
+          currentStep: 1,
+          currentSession: null,
+        });
+
+        // Reset UI
+        document.getElementById("papersGrid").innerHTML = "";
+        document.getElementById("statsGrid").style.display = "none";
+        document.getElementById("researchTopic").value = "";
+        document.getElementById("writingResults").style.display = "none";
+        document.getElementById("reviewResults").style.display = "none";
+        document.getElementById("scoreDisplay").style.display = "none";
+        document.getElementById("revisedCard").style.display = "none";
+        document.getElementById("comparisonView").style.display = "none";
+        document.getElementById("reviseBtn").style.display = "none";
+        document.getElementById("exportFinalBtn").style.display = "none";
+        document.getElementById("exportFinalJsonBtn").style.display = "none";
+        document.getElementById("critiqueBtn").innerHTML =
+          '<i class="fas fa-search-plus"></i> Generate Critique';
+        document.getElementById("storageBadge").style.display = "none";
+
+        navigateToStep(1);
+        showAlert("System reset complete", "info");
+      }
+
+      function showAlert(message, type = "info") {
+        document.querySelectorAll(".alert-holo").forEach((a) => a.remove());
+
+        const alert = document.createElement("div");
+        alert.className = `alert-holo alert-${type}`;
+
+        const icons = {
+          success: "check-circle",
+          error: "exclamation-circle",
+          warning: "exclamation-triangle",
+          info: "info-circle",
+        };
+
+        alert.innerHTML = `<i class="fas fa-${icons[type]}"></i> ${message}`;
+
+        const container = document.querySelector(".container");
+        container.insertBefore(alert, container.firstChild);
+
+        setTimeout(() => {
+          alert.style.opacity = "0";
+          alert.style.transform = "translateX(-30px)";
+          setTimeout(() => alert.remove(), 300);
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
