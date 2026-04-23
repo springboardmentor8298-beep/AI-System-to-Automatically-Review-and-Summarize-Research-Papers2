@@ -1,0 +1,72 @@
+[
+    {
+        "title": "VLsI: Verbalized Layers-to-Interactions from Large to Small Vision Language Models",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "The recent surge in high-quality visual instruction tuning samples from closed-source vision-language models (VLMs) such as GPT-4V has accelerated the release of open-source VLMs across various model sizes. However, scaling VLMs to improve performance using larger models brings significant computational challenges, especially for deployment on resource-constrained devices like mobile platforms and robots. To address this, we propose VLsI: Verbalized Layers-to-Interactions, a new VLM family in 2B and 7B model sizes, which prioritizes efficiency without compromising accuracy. VLsI leverages a unique, layer-wise distillation process, introducing intermediate \"verbalizers\" that map features from each layer to natural language space, allowing smaller VLMs to flexibly align with the reasoning processes of larger VLMs. This approach mitigates the training instability often encountered in output imitation and goes beyond typical final-layer tuning by aligning the small VLMs' layer-wise progression with that of the large ones. We validate VLsI across ten challenging vision-language benchmarks, achieving notable performance gains (11.0% for 2B and 17.4% for 7B) over GPT-4V without the need for model scaling, merging, or architectural changes.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2412.01822v2.pdf",
+        "id": 1,
+        "pdf_available": true,
+        "file_path": "research_papers\\VLSI\\paper_1.pdf",
+        "local_path": "research_papers\\VLSI\\paper_1.pdf"
+    },
+    {
+        "title": "A Study of VLSI Technology, Wafers and Impact on Nanotechnology",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "This paper presents a detailed study of the present VLSI technological aspects, importance and their replacement or combination with the Nanotechnology in the VLSI world of silicon semiconductors. Here authors bring out the nanotechnology in Silicon world which invariably means shrinking geometry of CMOS devices to nano scale. This also refers to a new world of nanotechnology where chemists are working in manufacturing of carbon nanotubes , nano devices of varius materials of nano dimensions without even knowing how this could change the whole world of Si and CMOS technology and the world we live in.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/1001.3771v1.pdf",
+        "id": 2,
+        "pdf_available": true,
+        "file_path": "research_papers\\VLSI\\paper_2.pdf",
+        "local_path": "research_papers\\VLSI\\paper_2.pdf"
+    },
+    {
+        "title": "Pruned Continuous Haar Transform of 2D Polygonal Patterns with Application to VLSI Layouts",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "We introduce an algorithm for the efficient computation of the continuous Haar transform of 2D patterns that can be described by polygons. These patterns are ubiquitous in VLSI processes where they are used to describe design and mask layouts. There, speed is of paramount importance due to the magnitude of the problems to be solved and hence very fast algorithms are needed. We show that by techniques borrowed from computational geometry we are not only able to compute the continuous Haar transform directly, but also to do it quickly. This is achieved by massively pruning the transform tree and thus dramatically decreasing the computational load when the number of vertices is small, as is the case for VLSI layouts. We call this new algorithm the pruned continuous Haar transform. We implement this algorithm and show that for patterns found in VLSI layouts the proposed algorithm was in the worst case as fast as its discrete counterpart and up to 12 times faster.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/1105.1261v1.pdf",
+        "id": 3,
+        "pdf_available": true,
+        "file_path": "research_papers\\VLSI\\paper_3.pdf",
+        "local_path": "research_papers\\VLSI\\paper_3.pdf"
+    },
+    {
+        "title": "A Scalable VLSI Architecture for Soft-Input Soft-Output Depth-First Sphere Decoding",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Multiple-input multiple-output (MIMO) wireless transmission imposes huge challenges on the design of efficient hardware architectures for iterative receivers. A major challenge is soft-input soft-output (SISO) MIMO demapping, often approached by sphere decoding (SD). In this paper, we introduce the - to our best knowledge - first VLSI architecture for SISO SD applying a single tree-search approach. Compared with a soft-output-only base architecture similar to the one proposed by Studer et al. in IEEE J-SAC 2008, the architectural modifications for soft input still allow a one-node-per-cycle execution. For a 4x4 16-QAM system, the area increases by 57% and the operating frequency degrades by 34% only.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/0910.3427v4.pdf",
+        "id": 4,
+        "pdf_available": true,
+        "file_path": "research_papers\\VLSI\\paper_4.pdf",
+        "local_path": "research_papers\\VLSI\\paper_4.pdf"
+    },
+    {
+        "title": "A Neuromorphic VLSI Design for Spike Timing and Rate Based Synaptic Plasticity",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Triplet-based Spike Timing Dependent Plasticity (TSTDP) is a powerful synaptic plasticity rule that acts beyond conventional pair-based STDP (PSTDP). Here, the TSTDP is capable of reproducing the outcomes from a variety of biological experiments, while the PSTDP rule fails to reproduce them. Additionally, it has been shown that the behaviour inherent to the spike rate-based Bienenstock-Cooper-Munro (BCM) synaptic plasticity rule can also emerge from the TSTDP rule. This paper proposes an analog implementation of the TSTDP rule. The proposed VLSI circuit has been designed using the AMS 0.35 um CMOS process and has been simulated using design kits for Synopsys and Cadence tools. Simulation results demonstrate how well the proposed circuit can alter synaptic weights according to the timing difference amongst a set of different patterns of spikes. Furthermore, the circuit is shown to give rise to a BCM-like learning rule, which is a rate-based rule. To mimic implementation environment, a 1000 run Monte Carlo (MC) analysis was conducted on the proposed circuit. The presented MC simulation analysis and the simulation result from fine-tuned circuits show that, it is possible to mitigate the effect of process variations in the proof of concept circuit, however, a practical variation aware design technique is required to promise a high circuit performance in a large scale neural network. We believe that the proposed design can play a significant role in future VLSI implementations of both spike timing and rate based neuromorphic learning systems.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/1304.0090v1.pdf",
+        "id": 5,
+        "pdf_available": true,
+        "file_path": "research_papers\\VLSI\\paper_5.pdf",
+        "local_path": "research_papers\\VLSI\\paper_5.pdf"
+    }
+]

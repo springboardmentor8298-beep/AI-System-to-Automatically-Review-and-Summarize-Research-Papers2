@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Deep Learning for Image Recognition",
+        "authors": [
+            "A. Smith",
+            "B. Jones"
+        ],
+        "year": 2018,
+        "abstract": "This paper explores deep learning models for image classification...",
+        "citations": 1500,
+        "pdf_url": "https://arxiv.org/pdf/1409.1556.pdf",
+        "pdf_available": true,
+        "local_path": "papers_dataset/paper_1.pdf"
+    },
+    {
+        "id": 2,
+        "title": "Reinforcement Learning: An Introduction",
+        "authors": [
+            "R. Sutton",
+            "A. Barto"
+        ],
+        "year": 2017,
+        "abstract": "We present a comprehensive introduction to reinforcement learning...",
+        "citations": 2500,
+        "pdf_url": null,
+        "pdf_available": false,
+        "local_path": null
+    },
+    {
+        "id": 3,
+        "title": "Attention Is All You Need",
+        "authors": [
+            "A. Vaswani",
+            "N. Shazeer"
+        ],
+        "year": 2017,
+        "abstract": "This paper introduces the Transformer model for sequence modeling...",
+        "citations": 3000,
+        "pdf_url": "https://arxiv.org/pdf/1706.03762.pdf",
+        "pdf_available": true,
+        "local_path": "papers_dataset/paper_3.pdf"
+    }
+]

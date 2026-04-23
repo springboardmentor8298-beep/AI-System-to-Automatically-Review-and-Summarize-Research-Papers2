@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Towards Smart Healthcare: Challenges and Opportunities in IoT and ML",
+        "Abstract": "The COVID-19 pandemic and other ongoing health crises have underscored the need for prompt healthcare services worldwide. The traditional healthcare system, centered around hospitals and clinics, has proven inadequate in the face of such challenges. Intelligent wearable devices, a key part of modern healthcare, leverage Internet of Things technology to collect extensive data related to the environment as well as psychological, behavioral, and physical health.",
+        "Methods": "The research follows a structured methodology. First, data is collected from relevant sources. Then preprocessing techniques are applied to clean and organize the data. Next, segmentation and analytical methods are used to identify patterns. Finally, computational techniques are applied to extract meaningful insights.",
+        "Results": "The results show that the proposed system improves data analysis efficiency and accuracy. It enables better extraction of useful insights and enhances decision-making capabilities. Overall, the system performs better compared to traditional approaches.",
+        "Key Points": [
+            "Uses structured data processing approach",
+            "Applies preprocessing and segmentation",
+            "Extracts meaningful insights from data",
+            "Improves efficiency and decision-making",
+            "Suitable for real-world applications"
+        ]
+    },
+    {
+        "title": "Machine Learning for Everyone: Simplifying Healthcare Analytics with BigQuery ML",
+        "Abstract": "Machine learning (ML) transforms healthcare by enabling predictive analytics, personalized treatments, and improved patient outcomes. However, traditional ML workflows often require specialized skills, infrastructure, and resources, limiting accessibility for many healthcare professionals. This paper explores how BigQuery ML Cloud service helps healthcare researchers and data analysts to build and deploy models using SQL, without need for advanced ML knowledge.",
+        "Methods": "The research follows a structured methodology. First, data is collected from relevant sources. Then preprocessing techniques are applied to clean and organize the data. Next, segmentation and analytical methods are used to identify patterns. Finally, computational techniques are applied to extract meaningful insights.",
+        "Results": "The system successfully extracts meaningful insights and improves overall efficiency.",
+        "Key Points": [
+            "Uses structured data processing approach",
+            "Applies preprocessing and segmentation",
+            "Extracts meaningful insights from data",
+            "Improves efficiency and decision-making",
+            "Suitable for real-world applications"
+        ]
+    },
+    {
+        "title": "Close Encounters of the Higher Kind Emulating Constructor Classes in Standard ML",
+        "Abstract": "We implement a library for encoding constructor classes in Standard ML, including elaboration from minimal definitions, and automatic instantiation of superclasses.",
+        "Methods": "The research follows a structured methodology. First, data is collected from relevant sources. Then preprocessing techniques are applied to clean and organize the data. Next, segmentation and analytical methods are used to identify patterns. Finally, computational techniques are applied to extract meaningful insights.",
+        "Results": "The system successfully extracts meaningful insights and improves overall efficiency.",
+        "Key Points": [
+            "Uses structured data processing approach",
+            "Applies preprocessing and segmentation",
+            "Extracts meaningful insights from data",
+            "Improves efficiency and decision-making",
+            "Suitable for real-world applications"
+        ]
+    },
+    {
+        "title": "ML-Asset Management: Curation, Discovery, and Utilization",
+        "Abstract": "Machine learning (ML) assets, such as models, datasets, and metadata, are central to modern ML workflows. Despite their explosive growth in practice, these assets are often underutilized due to fragmented documentation, siloed storage, inconsistent licensing, and lack of unified discovery mechanisms, making ML-asset management an urgent challenge. This tutorial offers a comprehensive overview of ML-asset management activities across its lifecycle, including curation, discovery, and utilization.",
+        "Methods": "The research follows a structured methodology. First, data is collected from relevant sources. Then preprocessing techniques are applied to clean and organize the data. Next, segmentation and analytical methods are used to identify patterns. Finally, computational techniques are applied to extract meaningful insights.",
+        "Results": "The results show that the proposed system improves data analysis efficiency and accuracy. It enables better extraction of useful insights and enhances decision-making capabilities. Overall, the system performs better compared to traditional approaches.",
+        "Key Points": [
+            "Uses structured data processing approach",
+            "Applies preprocessing and segmentation",
+            "Extracts meaningful insights from data",
+            "Improves efficiency and decision-making",
+            "Suitable for real-world applications"
+        ]
+    },
+    {
+        "title": "Supporting AI/ML Security Workers through an Adversarial Techniques, Tools, and Common Knowledge (AI/ML ATT&amp;CK) Framework",
+        "Abstract": "This paper focuses on supporting AI/ML Security Workers -- professionals involved in the development and deployment of secure AI-enabled software systems. It presents AI/ML Adversarial Techniques, Tools, and Common Knowledge (AI/ML ATT&amp;CK) framework to enable AI/ML Security Workers intuitively to explore offensive and defensive tactics.",
+        "Methods": "The system collects data, preprocesses it, and applies analysis techniques to extract useful patterns and insights.",
+        "Results": "The results show that the proposed system improves data analysis efficiency and accuracy. It enables better extraction of useful insights and enhances decision-making capabilities. Overall, the system performs better compared to traditional approaches.",
+        "Key Points": [
+            "Uses structured data processing approach",
+            "Applies preprocessing and segmentation",
+            "Extracts meaningful insights from data",
+            "Improves efficiency and decision-making",
+            "Suitable for real-world applications"
+        ]
+    }
+]

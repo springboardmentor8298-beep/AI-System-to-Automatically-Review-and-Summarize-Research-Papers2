@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Research Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body id="mainBody">
+
+<!-- 🔥 3D BACKGROUND -->
+<canvas id="bg3d"></canvas>
+
+<!-- 🔥 PARTICLES -->
+<div id="particles-js"></div>
+
+<h1>📚 AI Research Paper Assistant</h1>
+
+<div class="top-bar">
+    <input type="text" id="search" placeholder="🔍 Search papers..." onkeyup="searchPapers()">
+    <button onclick="toggleDarkMode()">🌙</button>
+</div>
+
+<div style="text-align:center; margin:20px;">
+    <a href="/revise">
+        <button>🔍 Critique / Revise</button>
+    </a>
+</div>
+
+{% for paper in papers %}
+<div class="card">
+
+    <h2>{{ paper.title }}</h2>
+
+    <button onclick="toggle(this)">Show Details ⬇</button>
+
+    <div class="content">
+
+        <h3>🧠 Abstract</h3>
+        <p>{{ paper.Abstract }}</p>
+
+        <h3>⚙️ Methodology</h3>
+        <p>{{ paper.Methods }}</p>
+
+        <h3>📊 Results</h3>
+        <p>{{ paper.Results }}</p>
+
+        <h3>⭐ Key Points</h3>
+        <ul>
+            {% for point in paper["Key Points"] %}
+            <li>✔ {{ point }}</li>
+            {% endfor %}
+        </ul>
+
+        {% if revised %}
+        <h3>📈 Quality Score: {{ paper.quality_score }}/4</h3>
+
+        <h4>🛠 Suggestions</h4>
+        <ul>
+            {% for s in paper.suggestions %}
+            <li>⚠ {{ s }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endfor %}
+
+{% if revised %}
+<div class="card">
+    <h2>📄 Final Combined Report</h2>
+    <p style="white-space: pre-line;">{{ final_report }}</p>
+
+    <a href="/static/final_report.pdf" download>
+        <button>📥 Download Final Report (PDF)</button>
+    </a>
+</div>
+{% endif %}
+
+<script>
+function searchPapers() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.getElementsByClassName("card");
+
+    if (input.includes("ml")) {
+        loadParticles("ml");
+        update3D("ml");
+    }
+    else if (input.includes("neural")) {
+        loadParticles("neural");
+        update3D("neural");
+    }
+    else if (input.includes("security")) {
+        loadParticles("security");
+        update3D("security");
+    }
+    else {
+        loadParticles("default");
+        update3D("default");
+    }
+
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+        cards[i].style.display = title.includes(input) ? "" : "none";
+    }
+}
+
+function toggle(btn) {
+    let content = btn.nextElementSibling;
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        btn.innerText = "Hide Details ⬆";
+    } else {
+        content.style.display = "none";
+        btn.innerText = "Show Details ⬇";
+    }
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+<!-- 🔥 PARTICLES -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+function loadParticles(mode) {
+
+    let config = {};
+
+    if (mode === "ml") {
+        config = { particles: { number: { value: 60 }, color: { value: "#0077b6" }, line_linked: { enable: true }, move: { speed: 2 } } };
+    }
+    else if (mode === "neural") {
+        config = { particles: { number: { value: 90 }, color: { value: "#9d4edd" }, line_linked: { enable: true }, move: { speed: 3 } } };
+    }
+    else if (mode === "security") {
+        config = { particles: { number: { value: 70 }, color: { value: "#2dc653" }, line_linked: { enable: false }, move: { speed: 1 } } };
+    }
+    else {
+        config = { particles: { number: { value: 50 }, color: { value: "#0077b6" }, line_linked: { enable: true }, move: { speed: 1 } } };
+    }
+
+    particlesJS("particles-js", config);
+}
+</script>
+
+<!-- 🔥 THREE JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+let scene, camera, renderer, particles, material;
+
+function init3D(color="#0077b6") {
+
+    const canvas = document.getElementById("bg3d");
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    let geometry = new THREE.BufferGeometry();
+    let vertices = [];
+
+    for (let i = 0; i < 2000; i++) {
+        vertices.push(
+            (Math.random()-0.5)*1000,
+            (Math.random()-0.5)*1000,
+            (Math.random()-0.5)*1000
+        );
+    }
+
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+    material = new THREE.PointsMaterial({ color: color, size: 2 });
+
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    camera.position.z = 300;
+
+    animate();
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    particles.rotation.x += 0.0005;
+    particles.rotation.y += 0.001;
+    renderer.render(scene, camera);
+}
+
+function update3D(mode) {
+    if (!material) return;
+
+    if (mode === "ml") material.color.set("#0077b6");
+    else if (mode === "neural") material.color.set("#9d4edd");
+    else if (mode === "security") material.color.set("#2dc653");
+    else material.color.set("#0077b6");
+}
+
+window.onload = function() {
+    init3D();
+    loadParticles("default");
+};
+</script>
+
+</body>
+</html>

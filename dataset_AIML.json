@@ -1,0 +1,70 @@
+[
+    {
+        "title": "Toward AIML Enabled WiFi Beamforming CSI Feedback Compression: An Overview of IEEE 802.11 Standardization",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Transmit beamforming is one of the key techniques used in the existing IEEE 802.11 WiFi standards and future generations such as 11be and 11bn, a.k.a., ultra high reliability (UHR). The paper gives an overview of the current standardization activities regarding the artificial intelligence and machine learning (AIML) enabled beamforming channel state information (CSI) feedback compression technique, defined by the 802.11 AIML topic interest group (TIG). Two key challenges the AIML TIG is going to tackle in the future beamforming standards and four defined key performance indicators (KPIs) for the AIML enabled schemes are discussed in the paper. The two challenges are the CSI feedback overhead and the compression complexity, and the four KPIs are feedback overhead, AIML model sharing overhead, packet error rate and complexity. Moreover, the paper presents a couple of AIML enabled compression schemes accepted by the TIG, such as the K-means and autoencoder based schemes, and uses simulated and analyzed data to explain how these schemes are designed according to the KPIs. Finally, future research directions are indicated for encouraging more researchers and engineers to contribute to this technique and the standardization of the next generation WiFi beamforming.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2503.00412v1.pdf",
+        "id": 1,
+        "pdf_available": true,
+        "file_path": "research_papers\\AIML\\paper_1.pdf",
+        "local_path": "research_papers\\AIML\\paper_1.pdf"
+    },
+    {
+        "title": "Artificial Intelligence MArkup Language: A Brief Tutorial",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "The purpose of this paper is to serve as a reference guide for the development of chatterbots implemented with the AIML language. In order to achieve this, the main concepts in Pattern Recognition area are described because the AIML uses such theoretical framework in their syntactic and semantic structures. After that, AIML language is described and each AIML command/tag is followed by an application example. Also, the usage of AIML embedded tags for the handling of sequence dialogue limitations between humans and machines is shown. Finally, computer systems that assist in the design of chatterbots with the AIML language are classified and described.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/1307.3091v1.pdf",
+        "id": 2,
+        "pdf_available": true,
+        "file_path": "research_papers\\AIML\\paper_2.pdf",
+        "local_path": "research_papers\\AIML\\paper_2.pdf"
+    },
+    {
+        "title": "Ab initio machine learning of phase space averages",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Equilibrium structures determine material properties and biochemical functions. We propose to machine learn phase-space averages, conventionally obtained by {\\em ab initio} or force-field based molecular dynamics (MD) or Monte Carlo simulations. In analogy to \\textit(ab initio} molecular dynamics (AIMD), our {\\em ab initio} machine learning (AIML) model does not require bond topologies and therefore enables a general machine learning pathway to ensemble properties throughout chemical compound space. We demonstrate AIML for predicting Boltzmann averaged structures after training on hundreds of MD trajectories. AIML output is subsequently used to train machine learning models of free energies of solvation using experimental data, and reaching competitive prediction errors (MAE $\\sim$ 0.8 kcal/mol) for out-of-sample molecules -- within milli-seconds. As such, AIML effectively bypasses the need for MD or MC-based phase space sampling, enabling exploration campaigns throughout CCS at a much accelerated pace. We contextualize our findings by comparison to state-of-the-art methods resulting in a Pareto plot for the free energy of solvation predictions in terms of accuracy and time.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2203.17047v3.pdf",
+        "id": 3,
+        "pdf_available": true,
+        "file_path": "research_papers\\AIML\\paper_3.pdf",
+        "local_path": "research_papers\\AIML\\paper_3.pdf"
+    },
+    {
+        "title": "Intelligent Conversational Bot for Massive Online Open Courses (MOOCs)",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Massive Online Open Courses (MOOCs) which were introduced in 2008 has since drawn attention around the world for both its advantages as well as criticism on its drawbacks. One of the issues in MOOCs which is the lack of interactivity with the instructor has brought conversational bot into the picture to fill in this gap. In this study, a prototype of MOOCs conversational bot, MOOC-bot is being developed and integrated into MOOCs website to respond to the learner inquiries using text or speech input. MOOC-bot is using the popular Artificial Intelligence Markup Language (AIML) to develop its knowledge base, leverage from AIML capability to deliver appropriate responses and can be quickly adapted to new knowledge domains. The system architecture of MOOC-bot consists of knowledge base along with AIML interpreter, chat interface, MOOCs website and Web Speech API to provide speech recognition and speech synthesis capability. The initial MOOC-bot prototype has the general knowledge from the past Loebner Prize winner - ALICE, frequent asked questions, and a content offered by Universiti Teknikal Malaysia Melaka (UTeM). The evaluation of MOOC-bot based on the past competition questions from Chatterbox Challenge (CBC) and Loebner Prize has shown that it was able to provide correct answers most of the time during the test and demonstrated the capability to prolong the conversation. The advantages of MOOC-bot such as able to provide 24-hour service that can serve different time zones, able to have knowledge in multiple domains, and can be shared by multiple sites simultaneously have outweighed its existing limitations.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/1601.07065v1.pdf",
+        "id": 4,
+        "pdf_available": true,
+        "file_path": "research_papers\\AIML\\paper_4.pdf",
+        "local_path": "research_papers\\AIML\\paper_4.pdf"
+    },
+    {
+        "title": "Template-based Chatbot for Agriculture Related FAQs",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Agriculture is the fundamental industry of the society, which is the basis of food supply and an important source of employment and GDP increase. However, the insufficient expert can not fulfill the demand of farmers. To address this problem, we design a chatbot to answer frequently asked questions in the Agriculture field. Template-based questions will be answered by AIML while LSA is used for other service-based questions. This chatbot will assist farmers by dealing with industry problems conveniently and efficiently.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2107.12595v2.pdf",
+        "id": 5,
+        "pdf_available": false
+    }
+]

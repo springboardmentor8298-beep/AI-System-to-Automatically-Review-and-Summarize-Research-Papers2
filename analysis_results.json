@@ -1,0 +1,168 @@
+{
+    "papers": [
+        {
+            "title": "VLsI: Verbalized Layers-to-Interactions from Large to Small Vision Language Models",
+            "authors": [
+                "arXiv"
+            ],
+            "year": null,
+            "abstract": "The recent surge in high-quality visual instruction tuning samples from closed-source vision-language models (VLMs) such as GPT-4V has accelerated the release of open-source VLMs across various model sizes. However, scaling VLMs to improve performance using larger models brings significant computational challenges, especially for deployment on resource-constrained devices like mobile platforms and robots. To address this, we propose VLsI: Verbalized Layers-to-Interactions, a new VLM family in 2B and 7B model sizes, which prioritizes efficiency without compromising accuracy. VLsI leverages a unique, layer-wise distillation process, introducing intermediate \"verbalizers\" that map features from each layer to natural language space, allowing smaller VLMs to flexibly align with the reasoning processes of larger VLMs. This approach mitigates the training instability often encountered in output imitation and goes beyond typical final-layer tuning by aligning the small VLMs' layer-wise progression with that of the large ones. We validate VLsI across ten challenging vision-language benchmarks, achieving notable performance gains (11.0% for 2B and 17.4% for 7B) over GPT-4V without the need for model scaling, merging, or architectural changes.",
+            "citations": 0,
+            "pdf": "https://arxiv.org/pdf/2412.01822v2.pdf",
+            "id": 1,
+            "pdf_available": true,
+            "file_path": "research_papers\\VLSI\\paper_1.pdf",
+            "local_path": "research_papers\\VLSI\\paper_1.pdf",
+            "sections": {
+                "abstract": "The recent surge in high-quality visual instruction tun-\ning samples from closed-source vision-language models\n(VLMs) such as GPT-4V has accelerated the release of\nopen-source VLMs across various model sizes. However,\nscaling VLMs to improve performance using larger mod-\nels brings significant computational challenges, especially\nfor deployment on resource-constrained devices like mo-\nbile platforms and robots. To address this, we propose\nVLsI: Verbalized Layers-to-Interactions, a new VLM\nfamily in 2B and 7B model sizes, which prioritizes effi-\nciency without compromising accuracy.",
+                "introduction": "The integration of large language models (LLMs) with\nvision-language models (VLMs) has significantly enhanced\nthe interpretive and processing capabilities of visual sys-\ntems [5, 23, 78, 96]. By leveraging architectures such as\nCLIP-aligned vision encoders [11, 105], these VLMs have",
+                "method": "s intro-",
+                "experiment": "s validate\n\nVLsI’s effectiveness\nacross ten challenging benchmarks, demonstrating signif-\nicant performance gains of 11.0% (2B model) and 17.4%\n(7B model) over GPT-4V. Notably, these improvements are\nachieved without increasing model size, merging modules,\nor modifying the architecture. Our contributions are as:\n\n• We introduce\n\nVLsI, a new VLM family that applies\nnatural language-based, layer-wise distillation, offering\n\na scalable solution to high-performing yet efficient-scale\nVLMs without requiring scaling or structural changes.\n• We present sampling distribution-based dynamic layer\nmatching before distillation, in order to address the layer\nnumber gap between large and small VLMs.\n\n•\n\nVLsI is easy to implement and adaptable across var-\nious model architectures, making it practical and deploy-\nable for real-world applications.\n\n2. Related Works\n\nEvolution of Vision-Language Models. The emergence\nof visual instruction tuning: LLaVA [65] and Instruct-\nBLIP [18] initially brings in not only introducing slight vari-\nations of VLMs [3, 8, 17, 48, 54, 107, 112], but also curat-\ning high-quality visual instruction samples [7, 9, 27, 32, 91,\n99, 109]. Since that time, there has been a growing interest\nin enhancing visual understanding; thus the simple visual",
+                "results": ", displaying\nthe output of each layer along with its corresponding verbal-\nizer. The results show a gradual improvement in reasoning\nand response accuracy as layers progress deeper. This ver-",
+                "discussion": "and Limitations\n\nFor Fig. 3,\nVLsI’s verbalizer is not re-trained but just\nutilized by the trained verbalizer of the small-backbone\nVLM. Interestingly, this verbalizer also works well at\nVLsI, demonstrating flexibility and indicating that it may\n\nserve as a practical medium of interpretability. Addition-\nally, Fig. 5 illustrates that, as the interaction step pro-\ngresses, the small-backbone VLM gradually tries to learn\nabout deeper layers’ responses of the large-backbone VLM,\nwhich can be considered accelerating the process of reach-\ning an answer. While\nVLsI is highly effective, the large\nand small-backbone VLMs must share the same tokenizer\nand token index order when constructing VLsI. We will ex-\nplore more general ways that accommodate different tok-\nenizers and token index orders, potentially expanding\nVLsI’s applicability and scalability.\n\n5. Conclusion\n\nWe present a new VLM family with 2B and 7B model sizes,\nVLsI: Verbalized Layers-to-Interactions, designed to\nbuild high-performing yet efficient-scale VLMs. This is\naccomplished by leveraging natural language-based distil-\nlation to transfer knowledge from large to small VLMs.\nVLsI achieves strong vision-language perfor-",
+                "conclusion": "We present a new VLM family with 2B and 7B model sizes,\nVLsI: Verbalized Layers-to-Interactions, designed to\nbuild high-performing yet efficient-scale VLMs. This is\naccomplished by leveraging natural language-based distil-\nlation to transfer knowledge from large to small VLMs.\nVLsI achieves strong vision-language perfor-"
+            },
+            "key_findings": [
+                "To address this, we propose\nVLsI: Verbalized Layers-to-Interactions, a new VLM\nfamily in 2B and 7B model sizes, which prioritizes effi-\nciency without compromising accuracy.",
+                "• We present sampling distribution-based dynamic layer\nmatching before distillation, in order to address the layer\nnumber gap between large and small VLMs.",
+                "Furthermore, because the computational requirements for\neach ‘key development’ in generating the desired response\nvary, we propose an adaptive layer-matching strategy that\ndynamically aligns corresponding layers.",
+                "Implementation Details\n\nVLsI to\nWe present four key technical components of\nensure reproducibility: (a) the configuration of the back-\nbone vision-language model, (b) the architecture of the ver-\n\n\fVLMs\n\nQBench\n\nAI2D\n\nChartQA\n\nPOPE\n\nHallB MME MathVista MMB MMBCN MM-Vet MMMU\n\nMiniCPM-2.4B [41]\nMiniCPM-V2-2.8B [41]\nMM1-3B [74]\nMM1-MoE-3B×64 [74]\nALLaVA-3B [7]\nVILA1.5-3B [63]\nInternVL2-4B [11]\nTroL-3.8B [50]\nPhantom-3.8B [49]\n\nDeepSeek-VL-1.3B [70]\nMobileVLM-1.7B [14]\nMobileVLM-V2-1.7B [15]\nMoE-LLaVA-1.8B×4 [62]\nMini-Gemini-2B [60]\nInternVL2-2B [11]\nTroL-1.8B [50]\nPhantom-1.8B [49]\nQwen2-VL-2B [92]\n\nVLsI-2B\n\n-\n-\n-\n-\n-\n-\n-\n70.0\n70.3\n\n-\n-\n-\n-\n-\n-\n68.2\n69.1\n70.8\n\n72.3\n\n56.3\n62.9\n-\n-\n-\n-\n78.9\n73.6\n71.7\n\n-\n-\n-\n-\n-\n74.1\n68.9\n62.3\n60.2\n\n89.0\n\n-\n-\n-\n-\n-\n-\n81.5\n73.8\n87.3\n\n-\n-\n-\n-\n-\n76.2\n64.0\n87.0\n73.5\n\n85.8\n\n-\n-\n87.4\n87.6\n-\n85.3\n-\n86.5\n87.1\n\n87.6\n84.5\n84.3\n87.0\n-\n-\n88.6\n89.6\n87.8\n\n87.9\n\n-\n-\n-\n-\n-\n-\n-\n62.2\n60.8\n\n-\n-\n-\n-\n-\n-\n60.1\n62.2\n61.2\n\n70.0\n\n1650\n1809\n1762\n1773\n1623\n-\n2064\n1980\n2046\n\n-\n-\n-\n-\n1653\n1877\n2038\n1885\n1872\n\n2022\n\n28.9\n38.7\n32.0\n32.6\n-\n-\n58.6\n55.1\n60.6\n\n31.1\n-\n-\n-\n29.4\n46.3\n45.4\n60.9\n43.0\n\n68.4\n\n64.1\n69.1\n67.8\n70.8\n64.0\n62.8\n78.6\n79.2\n80.4\n\n64.6\n53.2\n57.7\n59.7\n59.8\n73.2\n76.1\n76.6\n74.9\n\n81.7\n\n62.6\n66.5\n-\n-\n-\n52.2\n73.9\n77.1\n77.1\n\n62.9\n-\n-\n-\n-\n70.9\n74.1\n75.1\n73.5\n\n78.8\n\n31.1\n41.0\n43.7\n42.2\n32.2\n38.6\n51.0\n51.1\n54.4\n\n34.8\n-\n-\n25.3\n-\n39.5\n45.1\n54.1\n49.5\n\n64.8\n\n-\n-\n33.9\n38.6\n35.3\n33.3\n34.3\n37.5\n39.2\n\n32.2\n-\n-\n-\n31.7\n34.3\n35.2\n40.6\n41.1\n\n51.4\n\nTable 2.",
+                "Conclusion\n\nWe present a new VLM family with 2B and 7B model sizes,\nVLsI: Verbalized Layers-to-Interactions, designed to\nbuild high-performing yet efficient-scale VLMs."
+            ]
+        },
+        {
+            "title": "A Study of VLSI Technology, Wafers and Impact on Nanotechnology",
+            "authors": [
+                "arXiv"
+            ],
+            "year": null,
+            "abstract": "This paper presents a detailed study of the present VLSI technological aspects, importance and their replacement or combination with the Nanotechnology in the VLSI world of silicon semiconductors. Here authors bring out the nanotechnology in Silicon world which invariably means shrinking geometry of CMOS devices to nano scale. This also refers to a new world of nanotechnology where chemists are working in manufacturing of carbon nanotubes , nano devices of varius materials of nano dimensions without even knowing how this could change the whole world of Si and CMOS technology and the world we live in.",
+            "citations": 0,
+            "pdf": "https://arxiv.org/pdf/1001.3771v1.pdf",
+            "id": 2,
+            "pdf_available": true,
+            "file_path": "research_papers\\VLSI\\paper_2.pdf",
+            "local_path": "research_papers\\VLSI\\paper_2.pdf",
+            "sections": {
+                "abstract": "-   This paper presents a detailed study \ntechnological  aspects,",
+                "introduction": "The  VLSI  technology  means  10s  of  millions",
+                "method": "s   to   do   this.   The",
+                "conclusion": ""
+            },
+            "key_findings": []
+        },
+        {
+            "title": "Pruned Continuous Haar Transform of 2D Polygonal Patterns with Application to VLSI Layouts",
+            "authors": [
+                "arXiv"
+            ],
+            "year": null,
+            "abstract": "We introduce an algorithm for the efficient computation of the continuous Haar transform of 2D patterns that can be described by polygons. These patterns are ubiquitous in VLSI processes where they are used to describe design and mask layouts. There, speed is of paramount importance due to the magnitude of the problems to be solved and hence very fast algorithms are needed. We show that by techniques borrowed from computational geometry we are not only able to compute the continuous Haar transform directly, but also to do it quickly. This is achieved by massively pruning the transform tree and thus dramatically decreasing the computational load when the number of vertices is small, as is the case for VLSI layouts. We call this new algorithm the pruned continuous Haar transform. We implement this algorithm and show that for patterns found in VLSI layouts the proposed algorithm was in the worst case as fast as its discrete counterpart and up to 12 times faster.",
+            "citations": 0,
+            "pdf": "https://arxiv.org/pdf/1105.1261v1.pdf",
+            "id": 3,
+            "pdf_available": true,
+            "file_path": "research_papers\\VLSI\\paper_3.pdf",
+            "local_path": "research_papers\\VLSI\\paper_3.pdf",
+            "sections": {
+                "abstract": "—We introduce an algorithm for the efﬁcient computation\nof the continuous Haar transform of 2D patterns that can be described\nby polygons. These patterns are ubiquitous in VLSI processes where\nthey are used to describe design and mask layouts. There, speed is of",
+                "introduction": "The Haar transform (HT) is often a tool of choice in image\nprocessing due to its edge detection property, low complexity and\nthe simplicity of its implementation. It is particularly suited for",
+                "method": "s for phase-shifting mask design,” Optics Express, vol.\n15, no. 23, pp. 15066–15079, Nov. 2007.\n\n[7] Krzysztof Kryszczuk, Paul Hurley, and Robert Sayah, “Direct",
+                "experiment": ". The empirical distribution of the number of vertices\nin the tiles is shown in light grey. Although the runtime of the\ncontinuous transform grows with K, it outperforms its discrete\ncounterpart for about half the tiles. The peaks around K = 190\nare caused by the very low number of tiles in that range, as shown\nby the empirical distribution, and all these tiles having a worse than\naverage runtime. The DHT also shows a slight dependence on K\ndue to the time needed to create the discrete image. The average\nspeed-up of the runtime as a function of the tile size is shown\nin Figure 5. The speed-up is deﬁned as the ratio of the runtimes\nof the DHT and pruned CHT. Because it has the highest vertex\ndensity, the M1 layer shows the least improvement, between 1 and\n3 times speed-up. For large tiles, layers M2 and CA show speed-up\nover 6 and 12 times, respectively. In a practical scenario where the\noutput coefﬁcients need to be stored for further use we expect the",
+                "results": "of the",
+                "conclusion": "S\n\n[3] Franco P. Preparata and Michael Ian Shamos, Computational\n\nGeometry, An Introduction, Springer-Verlag, 1985.\n\nWe introduced the PCHT, a new algorithm for the computation\nof the CHT of 2D polygonal patterns. We showed signiﬁcant speed-"
+            },
+            "key_findings": []
+        },
+        {
+            "title": "A Scalable VLSI Architecture for Soft-Input Soft-Output Depth-First Sphere Decoding",
+            "authors": [
+                "arXiv"
+            ],
+            "year": null,
+            "abstract": "Multiple-input multiple-output (MIMO) wireless transmission imposes huge challenges on the design of efficient hardware architectures for iterative receivers. A major challenge is soft-input soft-output (SISO) MIMO demapping, often approached by sphere decoding (SD). In this paper, we introduce the - to our best knowledge - first VLSI architecture for SISO SD applying a single tree-search approach. Compared with a soft-output-only base architecture similar to the one proposed by Studer et al. in IEEE J-SAC 2008, the architectural modifications for soft input still allow a one-node-per-cycle execution. For a 4x4 16-QAM system, the area increases by 57% and the operating frequency degrades by 34% only.",
+            "citations": 0,
+            "pdf": "https://arxiv.org/pdf/0910.3427v4.pdf",
+            "id": 4,
+            "pdf_available": true,
+            "file_path": "research_papers\\VLSI\\paper_4.pdf",
+            "local_path": "research_papers\\VLSI\\paper_4.pdf",
+            "sections": {
+                "abstract": "—Multiple-input multiple-output\n\n(MIMO) wireless\ntransmission imposes huge challenges on the design of efﬁcient\nhardware architectures for iterative receivers. A major challenge\nis soft-input soft-output (SISO) MIMO demapping, often ap-\nproached by sphere decoding (SD). In this paper, we introduce\nthe—to our best knowledge—ﬁrst VLSI architecture for SISO\nSD applying a single tree-search approach. Compared with a\nsoft-output-only base architecture similar to the one proposed by\nStuder et al. in IEEE J-SAC 2008, the architectural modiﬁcations\nfor soft input still allow a one-node-per-cycle execution. For a 4×4\n16-QAM system, the area increases by 57 % and the operating\nfrequency degrades by 34 % only.\n\nIndex Terms—VLSI architecture, Schnorr-Euchner (SE) enu-\nmeration, iterative multiple-input multiple-output (MIMO) de-\ncoding, soft-input soft-output (SISO) sphere decoding (SD)\n\nI. INTRODUCTION\n\nMultiple-input multiple-output (MIMO) wireless transmis-\nsions utilizing spatial multiplexing achieve an increased spec-\ntral efﬁciency compared with single-antenna systems. This im-\nprovement comes at the cost of an increased signal-demapping\ncomplexity, which becomes particularly critical for iterative\nreceivers [1]. Recent developments of soft-input soft-output\n(SISO) MIMO-demapping algorithms reduced this complexity\nsigniﬁcantly. Prominent demapping algorithms are k-best and\nlist-based approaches [2], [3], Markov chain Monte Carlo\nalgorithms (MCMC) [4] and single tree-search (STS) sphere\ndecoders (SD) [5]. The STS approach is often preferred since it\nguarantees max-log maximum a posteriori (MAP) optimality.\nEfﬁcient VLSI implementations have been proposed for\nsoft-output-only STS SDs [6], [7] exploiting geometric prop-\nerties of QAM constellations. These geometric relations help\ndetermining a search order, deﬁned as enumeration, leading\nto a fast average tree-search convergence. The SISO STS",
+                "introduction": "Multiple-input multiple-output (MIMO) wireless transmis-\nsions utilizing spatial multiplexing achieve an increased spec-\ntral efﬁciency compared with single-antenna systems. This im-\nprovement comes at the cost of an increased signal-demapping\ncomplexity, which becomes particularly critical for iterative\nreceivers [1]. Recent developments of soft-input soft-output\n(SISO) MIMO-demapping algorithms reduced this complexity\nsigniﬁcantly. Prominent demapping algorithms are k-best and\nlist-based approaches [2], [3], Markov chain Monte Carlo\nalgorithms (MCMC) [4] and single tree-search (STS) sphere\ndecoders (SD) [5]. The STS approach is often preferred since it\nguarantees max-log maximum a posteriori (MAP) optimality.\nEfﬁcient VLSI implementations have been proposed for\nsoft-output-only STS SDs [6], [7] exploiting geometric prop-\nerties of QAM constellations. These geometric relations help\ndetermining a search order, deﬁned as enumeration, leading\nto a fast average tree-search convergence. The SISO STS",
+                "method": "s exist",
+                "results": "from mapping MTQ bits\nxi,b ∈ {+1, −1} to an element of OMT , with i being the\nantenna index and b the bit index for one scalar symbol si.\n\nThe received symbol vector y ∈ CMR",
+                "conclusion": "To our best knowledge, we introduced the ﬁrst SISO STS\nSD architecture, enabling iterative STS SD-based receivers."
+            },
+            "key_findings": []
+        },
+        {
+            "title": "A Neuromorphic VLSI Design for Spike Timing and Rate Based Synaptic Plasticity",
+            "authors": [
+                "arXiv"
+            ],
+            "year": null,
+            "abstract": "Triplet-based Spike Timing Dependent Plasticity (TSTDP) is a powerful synaptic plasticity rule that acts beyond conventional pair-based STDP (PSTDP). Here, the TSTDP is capable of reproducing the outcomes from a variety of biological experiments, while the PSTDP rule fails to reproduce them. Additionally, it has been shown that the behaviour inherent to the spike rate-based Bienenstock-Cooper-Munro (BCM) synaptic plasticity rule can also emerge from the TSTDP rule. This paper proposes an analog implementation of the TSTDP rule. The proposed VLSI circuit has been designed using the AMS 0.35 um CMOS process and has been simulated using design kits for Synopsys and Cadence tools. Simulation results demonstrate how well the proposed circuit can alter synaptic weights according to the timing difference amongst a set of different patterns of spikes. Furthermore, the circuit is shown to give rise to a BCM-like learning rule, which is a rate-based rule. To mimic implementation environment, a 1000 run Monte Carlo (MC) analysis was conducted on the proposed circuit. The presented MC simulation analysis and the simulation result from fine-tuned circuits show that, it is possible to mitigate the effect of process variations in the proof of concept circuit, however, a practical variation aware design technique is required to promise a high circuit performance in a large scale neural network. We believe that the proposed design can play a significant role in future VLSI implementations of both spike timing and rate based neuromorphic learning systems.",
+            "citations": 0,
+            "pdf": "https://arxiv.org/pdf/1304.0090v1.pdf",
+            "id": 5,
+            "pdf_available": true,
+            "file_path": "research_papers\\VLSI\\paper_5.pdf",
+            "local_path": "research_papers\\VLSI\\paper_5.pdf",
+            "sections": {
+                "abstract": "Triplet-based Spike Timing Dependent Plasticity (TSTDP) is a powerful synaptic plasticity rule that acts beyond\nconventional pair-based STDP (PSTDP). Here, the TSTDP is capable of reproducing the outcomes from a variety of\nbiological experiments, while the PSTDP rule fails to reproduce them. Additionally, it has been shown that the behaviour\ninherent to the spike rate-based Bienenstock-Cooper-Munro (BCM) synaptic plasticity rule can also emerge from the\nTSTDP rule. This paper proposes an analog implementation of the TSTDP rule. The proposed VLSI circuit has been\ndesigned using the AMS 0.35 µm CMOS process and has been simulated using design kits for Synopsys and Cadence\ntools. Simulation results demonstrate how well the proposed circuit can alter synaptic weights according to the timing\ndiﬀerence amongst a set of diﬀerent patterns of spikes. Furthermore, the circuit is shown to give rise to a BCM-like\nlearning rule, which is a rate-based rule. To mimic implementation environment, a 1000 run Monte Carlo (MC) analysis\nwas conducted on the proposed circuit. The presented MC simulation analysis and the simulation result from ﬁne-tuned\ncircuits show that, it is possible to mitigate the eﬀect of process variations in the proof of concept circuit, however,",
+                "introduction": "The underlying mechanisms and processes responsi-\nble for learning and long-term memory in the brain has",
+                "method": "of synaptic modiﬁcation to the ﬁrst and\nsecond rules mentioned earlier, is proposed by Mayr and\nPartzsch (2010). Identically, this rule acts based on the\ntransmission proﬁle of the pre-synaptic neuron spikes as\nwell as the post-synaptic membrane voltage.\n\nThese above-mentioned rules (including TSTDP) have",
+                "experiment": "s, while the PSTDP rule fails to reproduce them. Additionally, it has been shown that the behaviour\ninherent to the spike rate-based Bienenstock-Cooper-Munro (BCM) synaptic plasticity rule can also emerge from the\nTSTDP rule. This paper proposes an analog implementation of the TSTDP rule. The proposed VLSI circuit has been\ndesigned using the AMS 0.35 µm CMOS process and has been simulated using design kits for Synopsys and Cadence\ntools. Simulation results demonstrate how well the proposed circuit can alter synaptic weights according to the timing\ndiﬀerence amongst a set of diﬀerent patterns of spikes. Furthermore, the circuit is shown to give rise to a BCM-like\nlearning rule, which is a rate-based rule. To mimic implementation environment, a 1000 run Monte Carlo (MC) analysis\nwas conducted on the proposed circuit. The presented MC simulation analysis and the simulation result from ﬁne-tuned\ncircuits show that, it is possible to mitigate the eﬀect of process variations in the proof of concept circuit, however,",
+                "results": "demonstrate how well the proposed circuit can alter synaptic weights according to the timing\ndiﬀerence amongst a set of diﬀerent patterns of spikes. Furthermore, the circuit is shown to give rise to a BCM-like\nlearning rule, which is a rate-based rule. To mimic implementation environment, a 1000 run Monte Carlo (MC) analysis\nwas conducted on the proposed circuit. The presented MC simulation analysis and the simulation result from ﬁne-tuned\ncircuits show that, it is possible to mitigate the eﬀect of process variations in the proof of concept circuit, however,",
+                "discussion": "of current trends and future outlooks\nincluding concluding remarks.",
+                "conclusion": ""
+            },
+            "key_findings": [
+                "Although the proposed circuit implements the\ntriplet model presented in Pﬁster and Gerstner (2006) (and\nnot the suppressive model in Froemke and Dan (2002)),\nobtained results showed in Figures 8 and 9 demonstrate\nqualitative regional agreement with the reported results\nin Froemke and Dan (2002), nonetheless, there is a di-\nrect contrast between our results and their results in the\npost-pre-post case of spike patterns."
+            ]
+        }
+    ],
+    "common_topics": [
+        [
+            "model",
+            4
+        ],
+        [
+            "results",
+            4
+        ],
+        [
+            "present",
+            3
+        ],
+        [
+            "address",
+            2
+        ],
+        [
+            "propose",
+            2
+        ],
+        [
+            "vlsi:",
+            2
+        ],
+        [
+            "verbalized",
+            2
+        ],
+        [
+            "layers-to-interactions,",
+            2
+        ],
+        [
+            "family",
+            2
+        ],
+        [
+            "sizes,",
+            2
+        ]
+    ]
+}

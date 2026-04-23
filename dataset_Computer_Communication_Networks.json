@@ -1,0 +1,70 @@
+[
+    {
+        "title": "Semantic Edge Computing and Semantic Communications in 6G Networks: A Unifying Survey and Research Challenges",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Semantic Edge Computing (SEC) and Semantic Communications (SemComs) have been proposed as viable approaches to achieve real-time edge-enabled intelligence in sixth-generation (6G) wireless networks. On one hand, SemCom leverages the strength of Deep Neural Networks (DNNs) to encode and communicate the semantic information only, while making it robust to channel distortions by compensating for wireless effects. Ultimately, this leads to an improvement in the communication efficiency. On the other hand, SEC has leveraged distributed DNNs to divide the computation of a DNN across different devices based on their computational and networking constraints. Although significant progress has been made in both fields, the literature lacks a systematic view to connect both fields. In this work, we fulfill the current gap by unifying the SEC and SemCom fields. We summarize the research problems in these two fields and provide a comprehensive review of the state of the art with a focus on their technical strengths and challenges.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2411.18199v3.pdf",
+        "id": 1,
+        "pdf_available": true,
+        "file_path": "research_papers\\Computer_Communication_Networks\\paper_1.pdf",
+        "local_path": "research_papers\\Computer_Communication_Networks\\paper_1.pdf"
+    },
+    {
+        "title": "Mobile Human Ad Hoc Networks: A Communication Engineering Viewpoint on Interhuman Airborne Pathogen Transmission",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "A number of transmission models for airborne pathogens transmission, as required to understand airborne infectious diseases such as COVID-19, have been proposed independently from each other, at different scales, and by researchers from various disciplines. We propose a communication engineering approach that blends different disciplines such as epidemiology, biology, medicine, and fluid dynamics. The aim is to present a unified framework using communication engineering, and to highlight future research directions for modeling the spread of infectious diseases through airborne transmission. We introduce the concept of mobile human ad hoc networks (MoHANETs), which exploits the similarity of airborne transmission-driven human groups with mobile ad hoc networks and uses molecular communication as the enabling paradigm. In the MoHANET architecture, a layered structure is employed where the infectious human emitting pathogen-laden droplets and the exposed human to these droplets are considered as the transmitter and receiver, respectively. Our proof-of-concept results, which we validated using empirical COVID-19 data, clearly demonstrate the ability of our MoHANET architecture to predict the dynamics of infectious diseases by considering the propagation of pathogen-laden droplets, their reception and mobility of humans.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2011.00884v2.pdf",
+        "id": 2,
+        "pdf_available": false
+    },
+    {
+        "title": "A Simulator for FANETs Using 5G Vehicle-to-Everything Communications and Named-Data Networking",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "This work presents a simulator designed for the validation, evaluation, and demonstration of flying adhoc networks (FANETs) using 5G vehicle-to-everything (V2X) communications and the named-data networking (NDN) paradigm. The simulator integrates the ns-3 network simulator and the Zenoh NDN protocol, enabling realistic testing of applications that involve the multi-hop communication among multiple unmanned aerial vehicles (UAVs).",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2510.13823v1.pdf",
+        "id": 3,
+        "pdf_available": true,
+        "file_path": "research_papers\\Computer_Communication_Networks\\paper_3.pdf",
+        "local_path": "research_papers\\Computer_Communication_Networks\\paper_3.pdf"
+    },
+    {
+        "title": "Graph-based Deep Learning for Communication Networks: A Survey",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Communication networks are important infrastructures in contemporary society. There are still many challenges that are not fully solved and new solutions are proposed continuously in this active research area. In recent years, to model the network topology, graph-based deep learning has achieved the state-of-the-art performance in a series of problems in communication networks. In this survey, we review the rapidly growing body of research using different graph-based deep learning models, e.g. graph convolutional and graph attention networks, in various problems from different types of communication networks, e.g. wireless networks, wired networks, and software defined networks. We also present a well-organized list of the problem and solution for each study and identify future research directions. To the best of our knowledge, this paper is the first survey that focuses on the application of graph-based deep learning methods in communication networks involving both wired and wireless scenarios. To track the follow-up research, a public GitHub repository is created, where the relevant papers will be updated continuously.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2106.02533v2.pdf",
+        "id": 4,
+        "pdf_available": true,
+        "file_path": "research_papers\\Computer_Communication_Networks\\paper_4.pdf",
+        "local_path": "research_papers\\Computer_Communication_Networks\\paper_4.pdf"
+    },
+    {
+        "title": "Optimum Network Slicing for Ultra-reliable Low Latency Communication (URLLC) Services in Campus Networks",
+        "authors": [
+            "arXiv"
+        ],
+        "year": null,
+        "abstract": "Within 3GPP, the campus network architecture has evolved as a deployment option for industries and can be provisioned using network slicing over already installed 5G public network infrastructure. In campus networks, the ultra-reliable low latency communication (URLLC) service category is of major interest for applications with strict latency and high-reliability requirements. One way to achieve high reliability in a shared infrastructure is through resource isolation, whereby network slicing can be optimized to adequately reserve computation and transmission capacity. This paper proposes an approach for vertical slicing the radio access network (RAN) to enable the deployment of multiple and isolated campus networks to accommodate URLLC services. To this end, we model RAN function placement as a mixed integer linear programming problem with URLLC-related constraints. We demonstrate that our approach can find optimal solutions in real-world scenarios. Furthermore, unlike existing solutions, our model considers the user traffic flow from a known source node on the network's edge to an unknown \\textit{a priori} destination node. This flexibility could be explored in industrial campus networks by allowing dynamic placement of user plane functions (UPFs) to serve the URLLC.",
+        "citations": 0,
+        "pdf": "https://arxiv.org/pdf/2503.15429v2.pdf",
+        "id": 5,
+        "pdf_available": true,
+        "file_path": "research_papers\\Computer_Communication_Networks\\paper_5.pdf",
+        "local_path": "research_papers\\Computer_Communication_Networks\\paper_5.pdf"
+    }
+]
