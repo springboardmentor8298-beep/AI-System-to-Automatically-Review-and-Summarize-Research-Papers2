@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Comparative Performance of Transformer Models for Cultural Heritage in NLP Tasks
+							| Advance Sustainable Science Engineering and Technology
+			</title>
+
+	
+<link rel="icon" href="https://journal2.upgris.ac.id/public/journals/16/favicon_en_US.png">
+<meta name="generator" content="Open Journal Systems 3.4.0.8">
+
+<meta name="google-site-verification" content="Wq310ycAQ-G8ZYTIOhZkxzkrWGMS0NAcXY3fUtQTlsE" />
+<meta name="gs_meta_revision" content="1.1"/>
+<meta name="citation_journal_title" content="Advance Sustainable Science Engineering and Technology"/>
+<meta name="citation_journal_abbrev" content="ASSET"/>
+<meta name="citation_issn" content="2715-4211"/> 
+<meta name="citation_author" content="Tri Lathif Mardi Suryanto"/>
+<meta name="citation_author_institution" content="Universitas Negeri Malang"/>
+<meta name="citation_author" content="Aji Prasetya Wibawa"/>
+<meta name="citation_author_institution" content="Universitas Negeri Malang"/>
+<meta name="citation_author" content="Hariyono Hariyono"/>
+<meta name="citation_author_institution" content="Universitas Negeri Malang"/>
+<meta name="citation_author" content="Andrew Nafalski"/>
+<meta name="citation_author_institution" content="University of South Australia"/>
+<meta name="citation_title" content="Comparative Performance of Transformer Models for Cultural Heritage in NLP Tasks"/>
+<meta name="citation_language" content="en"/>
+<meta name="citation_date" content="2025/01/09"/>
+<meta name="citation_volume" content="7"/>
+<meta name="citation_issue" content="1"/>
+<meta name="citation_firstpage" content="02501015"/>
+<meta name="citation_lastpage" content="02501015"/>
+<meta name="citation_doi" content="10.26877/asset.v7i1.1211"/>
+<meta name="citation_abstract_html_url" content="https://journal2.upgris.ac.id/index.php/asset/article/view/1211"/>
+<meta name="citation_abstract" xml:lang="en" content="AI and Machine Learning are crucial in advancing technology, especially for processing large, complex datasets. The transformer model, a primary approach in natural language processing (NLP), enables applications like translation, text summarization, and question-answer (QA) systems. This study compares two popular transformer models, FlanT5 and mT5, which are widely used yet often struggle to capture the specific context of the reference text. Using a unique Goddess Durga QA dataset with specialized cultural knowledge about Indonesia, this research tests how effectively each model can handle culturally specific QA tasks. The study involved data preparation, initial model training, ROUGE metric evaluation (ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum), and result analysis. Findings show that FlanT5 outperforms mT5 on multiple metrics, making it better at preserving cultural context. These results are impactful for NLP applications that rely on cultural insight, such as cultural preservation QA systems and context-based educational platforms."/>
+<meta name="citation_keywords" xml:lang="en" content="Artificial Intelligence"/>
+<meta name="citation_keywords" xml:lang="en" content="Machine Learning"/>
+<meta name="citation_keywords" xml:lang="en" content="NLP Cultural Knowledge"/>
+<meta name="citation_keywords" xml:lang="en" content="Transformer Models"/>
+<meta name="citation_keywords" xml:lang="en" content="QA Goddess Durga Dataset"/>
+<meta name="citation_pdf_url" content="https://journal2.upgris.ac.id/index.php/asset/article/download/1211/593"/>
+<meta name="citation_reference" content="[1] L. Xu, L. Lu, and M. Liu, “Construction and application of a knowledge graph-based question answering system for Nanjing Yunjin digital resources,” Herit. Sci., vol. 11, no. 1, pp. 1–17, Dec. 2023, doi: 10.1186/S40494-023-01068-2/TABLES/6."/>
+<meta name="citation_reference" content="[2] F. Jin, Q. Chang, and Z. Xu, “MuseumQA: A Fine-Grained Question Answering Dataset for Museums and Artifacts,” ACM Int. Conf. Proceeding Ser., pp. 221–226, Dec. 2023, doi: 10.1145/3639479.3639525."/>
+<meta name="citation_reference" content="[3] Z. Fan and C. Chen, “CuPe-KG: Cultural perspective–based knowledge graph construction of tourism resources via pretrained language models,” Inf. Process. Manag., vol. 61, no. 3, p. 103646, May 2024, doi: 10.1016/J.IPM.2024.103646."/>
+<meta name="citation_reference" content="[4] R. C. Climent, D. M. Haftor, and M. W. Staniewski, “AI-enabled business models for competitive advantage,” J. Innov. Knowl., vol. 9, no. 3, p. 100532, Jul. 2024, doi: 10.1016/j.jik.2024.100532."/>
+<meta name="citation_reference" content="[5] M. Dumas et al., “AI-augmented Business Process Management Systems: A Research Manifesto,” ACM Trans. Manag. Inf. Syst., vol. 14, no. 1, pp. 1–19, Mar. 2023, doi: 10.1145/3576047."/>
+<meta name="citation_reference" content="[6] J. R. Rodriguez Barboza et al., “Posthumanist Technologies in Business: AI and Cloud Computing for Global Optimization and Ethical Challenges,” Adv. Sustain. Sci. Eng. Technol., vol. 6, no. 4, p. 02404021, Oct. 2024, doi: 10.26877/asset.v6i4.1064."/>
+<meta name="citation_reference" content="[7] B. Meskó and E. J. Topol, “The imperative for regulatory oversight of large language models (or generative AI) in healthcare,” npj Digit. Med., vol. 6, no. 1, p. 120, Jul. 2023, doi: 10.1038/s41746-023-00873-0."/>
+<meta name="citation_reference" content="[8] S. M. Williamson and V. Prybutok, “Balancing Privacy and Progress: A Review of Privacy Challenges, Systemic Oversight, and Patient Perceptions in AI-Driven Healthcare,” Appl. Sci., vol. 14, no. 2, p. 675, Jan. 2024, doi: 10.3390/app14020675."/>
+<meta name="citation_reference" content="[9] N. Susetyo et al., “Natural Language Processing in Higher Education,” Bull. Soc. Informatics Theory Appl., vol. 6, no. 1, pp. 90–101, Jul. 2022, doi: 10.31763/BUSINTA.V6I1.593."/>
+<meta name="citation_reference" content="[10] Y. Pande, “Project EngiBot: Engineering Insights through NLP- driven Chatbot,” Int. J. Res. Appl. Sci. Eng. Technol., vol. 11, no. 11, pp. 689–692, Nov. 2023, doi: 10.22214/ijraset.2023.56590."/>
+<meta name="citation_reference" content="[11] J. Su (苏嘉红) and W. Yang (杨伟鹏), “Unlocking the Power of ChatGPT: A Framework for Applying Generative AI in Education,” ECNU Rev. Educ., vol. 6, no. 3, pp. 355–366, Aug. 2023, doi: 10.1177/20965311231168423."/>
+<meta name="citation_reference" content="[12] J. Qadir, “Engineering Education in the Era of ChatGPT: Promise and Pitfalls of Generative AI for Education,” in 2023 IEEE Global Engineering Education Conference (EDUCON), IEEE, May 2023, pp. 1–9. doi: 10.1109/EDUCON54358.2023.10125121."/>
+<meta name="citation_reference" content="[13] X. Wang, L. Li, S. C. Tan, L. Yang, and J. Lei, “Preparing for AI-enhanced education: Conceptualizing and empirically examining teachers’ AI readiness,” Comput. Human Behav., vol. 146, p. 107798, Sep. 2023, doi: 10.1016/j.chb.2023.107798."/>
+<meta name="citation_reference" content="[14] T. L. M. Suryanto, A. P. Wibawa, H. Hariyono, and A. Nafalski, “Evolving Conversations: A Review of Chatbots and Implications in Natural Language Processing for Cultural Heritage Ecosystems,” Int. J. Robot. Control Syst., vol. 3, no. 4, pp. 955–1006, Dec. 2023, doi: 10.31763/ijrcs.v3i4.1195."/>
+<meta name="citation_reference" content="[15] I. D. Raharjo and Egia Rosi Subhiyakto, “Implementing Long Short Term Memory (LSTM) in Chatbots for Multi Usaha Raya,” Adv. Sustain. Sci. Eng. Technol., vol. 6, no. 4, p. 02404018, Oct. 2024, doi: 10.26877/asset.v6i4.934."/>
+<meta name="citation_reference" content="[16] S. Hawanti and K. M. Zubaydulloevna, “AI chatbot-based learning: alleviating students’ anxiety in english writing classroom,” Bull. Soc. Informatics Theory Appl., vol. 7, no. 2, pp. 182–192, Dec. 2023, doi: 10.31763/BUSINTA.V7I2.659."/>
+<meta name="citation_reference" content="[17] P. D. Larasati, A. Irawan, S. Anwar, M. F. Mulya, M. A. Dewi, and I. Nurfatima, “Chatbot helpdesk design for digital customer service.” Accessed: Dec. 20, 2024. [Online]. Available: https://pubs2.ascee.org/index.php/aet/article/view/684"/>
+<meta name="citation_reference" content="[18] P. A. Alia, D. Kartika Sari, N. Azis, B. Gunawan Sudarsono, and P. Agus Sucipto, “Implementation Artificial Intelligence with Natural Language Processing Method to Improve Performance of Digital Product Sales Service,” Adv. Sustain. Sci. Eng. Technol., vol. 6, no. 3, p. 0240301, Jun. 2024, doi: 10.26877/asset.v6i3.521."/>
+<meta name="citation_reference" content="[19] T. B. Brown et al., “Language Models are Few-Shot Learners,” Adv. Neural Inf. Process. Syst., vol. 2020-December, May 2020, Accessed: Dec. 19, 2024. [Online]. Available: https://arxiv.org/abs/2005.14165v4"/>
+<meta name="citation_reference" content="[20] C. Raffel et al., “Exploring the limits of transfer learning with a unified text-to-text transformer,” J. Mach. Learn. Res., vol. 21, pp. 1–67, 2020."/>
+<meta name="citation_reference" content="[21] M. A. Hasan et al., “NativQA: Multilingual Culturally-Aligned Natural Query for LLMs,” Jul. 2024, Accessed: Dec. 19, 2024. [Online]. Available: https://arxiv.org/abs/2407.09823v2"/>
+<meta name="citation_reference" content="[22] L. Colucci Cante, B. Di Martino, M. Graziano, D. Branco, and G. J. Pezzullo, “Automated Storytelling Technologies for Cultural Heritage,” Lect. Notes Data Eng. Commun. Technol., vol. 193, pp. 597–606, 2024, doi: 10.1007/978-3-031-53555-0_57."/>
+<meta name="citation_reference" content="[23] E. M. B. Nagoudi, A. Elmadany, and M. Abdul-Mageed, “AraT5: Text-to-Text Transformers for Arabic Language Generation,” 2022, [Online]. Available: https://doi.org/10.48550/arXiv.2109.12068"/>
+<meta name="citation_reference" content="[24] A. Prasetya Wibawa, H. K. Fithri, I. Ari, E. Zaeni, and A. Nafalski, “Generating Javanese Stopwords List using K-means Clustering Algorithm,” Knowl. Eng. Data Sci., vol. 3, no. 2, pp. 106–111, Dec. 2020, doi: 10.17977/UM018V3I22020P106-111."/>
+<meta name="citation_reference" content="[25] J. Santoso, E. I. Setiawan, C. N. Purwanto, and F. Kurniawan, “Indonesian Sentence Boundary Detection using Deep Learning Approaches,” Knowl. Eng. Data Sci., vol. 4, no. 1, pp. 38–48, Jun. 2021, doi: 10.17977/UM018V4I12021P38-48."/>
+<meta name="citation_reference" content="[26] L. Xue et al., “mT5: A Massively Multilingual Pre-trained Text-to-Text Transformer,” in Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Stroudsburg, PA, USA: Association for Computational Linguistics, 2021, pp. 483–498. doi: 10.18653/v1/2021.naacl-main.41."/>
+<meta name="citation_reference" content="[27] T. Wolf et al., “Transformers: State-of-the-Art Natural Language Processing,” in Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, Stroudsburg, PA, USA: Association for Computational Linguistics, 2020, pp. 38–45. doi: 10.18653/v1/2020.emnlp-demos.6."/>
+<meta name="citation_reference" content="[28] A. Mastropaolo et al., “Studying the Usage of Text-To-Text Transfer Transformer to Support Code-Related Tasks,” pp. 336–347, 2021, doi: 10.1109/ICSE43902.2021.00041."/>
+<meta name="citation_reference" content="[29] Z. Chi et al., “mT6: Multilingual Pretrained Text-to-Text Transformer with Translation Pairs,” in Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, Stroudsburg, PA, USA: Association for Computational Linguistics, 2021, pp. 1671–1683. doi: 10.18653/v1/2021.emnlp-main.125."/>
+<meta name="citation_reference" content="[30] J. Frei and F. Kramer, “Annotated dataset creation through large language models for non-english medical NLP,” J. Biomed. Inform., vol. 145, p. 104478, Sep. 2023, doi: 10.1016/j.jbi.2023.104478."/>
+<meta name="citation_reference" content="[31] A. I. Regla and M. A. Ballera, “An Enhanced Research Productivity Monitoring System for Higher Education Institutions (HEI’s) with Natural Language Processing (NLP),” Procedia Comput. Sci., vol. 230, pp. 316–325, 2023, doi: 10.1016/j.procs.2023.12.087."/>
+<meta name="citation_reference" content="[32] L. Ranaldi and F. M. Zanzotto, “Discover AI Knowledge to Preserve Cultural Heritage,” Sep. 2021, doi: 10.20944/PREPRINTS202109.0062.V1."/>
+<meta name="citation_reference" content="[33] H. R. Will, N. Masini, and D. H. R. Spennemann, “Will Artificial Intelligence Affect How Cultural Heritage Will Be Managed in the Future? Responses Generated by Four genAI Models,” Herit. 2024, Vol. 7, Pages 1453-1471, vol. 7, no. 3, pp. 1453–1471, Mar. 2024, doi: 10.3390/HERITAGE7030070."/>
+<meta name="citation_reference" content="[34] S. Pawar et al., “Survey of Cultural Awareness in Language Models: Text and Beyond,” Oct. 2024, Accessed: Dec. 19, 2024. [Online]. Available: https://arxiv.org/abs/2411.00860v1"/>
+<meta name="citation_reference" content="[35] C. Qu, L. Yang, C. Chen, M. Qiu, W. B. Croft, and M. Iyyer, “Open-Retrieval Conversational Question Answering,” SIGIR 2020 - Proc. 43rd Int. ACM SIGIR Conf. Res. Dev. Inf. Retr., pp. 539–548, 2020, doi: 10.1145/3397271.3401110."/>
+<meta name="citation_reference" content="[36] J. Li et al., “Graphix-T5 : Mixing Pre-trained Transformers with Graph-Aware Layers for Text-to-SQL Parsing,” 2022, [Online]. Available: https://doi.org/10.48550/arXiv.2301.07507"/>
+<meta name="citation_reference" content="[37] T. Shao, Y. Guo, H. Chen, and Z. Hao, “Transformer-Based Neural Network for Answer Selection in Question Answering,” IEEE Access, vol. 7, pp. 26146–26156, 2019, doi: 10.1109/ACCESS.2019.2900753."/>
+<meta name="citation_reference" content="[38] X. Chen, P. Cong, and S. Lv, “A Long-Text Classification Method of Chinese News Based on BERT and CNN,” IEEE Access, vol. 10, pp. 34046–34057, 2022, doi: 10.1109/ACCESS.2022.3162614."/>
+<meta name="citation_reference" content="[39] L. Liu, X. Su, H. Guo, and D. Zhu, “A Transformer-based Medical Visual Question Answering Model,” in 2022 26th International Conference on Pattern Recognition (ICPR), IEEE, Aug. 2022, pp. 1712–1718. doi: 10.1109/ICPR56361.2022.9956469."/>
+<meta name="citation_reference" content="[40] S. Zhu et al., “Multilingual Large Language Models: A Systematic Survey,” 2024, Accessed: Dec. 19, 2024. [Online]. Available: https://github.com/tjunlp-lab/Awesome-Multilingual-LLMs-Papers"/>
+<meta name="citation_reference" content="[41] B. Weng, “Navigating the Landscape of Large Language Models: A Comprehensive Review and Analysis of Paradigms and Fine-Tuning Strategies,” Apr. 2024, Accessed: Dec. 19, 2024. [Online]. Available: https://arxiv.org/abs/2404.09022v1"/>
+<meta name="citation_reference" content="[42] M. Nitu and M. Dascalu, “Natural Language Processing Tools for Romanian-Going Beyond a Low-Resource Language”, doi: 10.55612/s-5002-060-001sp."/>
+<meta name="citation_reference" content="[43] C. Wang, P. Liu, and Y. Zhang, “Can Generative Pre-trained Language Models Serve as Knowledge Bases for Closed-book QA,” 2018."/>
+<meta name="citation_reference" content="[44] Y. Liu et al., “RoBERTa: A Robustly Optimized BERT Pretraining Approach,” no. 1, 2019, [Online]. Available: http://arxiv.org/abs/1907.11692"/>
+<meta name="citation_reference" content="[45] A. Mastropaolo et al., “Using Transfer Learning for Code-Related Tasks,” IEEE Trans. Softw. Eng., vol. 49, no. 4, pp. 1580–1598, Apr. 2023, doi: 10.1109/TSE.2022.3183297."/>
+<meta name="citation_reference" content="[46] C. Mallikarjuna and S. Sivanesan, “Question classification using limited labelled data,” Inf. Process. Manag., vol. 59, no. 6, p. 103094, Nov. 2022, doi: 10.1016/j.ipm.2022.103094."/>
+<meta name="citation_reference" content="[47] E. Alsentzer et al., “Zero-shot interpretable phenotyping of postpartum hemorrhage using large language models,” npj Digit. Med. 2023 61, vol. 6, no. 1, pp. 1–10, Nov. 2023, doi: 10.1038/s41746-023-00957-x."/>
+<meta name="citation_reference" content="[48] B. Pecher, I. Srba, and M. Bielikova, “Comparing Specialised Small and General Large Language Models on Text Classification: 100 Labelled Samples to Achieve Break-Even Performance,” Feb. 2024, Accessed: Dec. 20, 2024. [Online]. Available: https://arxiv.org/abs/2402.12819v2"/>
+<meta name="citation_reference" content="[49] A. Auriemma Citarella, M. Barbella, M. G. Ciobanu, F. De Marco, L. Di Biasi, and G. Tortora, “Rouge Metric Evaluation for Text Summarization Techniques.” 2024. doi: 10.2139/ssrn.4753220."/>
+<meta name="citation_reference" content="[50] M. Fuadi, A. D. Wibawa, and S. Sumpeno, “idT5 : Indonesian Version of Multilingual T5 Transformer,” 2023, [Online]. Available: https://doi.org/10.48550/arXiv.2302.00856"/>
+<meta name="citation_reference" content="[51] D. Uthus, S. Ontañón, J. Ainslie, and M. Guo, “mLongT5: A Multilingual and Efficient Text-To-Text Transformer for Longer Sequences,” vol. 5, 2023."/>
+<meta name="citation_reference" content="[52] M. Guo, J. Ainslie, and D. Uthus, “LongT5 : Efficient Text-To-Text Transformer for Long Sequences,” pp. 724–736, 2022, [Online]. Available: https://doi.org/10.48550/arXiv.2112.07916"/>
+<meta name="citation_reference" content="[53] Z. Zhang, X. He, V. Iyer, and A. Birch, “Cultural Adaptation of Menus: A Fine-Grained Approach,” Aug. 2024, Accessed: Dec. 20, 2024. [Online]. Available: https://arxiv.org/abs/2408.13534v1"/>
+<meta name="citation_reference" content="[54] S. Dwivedi, S. Ghosh, and S. Dwivedi, “Navigating Linguistic Diversity: In-Context Learning and Prompt Engineering for Subjectivity Analysis in Low-Resource Languages,” SN Comput. Sci., vol. 5, no. 4, pp. 1–9, Apr. 2024, doi: 10.1007/S42979-024-02770-Z/TABLES/2."/>
+<meta name="citation_reference" content="[55] E. Merdivan, D. Singh, S. Hanke, and A. Holzinger, “Dialogue Systems for Intelligent Human Computer Interactions,” Electron. Notes Theor. Comput. Sci., vol. 343, pp. 57–71, May 2019, doi: 10.1016/J.ENTCS.2019.04.010."/>
+<meta name="citation_reference" content="[56] T. Shen et al., “ViDA-MAN: Visual Dialog with Digital Humans,” MM 2021 - Proc. 29th ACM Int. Conf. Multimed., pp. 2789–2791, Oct. 2021, doi: 10.1145/3474085.3478560/SUPPL_FILE/DE3228.MP4."/>
+<meta name="citation_reference" content="[57] J. Tian et al., “ChatPLUG: Open-Domain Generative Dialogue System with Internet-Augmented Instruction Tuning for Digital Human,” Apr. 2023, Accessed: Dec. 20, 2024. [Online]. Available: https://arxiv.org/abs/2304.07849v3"/>
+<meta name="citation_reference" content="[58] S. Longpre et al., “The Flan Collection: Designing Data and Methods for Effective Instruction Tuning,” Proc. Mach. Learn. Res., vol. 202, pp. 22631–22648, 2023."/>
+<meta name="citation_reference" content="[59] V. Bouras et al., “Chatbots for Cultural Venues: A Topic-Based Approach,” Algorithms 2023, Vol. 16, Page 339, vol. 16, no. 7, p. 339, Jul. 2023, doi: 10.3390/A16070339."/>
+<meta name="citation_reference" content="[60] P. K. Rachabatuni, F. Principi, P. Mazzanti, and M. Bertini, “Context-aware chatbot using MLLMs for Cultural Heritage,” MMSys 2024 - Proc. 2024 ACM Multimed. Syst. Conf., pp. 459–463, Apr. 2024, doi: 10.1145/3625468.3652193."/>
+<meta name="citation_reference" content="[61] M. Tsepapadakis and D. Gavalas, “Are you talking to me? An Audio Augmented Reality conversational guide for cultural heritage,” Pervasive Mob. Comput., vol. 92, p. 101797, May 2023, doi: 10.1016/J.PMCJ.2023.101797."/>
+<meta name="citation_reference" content="[62] K. Sathiyabamavathy and A. K. P., “Role of Chatbots in Cultural Heritage Tourism: An Empirical Study on Ancient Forts and Palaces,” https://doi.org/10.1177/24559296241253932, vol. 9, no. 1, pp. 9–28, Jun. 2024, doi: 10.1177/24559296241253932."/>
+<meta name="citation_reference" content="[63] J. Enciso-Anaya, K. Tamil, and Q. Truong, “Virtual Museum Tours of the de Saisset Museum,” Comput. Sci. Eng. Sr. Theses, Jun. 2024, Accessed: Dec. 20, 2024. [Online]. Available: https://scholarcommons.scu.edu/cseng_senior/306"/>
+<meta name="citation_reference" content="[64] T. Komarac and Đ. Ozretić Došen, “Understanding virtual museum visits: generation Z experiences,” Museum Manag. Curatorsh., vol. 39, no. 3, pp. 357–376, May 2024, doi: 10.1080/09647775.2023.2269129."/>
+<meta name="citation_reference" content="[65] Z. Wang, L. P. Yuan, L. Wang, B. Jiang, and W. Zeng, “VirtuWander: Enhancing Multi-modal Interaction for Virtual Tour Guidance through Large Language Models,” Conf. Hum. Factors Comput. Syst. - Proc., May 2024, doi: 10.1145/3613904.3642235/SUPPL_FILE/PN7938-SUPPLEMENTAL-MATERIAL-2.PDF."/>
+<meta name="citation_reference" content="[66] R. Patria and P. H. Merdeka, “Creative Strategies in the Recovery of Endangered Languages,” J. Lit. Lang. Acad. Stud., vol. 2, no. 02, pp. 57–61, Aug. 2023, doi: 10.56855/JLLANS.V2I2.671."/>
+<meta name="citation_reference" content="[67] D. K. Nanduri and E. M. Bonsignore, “Revitalizing Endangered Languages: AI-powered language learning as a catalyst for language appreciation,” Apr. 2023, Accessed: Dec. 20, 2024. [Online]. Available: https://arxiv.org/abs/2304.09394v1"/>
+<meta name="citation_reference" content="[68] I. Ozkaya, “Application of Large Language Models to Software Engineering Tasks: Opportunities, Risks, and Implications,” IEEE Softw., vol. 40, no. 3, pp. 4–8, May 2023, doi: 10.1109/MS.2023.3248401."/>
+<meta name="citation_reference" content="[69] L. Wang et al., “Document-Level Machine Translation with Large Language Models,” EMNLP 2023 - 2023 Conf. Empir. Methods Nat. Lang. Process. Proc., pp. 16646–16661, Apr. 2023, doi: 10.18653/v1/2023.emnlp-main.1036."/>
+<meta name="citation_reference" content="[70] W. J. Hutchins, “Machine Translation: History of Research and Applications,” Routledge Encycl. Transl. Technol. Second Ed., pp. 128–144, Jan. 2023, doi: 10.4324/9781003168348-7/MACHINE-TRANSLATION-JOHN-HUTCHINS."/>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<meta name="DC.Coverage" xml:lang="en" content="Artificial Intelligence, Natural Language Processing"/>
+<meta name="DC.Creator.PersonalName" content="Tri Lathif Mardi Suryanto"/>
+<meta name="DC.Creator.PersonalName" content="Aji Prasetya Wibawa"/>
+<meta name="DC.Creator.PersonalName" content="Hariyono Hariyono"/>
+<meta name="DC.Creator.PersonalName" content="Andrew Nafalski"/>
+<meta name="DC.Date.created" scheme="ISO8601" content="2025-01-09"/>
+<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2024-11-06"/>
+<meta name="DC.Date.issued" scheme="ISO8601" content="2024-11-26"/>
+<meta name="DC.Date.modified" scheme="ISO8601" content="2025-02-18"/>
+<meta name="DC.Description" xml:lang="en" content="AI and Machine Learning are crucial in advancing technology, especially for processing large, complex datasets. The transformer model, a primary approach in natural language processing (NLP), enables applications like translation, text summarization, and question-answer (QA) systems. This study compares two popular transformer models, FlanT5 and mT5, which are widely used yet often struggle to capture the specific context of the reference text. Using a unique Goddess Durga QA dataset with specialized cultural knowledge about Indonesia, this research tests how effectively each model can handle culturally specific QA tasks. The study involved data preparation, initial model training, ROUGE metric evaluation (ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum), and result analysis. Findings show that FlanT5 outperforms mT5 on multiple metrics, making it better at preserving cultural context. These results are impactful for NLP applications that rely on cultural insight, such as cultural preservation QA systems and context-based educational platforms."/>
+<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
+<meta name="DC.Identifier" content="1211"/>
+<meta name="DC.Identifier.pageNumber" content="02501015"/>
+<meta name="DC.Identifier.DOI" content="10.26877/asset.v7i1.1211"/>
+<meta name="DC.Identifier.URI" content="https://journal2.upgris.ac.id/index.php/asset/article/view/1211"/>
+<meta name="DC.Language" scheme="ISO639-1" content="en"/>
+<meta name="DC.Rights" content="Copyright (c) 2024 Advance Sustainable Science Engineering and Technology"/>
+<meta name="DC.Source" content="Advance Sustainable Science Engineering and Technology"/>
+<meta name="DC.Source.ISSN" content="2715-4211"/>
+<meta name="DC.Source.Issue" content="1"/>
+<meta name="DC.Source.Volume" content="7"/>
+<meta name="DC.Source.URI" content="https://journal2.upgris.ac.id/index.php/asset"/>
+<meta name="DC.Subject" xml:lang="en" content="Artificial Intelligence"/>
+<meta name="DC.Subject" xml:lang="en" content="Machine Learning"/>
+<meta name="DC.Subject" xml:lang="en" content="NLP Cultural Knowledge"/>
+<meta name="DC.Subject" xml:lang="en" content="Transformer Models"/>
+<meta name="DC.Subject" xml:lang="en" content="QA Goddess Durga Dataset"/>
+<meta name="DC.Title" content="Comparative Performance of Transformer Models for Cultural Heritage in NLP Tasks"/>
+<meta name="DC.Type" content="Text.Serial.Journal"/>
+<meta name="DC.Type.articleType" content="Articles"/>
+	<link rel="stylesheet" href="https://journal2.upgris.ac.id/index.php/asset/$$$call$$$/page/page/css?name=stylesheet" type="text/css" /><link rel="stylesheet" href="https://journal2.upgris.ac.id/index.php/asset/$$$call$$$/page/page/css?name=font" type="text/css" /><link rel="stylesheet" href="https://journal2.upgris.ac.id/lib/pkp/styles/fontawesome/fontawesome.css?v=3.4.0.8" type="text/css" /><link rel="stylesheet" href="https://journal2.upgris.ac.id/public/journals/16/styleSheet.css?d=2023-12-12+23%3A25%3A55" type="text/css" /><link rel="stylesheet" href="https://journal2.upgris.ac.id/public/site/styleSheet.css?v=3.4.0.8" type="text/css" />
+</head>
+<body class="pkp_page_article pkp_op_view has_site_logo" dir="ltr">
+
+	<div class="pkp_structure_page">
+
+				<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
+						
+ <nav class="cmp_skip_to_content" aria-label="Jump to content links">
+	<a href="#pkp_content_main">Skip to main content</a>
+	<a href="#siteNav">Skip to main navigation menu</a>
+		<a href="#pkp_content_footer">Skip to site footer</a>
+</nav>
+
+			<div class="pkp_head_wrapper">
+
+				<div class="pkp_site_name_wrapper">
+					<button class="pkp_site_nav_toggle">
+						<span>Open Menu</span>
+					</button>
+										<div class="pkp_site_name">
+																<a href="						https://journal2.upgris.ac.id/index.php/asset/index
+					" class="is_img">
+							<img src="https://journal2.upgris.ac.id/public/journals/16/pageHeaderLogoImage_en_US.png" width="1600" height="273" alt="Header Logo" />
+						</a>
+										</div>
+				</div>
+
+				
+				<nav class="pkp_site_nav_menu" aria-label="Site Navigation">
+					<a id="siteNav"></a>
+					<div class="pkp_navigation_primary_row">
+						<div class="pkp_navigation_primary_wrapper">
+																				<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+								<li class="">
+				<a href="https://journal2.upgris.ac.id/index.php/asset">
+					Home
+				</a>
+							</li>
+								<li class="">
+				<a href="https://journal2.upgris.ac.id/index.php/asset/issue/current">
+					Current
+				</a>
+							</li>
+								<li class="">
+				<a href="https://journal2.upgris.ac.id/index.php/asset/about/contact">
+					Contact
+				</a>
+							</li>
+								<li class="">
+				<a href="https://journal2.upgris.ac.id/index.php/asset/issue/archive">
+					Archives
+				</a>
+							</li>
+															<li class="">
+				<a href="https://journal.upgris.ac.id/index.php/asset/issue/archive">
+					Archives 2019-2024
+				</a>
+							</li>
+			</ul>
+
+				
+
+																						<div class="pkp_navigation_search_wrapper">
+									<a href="https://journal2.upgris.ac.id/index.php/asset/search" class="pkp_search pkp_search_desktop">
+										<span class="fa fa-search" aria-hidden="true"></span>
+										Search
+									</a>
+								</div>
+													</div>
+					</div>
+					<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
+							<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
+								<li class="profile">
+				<a href="https://journal2.upgris.ac.id/index.php/asset/user/register">
+					Register
+				</a>
+							</li>
+								<li class="profile">
+				<a href="https://journal2.upgris.ac.id/index.php/asset/login">
+					Login
+				</a>
+							</li>
+								<li class="profile">
+				<a href="https://journal2.upgris.ac.id/index.php/asset/about/submissions">
+					Submissions
+				</a>
+							</li>
+										</ul>
+
+					</div>
+				</nav>
+			</div><!-- .pkp_head_wrapper -->
+		</header><!-- .pkp_structure_head -->
+
+						<div class="pkp_structure_content has_sidebar">
+			<div class="pkp_structure_main" role="main">
+				<a id="pkp_content_main"></a>
+
+<div class="page page_article">
+			<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+	<ol>
+		<li>
+			<a href="https://journal2.upgris.ac.id/index.php/asset/index">
+				Home
+			</a>
+			<span class="separator">/</span>
+		</li>
+		<li>
+			<a href="https://journal2.upgris.ac.id/index.php/asset/issue/archive">
+				Archives
+			</a>
+			<span class="separator">/</span>
+		</li>
+					<li>
+				<a href="https://journal2.upgris.ac.id/index.php/asset/issue/view/54">
+					Vol. 7 No. 1 (2025): November-January
+				</a>
+				<span class="separator">/</span>
+			</li>
+				<li class="current" aria-current="page">
+			<span aria-current="page">
+									Articles
+							</span>
+		</li>
+	</ol>
+</nav>
+	
+		  	 <article class="obj_article_details">
+
+		
+	<h1 class="page_title">
+		Comparative Performance of Transformer Models for Cultural Heritage in NLP Tasks
+	</h1>
+
+	
+	<div class="row">
+		<div class="main_entry">
+
+    <section class="item authors">
+        <h2 class="pkp_screen_reader">Authors</h2>
+        <ul class="authors">
+                    <li>
+                <span class="name">
+                    <strong>Tri Lathif Mardi Suryanto</strong>
+                </span>
+
+                                    <span class="affiliation" style="display: block; font-style: italic;">
+                        Universitas Negeri Malang
+                                            </span>
+                
+                                    <span class="country" style="display: block; font-size: 0.9em; color: #555;">
+                        <i class="fa fa-globe"></i> Indonesia
+                    </span>
+                
+                                                                
+                            </li>
+                    <li>
+                <span class="name">
+                    <strong>Aji Prasetya Wibawa</strong>
+                </span>
+
+                                    <span class="affiliation" style="display: block; font-style: italic;">
+                        Universitas Negeri Malang
+                                            </span>
+                
+                                    <span class="country" style="display: block; font-size: 0.9em; color: #555;">
+                        <i class="fa fa-globe"></i> Indonesia
+                    </span>
+                
+                                                                
+                            </li>
+                    <li>
+                <span class="name">
+                    <strong>Hariyono Hariyono</strong>
+                </span>
+
+                                    <span class="affiliation" style="display: block; font-style: italic;">
+                        Universitas Negeri Malang
+                                            </span>
+                
+                                    <span class="country" style="display: block; font-size: 0.9em; color: #555;">
+                        <i class="fa fa-globe"></i> Indonesia
+                    </span>
+                
+                                                                
+                            </li>
+                    <li>
+                <span class="name">
+                    <strong>Andrew Nafalski</strong>
+                </span>
+
+                                    <span class="affiliation" style="display: block; font-style: italic;">
+                        University of South Australia
+                                            </span>
+                
+                                    <span class="country" style="display: block; font-size: 0.9em; color: #555;">
+                        <i class="fa fa-globe"></i> Indonesia
+                    </span>
+                
+                                                                
+                            </li>
+                </ul>
+    </section>
+			<!-- 				<section class="item authors">
+					<h2 class="pkp_screen_reader">Authors</h2>
+					<ul class="authors">
+											<li>
+							<span class="name">
+								Tri Lathif Mardi Suryanto
+							</span>
+															<span class="affiliation">
+									Universitas Negeri Malang
+																	</span>
+																																		</li>
+											<li>
+							<span class="name">
+								Aji Prasetya Wibawa
+							</span>
+															<span class="affiliation">
+									Universitas Negeri Malang
+																	</span>
+																																		</li>
+											<li>
+							<span class="name">
+								Hariyono Hariyono
+							</span>
+															<span class="affiliation">
+									Universitas Negeri Malang
+																	</span>
+																																		</li>
+											<li>
+							<span class="name">
+								Andrew Nafalski
+							</span>
+															<span class="affiliation">
+									University of South Australia
+																	</span>
+																																		</li>
+										</ul>
+				</section>
+			 -->
+
+																	<section class="item doi">
+					<h2 class="label">
+												DOI:
+					</h2>
+					<span class="value">
+						<a href="https://doi.org/10.26877/asset.v7i1.1211">
+							https://doi.org/10.26877/asset.v7i1.1211
+						</a>
+					</span>
+				</section>
+			
+
+									<section class="item keywords">
+				<h2 class="label">
+										Keywords:
+				</h2>
+				<span class="value">
+											Artificial Intelligence, 											Machine Learning, 											NLP Cultural Knowledge, 											Transformer Models, 											QA Goddess Durga Dataset									</span>
+			</section>
+			
+										<section class="item abstract">
+					<h2 class="label">Abstract</h2>
+					<p>AI and Machine Learning are crucial in advancing technology, especially for processing large, complex datasets. The transformer model, a primary approach in natural language processing (NLP), enables applications like translation, text summarization, and question-answer (QA) systems. This study compares two popular transformer models, FlanT5 and mT5, which are widely used yet often struggle to capture the specific context of the reference text. Using a unique Goddess Durga QA dataset with specialized cultural knowledge about Indonesia, this research tests how effectively each model can handle culturally specific QA tasks. The study involved data preparation, initial model training, ROUGE metric evaluation (ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum), and result analysis. Findings show that FlanT5 outperforms mT5 on multiple metrics, making it better at preserving cultural context. These results are impactful for NLP applications that rely on cultural insight, such as cultural preservation QA systems and context-based educational platforms.</p>
+				</section>
+			
+			
+
+						
+																																								
+										<section class="item references">
+					<h2 class="label">
+						References
+					</h2>
+					<div class="value">
+																					<p>[1] L. Xu, L. Lu, and M. Liu, “Construction and application of a knowledge graph-based question answering system for Nanjing Yunjin digital resources,” Herit. Sci., vol. 11, no. 1, pp. 1–17, Dec. 2023, doi: 10.1186/S40494-023-01068-2/TABLES/6. </p>
+															<p>[2] F. Jin, Q. Chang, and Z. Xu, “MuseumQA: A Fine-Grained Question Answering Dataset for Museums and Artifacts,” ACM Int. Conf. Proceeding Ser., pp. 221–226, Dec. 2023, doi: 10.1145/3639479.3639525. </p>
+															<p>[3] Z. Fan and C. Chen, “CuPe-KG: Cultural perspective–based knowledge graph construction of tourism resources via pretrained language models,” Inf. Process. Manag., vol. 61, no. 3, p. 103646, May 2024, doi: 10.1016/J.IPM.2024.103646. </p>
+															<p>[4] R. C. Climent, D. M. Haftor, and M. W. Staniewski, “AI-enabled business models for competitive advantage,” J. Innov. Knowl., vol. 9, no. 3, p. 100532, Jul. 2024, doi: 10.1016/j.jik.2024.100532. </p>
+															<p>[5] M. Dumas et al., “AI-augmented Business Process Management Systems: A Research Manifesto,” ACM Trans. Manag. Inf. Syst., vol. 14, no. 1, pp. 1–19, Mar. 2023, doi: 10.1145/3576047. </p>
+															<p>[6] J. R. Rodriguez Barboza et al., “Posthumanist Technologies in Business: AI and Cloud Computing for Global Optimization and Ethical Challenges,” Adv. Sustain. Sci. Eng. Technol., vol. 6, no. 4, p. 02404021, Oct. 2024, doi: 10.26877/asset.v6i4.1064. </p>
+															<p>[7] B. Meskó and E. J. Topol, “The imperative for regulatory oversight of large language models (or generative AI) in healthcare,” npj Digit. Med., vol. 6, no. 1, p. 120, Jul. 2023, doi: 10.1038/s41746-023-00873-0. </p>
+															<p>[8] S. M. Williamson and V. Prybutok, “Balancing Privacy and Progress: A Review of Privacy Challenges, Systemic Oversight, and Patient Perceptions in AI-Driven Healthcare,” Appl. Sci., vol. 14, no. 2, p. 675, Jan. 2024, doi: 10.3390/app14020675. </p>
+															<p>[9] N. Susetyo et al., “Natural Language Processing in Higher Education,” Bull. Soc. Informatics Theory Appl., vol. 6, no. 1, pp. 90–101, Jul. 2022, doi: 10.31763/BUSINTA.V6I1.593. </p>
+															<p>[10] Y. Pande, “Project EngiBot: Engineering Insights through NLP- driven Chatbot,” Int. J. Res. Appl. Sci. Eng. Technol., vol. 11, no. 11, pp. 689–692, Nov. 2023, doi: 10.22214/ijraset.2023.56590. </p>
+															<p>[11] J. Su (苏嘉红) and W. Yang (杨伟鹏), “Unlocking the Power of ChatGPT: A Framework for Applying Generative AI in Education,” ECNU Rev. Educ., vol. 6, no. 3, pp. 355–366, Aug. 2023, doi: 10.1177/20965311231168423. </p>
+															<p>[12] J. Qadir, “Engineering Education in the Era of ChatGPT: Promise and Pitfalls of Generative AI for Education,” in 2023 IEEE Global Engineering Education Conference (EDUCON), IEEE, May 2023, pp. 1–9. doi: 10.1109/EDUCON54358.2023.10125121. </p>
+															<p>[13] X. Wang, L. Li, S. C. Tan, L. Yang, and J. Lei, “Preparing for AI-enhanced education: Conceptualizing and empirically examining teachers’ AI readiness,” Comput. Human Behav., vol. 146, p. 107798, Sep. 2023, doi: 10.1016/j.chb.2023.107798. </p>
+															<p>[14] T. L. M. Suryanto, A. P. Wibawa, H. Hariyono, and A. Nafalski, “Evolving Conversations: A Review of Chatbots and Implications in Natural Language Processing for Cultural Heritage Ecosystems,” Int. J. Robot. Control Syst., vol. 3, no. 4, pp. 955–1006, Dec. 2023, doi: 10.31763/ijrcs.v3i4.1195. </p>
+															<p>[15] I. D. Raharjo and Egia Rosi Subhiyakto, “Implementing Long Short Term Memory (LSTM) in Chatbots for Multi Usaha Raya,” Adv. Sustain. Sci. Eng. Technol., vol. 6, no. 4, p. 02404018, Oct. 2024, doi: 10.26877/asset.v6i4.934. </p>
+															<p>[16] S. Hawanti and K. M. Zubaydulloevna, “AI chatbot-based learning: alleviating students’ anxiety in english writing classroom,” Bull. Soc. Informatics Theory Appl., vol. 7, no. 2, pp. 182–192, Dec. 2023, doi: 10.31763/BUSINTA.V7I2.659. </p>
+															<p>[17] P. D. Larasati, A. Irawan, S. Anwar, M. F. Mulya, M. A. Dewi, and I. Nurfatima, “Chatbot helpdesk design for digital customer service.” Accessed: Dec. 20, 2024. [Online]. Available: <a href="https://pubs2.ascee.org/index.php/aet/article/view/684">https://pubs2.ascee.org/index.php/aet/article/view/684</a> </p>
+															<p>[18] P. A. Alia, D. Kartika Sari, N. Azis, B. Gunawan Sudarsono, and P. Agus Sucipto, “Implementation Artificial Intelligence with Natural Language Processing Method to Improve Performance of Digital Product Sales Service,” Adv. Sustain. Sci. Eng. Technol., vol. 6, no. 3, p. 0240301, Jun. 2024, doi: 10.26877/asset.v6i3.521. </p>
+															<p>[19] T. B. Brown et al., “Language Models are Few-Shot Learners,” Adv. Neural Inf. Process. Syst., vol. 2020-December, May 2020, Accessed: Dec. 19, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2005.14165v4">https://arxiv.org/abs/2005.14165v4</a> </p>
+															<p>[20] C. Raffel et al., “Exploring the limits of transfer learning with a unified text-to-text transformer,” J. Mach. Learn. Res., vol. 21, pp. 1–67, 2020. </p>
+															<p>[21] M. A. Hasan et al., “NativQA: Multilingual Culturally-Aligned Natural Query for LLMs,” Jul. 2024, Accessed: Dec. 19, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2407.09823v2">https://arxiv.org/abs/2407.09823v2</a> </p>
+															<p>[22] L. Colucci Cante, B. Di Martino, M. Graziano, D. Branco, and G. J. Pezzullo, “Automated Storytelling Technologies for Cultural Heritage,” Lect. Notes Data Eng. Commun. Technol., vol. 193, pp. 597–606, 2024, doi: 10.1007/978-3-031-53555-0_57. </p>
+															<p>[23] E. M. B. Nagoudi, A. Elmadany, and M. Abdul-Mageed, “AraT5: Text-to-Text Transformers for Arabic Language Generation,” 2022, [Online]. Available: <a href="https://doi.org/10.48550/arXiv.2109.12068">https://doi.org/10.48550/arXiv.2109.12068</a> </p>
+															<p>[24] A. Prasetya Wibawa, H. K. Fithri, I. Ari, E. Zaeni, and A. Nafalski, “Generating Javanese Stopwords List using K-means Clustering Algorithm,” Knowl. Eng. Data Sci., vol. 3, no. 2, pp. 106–111, Dec. 2020, doi: 10.17977/UM018V3I22020P106-111. </p>
+															<p>[25] J. Santoso, E. I. Setiawan, C. N. Purwanto, and F. Kurniawan, “Indonesian Sentence Boundary Detection using Deep Learning Approaches,” Knowl. Eng. Data Sci., vol. 4, no. 1, pp. 38–48, Jun. 2021, doi: 10.17977/UM018V4I12021P38-48. </p>
+															<p>[26] L. Xue et al., “mT5: A Massively Multilingual Pre-trained Text-to-Text Transformer,” in Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Stroudsburg, PA, USA: Association for Computational Linguistics, 2021, pp. 483–498. doi: 10.18653/v1/2021.naacl-main.41. </p>
+															<p>[27] T. Wolf et al., “Transformers: State-of-the-Art Natural Language Processing,” in Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, Stroudsburg, PA, USA: Association for Computational Linguistics, 2020, pp. 38–45. doi: 10.18653/v1/2020.emnlp-demos.6. </p>
+															<p>[28] A. Mastropaolo et al., “Studying the Usage of Text-To-Text Transfer Transformer to Support Code-Related Tasks,” pp. 336–347, 2021, doi: 10.1109/ICSE43902.2021.00041. </p>
+															<p>[29] Z. Chi et al., “mT6: Multilingual Pretrained Text-to-Text Transformer with Translation Pairs,” in Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, Stroudsburg, PA, USA: Association for Computational Linguistics, 2021, pp. 1671–1683. doi: 10.18653/v1/2021.emnlp-main.125. </p>
+															<p>[30] J. Frei and F. Kramer, “Annotated dataset creation through large language models for non-english medical NLP,” J. Biomed. Inform., vol. 145, p. 104478, Sep. 2023, doi: 10.1016/j.jbi.2023.104478. </p>
+															<p>[31] A. I. Regla and M. A. Ballera, “An Enhanced Research Productivity Monitoring System for Higher Education Institutions (HEI’s) with Natural Language Processing (NLP),” Procedia Comput. Sci., vol. 230, pp. 316–325, 2023, doi: 10.1016/j.procs.2023.12.087. </p>
+															<p>[32] L. Ranaldi and F. M. Zanzotto, “Discover AI Knowledge to Preserve Cultural Heritage,” Sep. 2021, doi: 10.20944/PREPRINTS202109.0062.V1. </p>
+															<p>[33] H. R. Will, N. Masini, and D. H. R. Spennemann, “Will Artificial Intelligence Affect How Cultural Heritage Will Be Managed in the Future? Responses Generated by Four genAI Models,” Herit. 2024, Vol. 7, Pages 1453-1471, vol. 7, no. 3, pp. 1453–1471, Mar. 2024, doi: 10.3390/HERITAGE7030070. </p>
+															<p>[34] S. Pawar et al., “Survey of Cultural Awareness in Language Models: Text and Beyond,” Oct. 2024, Accessed: Dec. 19, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2411.00860v1">https://arxiv.org/abs/2411.00860v1</a> </p>
+															<p>[35] C. Qu, L. Yang, C. Chen, M. Qiu, W. B. Croft, and M. Iyyer, “Open-Retrieval Conversational Question Answering,” SIGIR 2020 - Proc. 43rd Int. ACM SIGIR Conf. Res. Dev. Inf. Retr., pp. 539–548, 2020, doi: 10.1145/3397271.3401110. </p>
+															<p>[36] J. Li et al., “Graphix-T5 : Mixing Pre-trained Transformers with Graph-Aware Layers for Text-to-SQL Parsing,” 2022, [Online]. Available: <a href="https://doi.org/10.48550/arXiv.2301.07507">https://doi.org/10.48550/arXiv.2301.07507</a> </p>
+															<p>[37] T. Shao, Y. Guo, H. Chen, and Z. Hao, “Transformer-Based Neural Network for Answer Selection in Question Answering,” IEEE Access, vol. 7, pp. 26146–26156, 2019, doi: 10.1109/ACCESS.2019.2900753. </p>
+															<p>[38] X. Chen, P. Cong, and S. Lv, “A Long-Text Classification Method of Chinese News Based on BERT and CNN,” IEEE Access, vol. 10, pp. 34046–34057, 2022, doi: 10.1109/ACCESS.2022.3162614. </p>
+															<p>[39] L. Liu, X. Su, H. Guo, and D. Zhu, “A Transformer-based Medical Visual Question Answering Model,” in 2022 26th International Conference on Pattern Recognition (ICPR), IEEE, Aug. 2022, pp. 1712–1718. doi: 10.1109/ICPR56361.2022.9956469. </p>
+															<p>[40] S. Zhu et al., “Multilingual Large Language Models: A Systematic Survey,” 2024, Accessed: Dec. 19, 2024. [Online]. Available: <a href="https://github.com/tjunlp-lab/Awesome-Multilingual-LLMs-Papers">https://github.com/tjunlp-lab/Awesome-Multilingual-LLMs-Papers</a> </p>
+															<p>[41] B. Weng, “Navigating the Landscape of Large Language Models: A Comprehensive Review and Analysis of Paradigms and Fine-Tuning Strategies,” Apr. 2024, Accessed: Dec. 19, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2404.09022v1">https://arxiv.org/abs/2404.09022v1</a> </p>
+															<p>[42] M. Nitu and M. Dascalu, “Natural Language Processing Tools for Romanian-Going Beyond a Low-Resource Language”, doi: 10.55612/s-5002-060-001sp. </p>
+															<p>[43] C. Wang, P. Liu, and Y. Zhang, “Can Generative Pre-trained Language Models Serve as Knowledge Bases for Closed-book QA,” 2018. </p>
+															<p>[44] Y. Liu et al., “RoBERTa: A Robustly Optimized BERT Pretraining Approach,” no. 1, 2019, [Online]. Available: <a href="http://arxiv.org/abs/1907.11692">http://arxiv.org/abs/1907.11692</a> </p>
+															<p>[45] A. Mastropaolo et al., “Using Transfer Learning for Code-Related Tasks,” IEEE Trans. Softw. Eng., vol. 49, no. 4, pp. 1580–1598, Apr. 2023, doi: 10.1109/TSE.2022.3183297. </p>
+															<p>[46] C. Mallikarjuna and S. Sivanesan, “Question classification using limited labelled data,” Inf. Process. Manag., vol. 59, no. 6, p. 103094, Nov. 2022, doi: 10.1016/j.ipm.2022.103094. </p>
+															<p>[47] E. Alsentzer et al., “Zero-shot interpretable phenotyping of postpartum hemorrhage using large language models,” npj Digit. Med. 2023 61, vol. 6, no. 1, pp. 1–10, Nov. 2023, doi: 10.1038/s41746-023-00957-x. </p>
+															<p>[48] B. Pecher, I. Srba, and M. Bielikova, “Comparing Specialised Small and General Large Language Models on Text Classification: 100 Labelled Samples to Achieve Break-Even Performance,” Feb. 2024, Accessed: Dec. 20, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2402.12819v2">https://arxiv.org/abs/2402.12819v2</a> </p>
+															<p>[49] A. Auriemma Citarella, M. Barbella, M. G. Ciobanu, F. De Marco, L. Di Biasi, and G. Tortora, “Rouge Metric Evaluation for Text Summarization Techniques.” 2024. doi: 10.2139/ssrn.4753220. </p>
+															<p>[50] M. Fuadi, A. D. Wibawa, and S. Sumpeno, “idT5 : Indonesian Version of Multilingual T5 Transformer,” 2023, [Online]. Available: <a href="https://doi.org/10.48550/arXiv.2302.00856">https://doi.org/10.48550/arXiv.2302.00856</a> </p>
+															<p>[51] D. Uthus, S. Ontañón, J. Ainslie, and M. Guo, “mLongT5: A Multilingual and Efficient Text-To-Text Transformer for Longer Sequences,” vol. 5, 2023. </p>
+															<p>[52] M. Guo, J. Ainslie, and D. Uthus, “LongT5 : Efficient Text-To-Text Transformer for Long Sequences,” pp. 724–736, 2022, [Online]. Available: <a href="https://doi.org/10.48550/arXiv.2112.07916">https://doi.org/10.48550/arXiv.2112.07916</a> </p>
+															<p>[53] Z. Zhang, X. He, V. Iyer, and A. Birch, “Cultural Adaptation of Menus: A Fine-Grained Approach,” Aug. 2024, Accessed: Dec. 20, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2408.13534v1">https://arxiv.org/abs/2408.13534v1</a> </p>
+															<p>[54] S. Dwivedi, S. Ghosh, and S. Dwivedi, “Navigating Linguistic Diversity: In-Context Learning and Prompt Engineering for Subjectivity Analysis in Low-Resource Languages,” SN Comput. Sci., vol. 5, no. 4, pp. 1–9, Apr. 2024, doi: 10.1007/S42979-024-02770-Z/TABLES/2. </p>
+															<p>[55] E. Merdivan, D. Singh, S. Hanke, and A. Holzinger, “Dialogue Systems for Intelligent Human Computer Interactions,” Electron. Notes Theor. Comput. Sci., vol. 343, pp. 57–71, May 2019, doi: 10.1016/J.ENTCS.2019.04.010. </p>
+															<p>[56] T. Shen et al., “ViDA-MAN: Visual Dialog with Digital Humans,” MM 2021 - Proc. 29th ACM Int. Conf. Multimed., pp. 2789–2791, Oct. 2021, doi: 10.1145/3474085.3478560/SUPPL_FILE/DE3228.MP4. </p>
+															<p>[57] J. Tian et al., “ChatPLUG: Open-Domain Generative Dialogue System with Internet-Augmented Instruction Tuning for Digital Human,” Apr. 2023, Accessed: Dec. 20, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2304.07849v3">https://arxiv.org/abs/2304.07849v3</a> </p>
+															<p>[58] S. Longpre et al., “The Flan Collection: Designing Data and Methods for Effective Instruction Tuning,” Proc. Mach. Learn. Res., vol. 202, pp. 22631–22648, 2023. </p>
+															<p>[59] V. Bouras et al., “Chatbots for Cultural Venues: A Topic-Based Approach,” Algorithms 2023, Vol. 16, Page 339, vol. 16, no. 7, p. 339, Jul. 2023, doi: 10.3390/A16070339. </p>
+															<p>[60] P. K. Rachabatuni, F. Principi, P. Mazzanti, and M. Bertini, “Context-aware chatbot using MLLMs for Cultural Heritage,” MMSys 2024 - Proc. 2024 ACM Multimed. Syst. Conf., pp. 459–463, Apr. 2024, doi: 10.1145/3625468.3652193. </p>
+															<p>[61] M. Tsepapadakis and D. Gavalas, “Are you talking to me? An Audio Augmented Reality conversational guide for cultural heritage,” Pervasive Mob. Comput., vol. 92, p. 101797, May 2023, doi: 10.1016/J.PMCJ.2023.101797. </p>
+															<p>[62] K. Sathiyabamavathy and A. K. P., “Role of Chatbots in Cultural Heritage Tourism: An Empirical Study on Ancient Forts and Palaces,” <a href="https://doi.org/10.1177/24559296241253932">https://doi.org/10.1177/24559296241253932</a>, vol. 9, no. 1, pp. 9–28, Jun. 2024, doi: 10.1177/24559296241253932. </p>
+															<p>[63] J. Enciso-Anaya, K. Tamil, and Q. Truong, “Virtual Museum Tours of the de Saisset Museum,” Comput. Sci. Eng. Sr. Theses, Jun. 2024, Accessed: Dec. 20, 2024. [Online]. Available: <a href="https://scholarcommons.scu.edu/cseng_senior/306">https://scholarcommons.scu.edu/cseng_senior/306</a> </p>
+															<p>[64] T. Komarac and Đ. Ozretić Došen, “Understanding virtual museum visits: generation Z experiences,” Museum Manag. Curatorsh., vol. 39, no. 3, pp. 357–376, May 2024, doi: 10.1080/09647775.2023.2269129. </p>
+															<p>[65] Z. Wang, L. P. Yuan, L. Wang, B. Jiang, and W. Zeng, “VirtuWander: Enhancing Multi-modal Interaction for Virtual Tour Guidance through Large Language Models,” Conf. Hum. Factors Comput. Syst. - Proc., May 2024, doi: 10.1145/3613904.3642235/SUPPL_FILE/PN7938-SUPPLEMENTAL-MATERIAL-2.PDF. </p>
+															<p>[66] R. Patria and P. H. Merdeka, “Creative Strategies in the Recovery of Endangered Languages,” J. Lit. Lang. Acad. Stud., vol. 2, no. 02, pp. 57–61, Aug. 2023, doi: 10.56855/JLLANS.V2I2.671. </p>
+															<p>[67] D. K. Nanduri and E. M. Bonsignore, “Revitalizing Endangered Languages: AI-powered language learning as a catalyst for language appreciation,” Apr. 2023, Accessed: Dec. 20, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2304.09394v1">https://arxiv.org/abs/2304.09394v1</a> </p>
+															<p>[68] I. Ozkaya, “Application of Large Language Models to Software Engineering Tasks: Opportunities, Risks, and Implications,” IEEE Softw., vol. 40, no. 3, pp. 4–8, May 2023, doi: 10.1109/MS.2023.3248401. </p>
+															<p>[69] L. Wang et al., “Document-Level Machine Translation with Large Language Models,” EMNLP 2023 - 2023 Conf. Empir. Methods Nat. Lang. Process. Proc., pp. 16646–16661, Apr. 2023, doi: 10.18653/v1/2023.emnlp-main.1036. </p>
+															<p>[70] W. J. Hutchins, “Machine Translation: History of Research and Applications,” Routledge Encycl. Transl. Technol. Second Ed., pp. 128–144, Jan. 2023, doi: 10.4324/9781003168348-7/MACHINE-TRANSLATION-JOHN-HUTCHINS. </p>
+																		</div>
+				</section>
+			
+		</div><!-- .main_entry -->
+
+		<div class="entry_details">
+
+										<div class="item cover_image">
+					<div class="sub_item">
+													<a href="https://journal2.upgris.ac.id/index.php/asset/issue/view/54">
+								<img src="https://journal2.upgris.ac.id/public/journals/16/cover_issue_54_en_US.jpg" alt="">
+							</a>
+											</div>
+				</div>
+			
+										<div class="item galleys">
+					<h2 class="pkp_screen_reader">
+						Downloads
+					</h2>
+					<ul class="value galleys_links">
+													<li>
+								
+	
+													
+
+<a class="obj_galley_link pdf" href="https://journal2.upgris.ac.id/index.php/asset/article/view/1211/593">
+		
+	PDF
+
+	</a>
+							</li>
+											</ul>
+				</div>
+						
+						<div class="item published">
+				<section class="sub_item">
+					<h2 class="label">
+						Published
+					</h2>
+					<div class="value">
+																			<span>2025-01-09</span>
+																	</div>
+				</section>
+							</div>
+			
+						
+										<div class="item issue">
+
+											<section class="sub_item">
+							<h2 class="label">
+								Issue
+							</h2>
+							<div class="value">
+								<a class="title" href="https://journal2.upgris.ac.id/index.php/asset/issue/view/54">
+									Vol. 7 No. 1 (2025): November-January
+								</a>
+							</div>
+						</section>
+					
+											<section class="sub_item">
+							<h2 class="label">
+								Section
+							</h2>
+							<div class="value">
+								Articles
+							</div>
+						</section>
+					
+									</div>
+			
+						
+						
+			
+
+		</div><!-- .entry_details -->
+	</div><!-- .row -->
+
+</article>
+
+	
+
+</div><!-- .page -->
+
+	</div><!-- pkp_structure_main -->
+
+									<div class="pkp_structure_sidebar left" role="complementary">
+				<div class="pkp_block block_custom" id="customblock-menu">
+	<h2 class="title pkp_screen_reader">Menu</h2>
+	<div class="content">
+		<div id="customblock-tools" class="pkp_block block_custom">
+<p><strong><span class="title">Article Template</span></strong></p>
+<p><a href="https://docs.google.com/document/d/1p020zHOy_xqGkMe8kPDkr_g7rQDnLJfm/edit?usp=sharing&amp;ouid=110326501197145285664&amp;rtpof=true&amp;sd=true"><img src="https://jurnal.pendidikanbiologiukaw.ac.id/public/site/images/jurnalpe_ukawbio/Artikel_Template_crop.jpg" alt="" width="158" height="51"></a></p>
+</div>
+<div id="customblock-tools" class="pkp_block block_custom">
+<h2 class="title pkp_screen_reader">tools</h2>
+</div>
+<p><span class="title">Main Menu</span></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/about/submissions#privacyStatement">New Submission</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/about/editorialTeam">Editorial Team</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Reviewer">Reviewers</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/aimsnscope">Aims &amp; Scope</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Author_guidelines">Author Guidelines</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Peer_review_process">Peer Review Process</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/openaccespolicy">Open Access Policy</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/GenAIPolicy">Generative AI Policy</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/PublicationEthics">Publication Ethics</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Copyright_notice">Copyright Notice</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Plagiarsm_prevention">Screening for Plagiarism</a></p>
+<p class="item_menu"><a href="https://statcounter.com/p12471839/summary/?account_id=5355643&amp;login_id=3&amp;code=e53d6a2140603194d206c98444014a2b&amp;guest_login=1">Visitor Statistics</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Scopus_citation"><span id="cell-127-title" class="gridCellContainer"><span class="label">Scopus Citation Analysis</span></span></a></p>
+<p class="item_menu"><a href="https://drive.google.com/file/d/1WGXIde37RV_e5lvruelmI--d8dZ8hniQ/view">Article Template</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/authorsfees">Author's Fees</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/archiving">Archiving</a></p>
+<p class="item_menu"><a href="https://journal2.upgris.ac.id/index.php/asset/Indexing">Indexing</a></p>
+	</div>
+</div>
+<div class="pkp_block block_custom" id="customblock-sertifikat">
+	<h2 class="title pkp_screen_reader">Sertifikat</h2>
+	<div class="content">
+		<div id="customblock-tools" class="pkp_block block_custom">
+<h2 class="title pkp_screen_reader">tools</h2>
+<div class="content">
+<p><strong><span class="title">Scopus Indexed</span></strong></p>
+<p class="item_menu"><a href="https://www.scopus.com/sourceid/21101238563" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Scopus_logo.svg/618px-Scopus_logo.svg.png" alt="" width="236" height="100"></a></p>
+<p class="item_menu"><strong>SCHIMAGO JR</strong></p>
+<p class="item_menu"><a href="https://www.scimagojr.com/journalsearch.php?q=21101238563&amp;tip=sid&amp;clean=0"><strong><img src="https://journal2.upgris.ac.id/public/site/images/admin/journal-img.png" alt="" width="200" height="200"></strong></a></p>
+<a title="Scopus CiteScore" href="https://www.scopus.com/sourceid/21101238563" target="_blank" rel="noopener"><strong>SCOPUS CiteScore</strong></a><br>
+<div style="height: 100px; width: 180px; font-family: Arial, Verdana, helvetica, sans-serif; background-color: #ffffff; display: inline-block;">
+<div style="padding: 0px 16px;">
+<div style="padding-top: 3px; line-height: 1;">
+<div style="float: left; font-size: 28px;"><a title="Scopus CiteScore" href="https://www.scopus.com/sourceid/21101238563" target="_blank" rel="noopener"><span id="citescoreVal" style="letter-spacing: -2px; display: inline-block; padding-top: 7px; line-height: .75;">1.1</span></a></div>
+<div style="float: right; font-size: 14px; padding-top: 3px; text-align: right;"><a title="Scopus CiteScore" href="https://www.scopus.com/sourceid/21101238563" target="_blank" rel="noopener"><span id="citescoreYearVal" style="display: block;">2024</span>CiteScore</a></div>
+</div>
+<div style="clear: both;">&nbsp;</div>
+<div style="padding-top: 3px;">
+<div style="height: 4px; background-color: #dcdcdc;">
+<div id="percentActBar" style="height: 4px; background-color: #0056d6;"></div>
+</div>
+<div style="font-size: 11px;"><a title="Scopus CiteScore" href="https://www.scopus.com/sourceid/21101238563" target="_blank" rel="noopener"><span id="citescorePerVal">26th percentile</span></a></div>
+</div>
+<div style="font-size: 12px; text-align: right;"><a title="Scopus CiteScore" href="https://www.scopus.com/sourceid/21101238563" target="_blank" rel="noopener">Powered by &nbsp;<img style="width: 50px; height: 15px;" src="https://www.scopus.com/static/images/scopusLogoOrange.svg" alt="Scopus"></a></div>
+</div>
+</div>
+<p class="item_menu"><a href="https://drive.google.com/file/d/1-eGmyjeVoShG9o81Srmc9ZwhobNpQWyl/view?usp=sharing"><strong><span class="title">SINTA 1</span></strong></a></p>
+<p class="item_menu"><a href="https://drive.google.com/file/d/1-eGmyjeVoShG9o81Srmc9ZwhobNpQWyl/view?usp=sharing"><img src="https://journal2.upgris.ac.id/public/site/images/adminjp2f/sertifikat-2549886x-kecil3-5231240c49f9ce3e974199c8171f4042.jpg" alt="" width="236" height="167"></a></p>
+<p><strong><span class="title">Visitor</span></strong></p>
+<p class="item_menu"><a href="https://statcounter.com/p12471839/summary/?account_id=5355643&amp;login_id=3&amp;code=e53d6a2140603194d206c98444014a2b&amp;guest_login=1" target="_blank" rel="noopener"><strong><img src="https://e-katalog.lkpp.go.id/katalog/produk/download/gambar/970386972?file_name=13755793365875.jpg&amp;v=3&amp;file_sub_location=produk_gambar%2F2023%2F10%2F02" alt="" width="236" height="72"></strong></a></p>
+<!-- Default Statcounter code for Asset Journal
+https://journal2.upgris.ac.id/index.php/asset --><noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13019577/0/ee3c5d5c/0/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript><!-- End of Statcounter Code --></div>
+</div>
+<!-- Default Statcounter code for ASSET
+http://journal2.upgris.ac.id/index.php/asset/index --><noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12471839/0/62f318e4/0/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript><!-- End of Statcounter Code -->
+	</div>
+</div>
+<div class="pkp_block block_custom" id="customblock-template">
+	<h2 class="title pkp_screen_reader">Template</h2>
+	<div class="content">
+		<div id="customblock-tools" class="pkp_block block_custom">
+<p><strong><span class="title">Article Template</span></strong></p>
+<p><a href="https://docs.google.com/document/d/1p020zHOy_xqGkMe8kPDkr_g7rQDnLJfm/edit?usp=sharing&amp;ouid=110326501197145285664&amp;rtpof=true&amp;sd=true"><img src="https://jurnal.pendidikanbiologiukaw.ac.id/public/site/images/jurnalpe_ukawbio/Artikel_Template_crop.jpg" alt="" width="158" height="51"></a></p>
+</div>
+	</div>
+</div>
+<div class="pkp_block block_web_feed">
+	<h2 class="title">Latest publications</h2>
+	<div class="content">
+		<ul>
+			<li>
+				<a href="https://journal2.upgris.ac.id/index.php/asset/gateway/plugin/WebFeedGatewayPlugin/atom">
+					<img src="https://journal2.upgris.ac.id/lib/pkp/templates/images/atom.svg" alt="Atom logo">
+				</a>
+			</li>
+			<li>
+				<a href="https://journal2.upgris.ac.id/index.php/asset/gateway/plugin/WebFeedGatewayPlugin/rss2">
+					<img src="https://journal2.upgris.ac.id/lib/pkp/templates/images/rss20_logo.svg" alt="RSS2 logo">
+				</a>
+			</li>
+			<li>
+				<a href="https://journal2.upgris.ac.id/index.php/asset/gateway/plugin/WebFeedGatewayPlugin/rss">
+					<img src="https://journal2.upgris.ac.id/lib/pkp/templates/images/rss10_logo.svg" alt="RSS1 logo">
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="pkp_block block_information">
+	<h2 class="title">Information</h2>
+	<div class="content">
+		<ul>
+							<li>
+					<a href="https://journal2.upgris.ac.id/index.php/asset/information/readers">
+						For Readers
+					</a>
+				</li>
+										<li>
+					<a href="https://journal2.upgris.ac.id/index.php/asset/information/authors">
+						For Authors
+					</a>
+				</li>
+										<li>
+					<a href="https://journal2.upgris.ac.id/index.php/asset/information/librarians">
+						For Librarians
+					</a>
+				</li>
+					</ul>
+	</div>
+</div>
+<div class="pkp_block block_language">
+	<h2 class="title">
+		Language
+	</h2>
+
+	<div class="content">
+		<ul>
+							<li class="locale_en current" lang="en">
+					<a href="https://journal2.upgris.ac.id/index.php/asset/user/setLocale/en?source=%2Findex.php%2Fasset%2Farticle%2Fview%2F1211">
+						English
+					</a>
+				</li>
+					</ul>
+	</div>
+</div><!-- .block_language -->
+<div class="pkp_block block_custom" id="customblock-plugin">
+	<h2 class="title pkp_screen_reader">plugin</h2>
+	<div class="content">
+		
+	</div>
+</div>
+
+			</div><!-- pkp_sidebar.left -->
+			</div><!-- pkp_structure_content -->
+
+<div class="pkp_structure_footer_wrapper" role="contentinfo">
+	<a id="pkp_content_footer"></a>
+
+	<div class="pkp_structure_footer">
+
+					<div class="pkp_footer_content">
+				<p><strong>Advance Sustainable Science, Engineering and Technology (ASSET)</strong></p>
+<p>E-ISSN: <a href="https://issn.lipi.go.id/terbit/detail/1575367028">2715-4211</a><br />Published by Science and Technology Research Centre</p>
+<p><a href="https://upgris.ac.id/">Universitas PGRI Semarang</a>, Indonesia</p>
+<p>Email: <a href="https://journal.upgris.ac.id/index.php/asset/manager/setup/Mail%20to%20:%20asset@upgris.ac.id"> @upgris.ac.id</a></p>
+			</div>
+		
+		<div class="pkp_brand_footer">
+			<a href="https://journal2.upgris.ac.id/index.php/asset/about/aboutThisPublishingSystem">
+				<img alt="More information about the publishing system, Platform and Workflow by OJS/PKP." src="https://journal2.upgris.ac.id/templates/images/ojs_brand.png">
+			</a>
+		</div>
+	</div>
+</div><!-- pkp_structure_footer_wrapper -->
+
+</div><!-- pkp_structure_page -->
+
+<script src="https://journal2.upgris.ac.id/lib/pkp/lib/vendor/components/jquery/jquery.min.js?v=3.4.0.8" type="text/javascript"></script><script src="https://journal2.upgris.ac.id/lib/pkp/lib/vendor/components/jqueryui/jquery-ui.min.js?v=3.4.0.8" type="text/javascript"></script><script src="https://journal2.upgris.ac.id/plugins/themes/default/js/lib/popper/popper.js?v=3.4.0.8" type="text/javascript"></script><script src="https://journal2.upgris.ac.id/plugins/themes/default/js/lib/bootstrap/util.js?v=3.4.0.8" type="text/javascript"></script><script src="https://journal2.upgris.ac.id/plugins/themes/default/js/lib/bootstrap/dropdown.js?v=3.4.0.8" type="text/javascript"></script><script src="https://journal2.upgris.ac.id/plugins/themes/default/js/main.js?v=3.4.0.8" type="text/javascript"></script>
+
+
+</body>
+</html>
